@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<AlertSettings>
+  <Product Name="MSC">
+  <!-- Registration alerts -->
+ 	<Alert id="3E04AF1D-DABB-433A-ABEF-B84C0C4F1536"				CategoryID="registration"	MarketDesc="none milestone, single product, grace period ends tomorrow. =>FORCED REGISTRATION"/>
+	<Alert id="3E04AF1D-DABB-433A-ABEF-B84C0C4F1537"				CategoryID="registration"	MarketDesc="none milestone, single product, grace period ends soon.=>FORCED REGISTRATION"/>
+	<Alert id="3E04AF1D-DABB-433A-ABEF-B84C0C4F1538"				CategoryID="registration"	MarketDesc="none milestone, single product, grace period ended.=>FORCED REGISTRATION"/>
+	<Alert id="3E04AF1D-DABB-433A-ABEF-B84C0C4F153E"				CategoryID="registration"	MarketDesc="milestone, single product, grace period pre2 =>FORCED REGISTRATION"/>
+	<Alert id="3E04AF1D-DABB-433A-ABEF-B84C0C4F153F"				CategoryID="registration"	MarketDesc="milestone, single product, grace period pre1=>FORCED REGISTRATION"/>
+	<Alert id="3E04AF1D-DABB-433A-ABEF-B84C0C4F1540"				CategoryID="registration"	MarketDesc="milestone, single product, grace period event=>FORCED REGISTRATION"/>
+	<Alert id="3E04AF1D-DABB-433A-ABEF-B84C0C4F1541"				CategoryID="registration"	MarketDesc="milestone, single product, grace period post1=>FORCED REGISTRATION"/>
+	<Alert id="3E04AF1D-DABB-433A-ABEF-B84C0C4F1542"				CategoryID="registration"	MarketDesc="milestone, single product, grace period post2=>FORCED REGISTRATION"/>
+	<Alert id="ExtendedRegistrationEndAlert"						    CategoryID="registration"	MarketDesc="Extended grace – protection ends today – registration alerts registration"/>
+	<Alert id="ExtendedRegistrationMilestoneAlert"			    CategoryID="registration"	MarketDesc="Extended grace period – registration alert registration"/>
+	<Alert id="ExtendedRegistrationNonMilestoneAlert"				CategoryID="registration"	MarketDesc="Sync – Extended expiry registration alert registration"/>
+	
+	<Alert id="3E04AF1D-DABB-433A-ABEF-B84C0C4F153A"				CategoryID="registration"	MarketDesc="reboot,none milestone, single product, grace period ends tomorrow.  =>FORCED REGISTRATION"/>
+	<Alert id="3E04AF1D-DABB-433A-ABEF-B84C0C4F153B"				CategoryID="registration"	MarketDesc="reboot,none milestone, single product, grace period ends soon. =>FORCED REGISTRATION"/>
+	<Alert id="3E04AF1D-DABB-433A-ABEF-B84C0C4F153C"				CategoryID="registration"	MarketDesc="reboot,none milestone, single product, grace period ended. =>FORCED REGISTRATION"/>
+	<Alert id="3E04AF1D-DABB-433A-ABEF-B84C0C4F1544"				CategoryID="registration"	MarketDesc="reboot,milestone, single product, grace period pre2  =>FORCED REGISTRATION"/>
+	<Alert id="3E04AF1D-DABB-433A-ABEF-B84C0C4F1545"				CategoryID="registration"	MarketDesc="reboot,milestone, single product, grace period pre1  =>FORCED REGISTRATION"/>
+	<Alert id="3E04AF1D-DABB-433A-ABEF-B84C0C4F1546"				CategoryID="registration"	MarketDesc="reboot,milestone, single product, grace period event  =>FORCED REGISTRATION"/>
+	<Alert id="3E04AF1D-DABB-433A-ABEF-B84C0C4F1547"				CategoryID="registration"	MarketDesc="reboot,milestone, single product, grace period post1  =>FORCED REGISTRATION"/>
+	<Alert id="3E04AF1D-DABB-433A-ABEF-B84C0C4F1548"				CategoryID="registration"	MarketDesc="reboot,milestone, single product, grace period post2 =>FORCED REGISTRATION"/>
+	<Alert id="ExtendedRegistrationStartRebootAlert"				CategoryID="registration"	MarketDesc="Reboot – extended grace period start, registration alert Registration"/>
+	<Alert id="ExtendedRegistrationEndRebootAlert"					CategoryID="registration"	MarketDesc="Reboot – extended grace period ended, registration alert Registration"/>
+	<Alert id="ExtendedRegistrationNonMilestoneRebootAlert"	CategoryID="registration"	MarketDesc="Reboot – extended grace period ended, registration alert Registration"/>
+	<Alert id="ExtendedRegistrationRebootMilestoneAlert"	  CategoryID="registration"	MarketDesc="Reboot – extended grace period, registration alert Registration"/>
+  <Alert id="3E04AF1D-DABB-433A-ABEF-B84C0C4F1549"			CategoryID="registration"	MarketDesc="loud registration alerts. valid only if MSC Settings registration LoudOobe4 is enabled - Loud registration" SuppressIfPDSettingEnabled="release_1710_toast_alert_optimization" Viewer="coreui_only"/>
+
+
+
+
+    <!-- Activation Alerts not driven by NGM
+	3E04AF1D-DABB-433A-ABEF-B84C0C4F150E"   //milestone, single product, grace period event"/>
+	3E04AF1D-DABB-433A-ABEF-B84C0C4F1502	//none milestone, single product, grace period ends tomorrow. 
+	3E04AF1D-DABB-433A-ABEF-B84C0C4F1503    //none milestone, single product, grace period ends soon.
+	3E04AF1D-DABB-433A-ABEF-B84C0C4F1504	//none milestone, single product, grace period ended.
+	3E04AF1D-DABB-433A-ABEF-B84C0C4F150C    //milestone, single product, grace period pre2
+	3E04AF1D-DABB-433A-ABEF-B84C0C4F150D    //milestone, single product, grace period pre1
+	3E04AF1D-DABB-433A-ABEF-B84C0C4F150F    //milestone, single product, grace period post1
+	3E04AF1D-DABB-433A-ABEF-B84C0C4F1510    //milestone, single product, grace period post2
+	<Alert id="3E04AF1D-DABB-433A-ABEF-B84C0C4F151C" 			CategoryID="activation"	MarketDesc="reboot,none milestone, single product, grace period ends tomorrow. "/>
+	<Alert id="3E04AF1D-DABB-433A-ABEF-B84C0C4F151D"			CategoryID="activation" MarketDesc="reboot,none milestone, single product, grace period ends soon."/>
+	<Alert id="3E04AF1D-DABB-433A-ABEF-B84C0C4F151E" 			CategoryID="activation"	MarketDesc="reboot,none milestone, single product, grace period ended."/>
+	<Alert id="3E04AF1D-DABB-433A-ABEF-B84C0C4F1526" 			CategoryID="activation"	MarketDesc="reboot,milestone, single product, grace period pre2"/>
+	<Alert id="3E04AF1D-DABB-433A-ABEF-B84C0C4F1527" 			CategoryID="activation"	MarketDesc="reboot,milestone, single product, grace period pre1"/>
+	<Alert id="3E04AF1D-DABB-433A-ABEF-B84C0C4F1528" 			CategoryID="activation"	MarketDesc="reboot,milestone, single product, grace period event"/>
+	<Alert id="3E04AF1D-DABB-433A-ABEF-B84C0C4F1529" 			CategoryID="activation"	MarketDesc="reboot,milestone, single product, grace period post1"/>
+	<Alert id="3E04AF1D-DABB-433A-ABEF-B84C0C4F152A" 			CategoryID="activation"	MarketDesc="reboot,milestone, single product, grace period post2"/> 
+	-->
+
+	
+	
+  <!-- Milestone -->
+	<Alert id="082AB728-C78D-4038-9625-CB3ED61D6935"	CategoryID="milestone"	MarketDesc="Subscription ends today Expiry"/>
+	<Alert id="191B26C9-B8C1-433F-8352-C341D26043B4"	CategoryID="milestone"	MarketDesc="Extended Expiry to end tomorrow Expiry"/>		<!-- NOT USED -->
+	<Alert id="3E04AF1D-DABB-433A-ABEF-B84C0C4F1505"	CategoryID="milestone"	MarketDesc="none milestone, trial, expires tomorrow"/>		<!-- Seems to be a non-milestone alert -->
+	<Alert id="3E04AF1D-DABB-433A-ABEF-B84C0C4F1506"	CategoryID="milestone"	MarketDesc="none milestone, none trial, expires tomrrow."/>	<!-- Seems to be a non-milestone alert -->
+	<Alert id="3E04AF1D-DABB-433A-ABEF-B84C0C4F1507"	CategoryID="milestone"	MarketDesc="none milestone, trial, expires soon"/>			<!-- Seems to be a non-milestone alert -->
+	<Alert id="3E04AF1D-DABB-433A-ABEF-B84C0C4F1508"	CategoryID="milestone"	MarketDesc="none milestone, non-trial, expires soon"/>		<!-- Seems to be a non-milestone alert -->
+	<Alert id="3E04AF1D-DABB-433A-ABEF-B84C0C4F1509"	CategoryID="milestone"	MarketDesc="none milestone, trial, expired."/>				<!-- Seems to be a non-milestone alert -->
+	<Alert id="3E04AF1D-DABB-433A-ABEF-B84C0C4F150A"	CategoryID="milestone"	MarketDesc="none milestone, non-trial, expired."/>			<!-- Seems to be a non-milestone alert -->
+	<Alert id="3E04AF1D-DABB-433A-ABEF-B84C0C4F1511"	CategoryID="milestone"	MarketDesc="milestone, trial, pre2"/>
+	<Alert id="3E04AF1D-DABB-433A-ABEF-B84C0C4F1512"	CategoryID="milestone"	MarketDesc="milestone, trial, pre1"/>
+	<Alert id="3E04AF1D-DABB-433A-ABEF-B84C0C4F1513"	CategoryID="milestone"	MarketDesc="milestone, trial, event"/>
+	<Alert id="3E04AF1D-DABB-433A-ABEF-B84C0C4F1514"	CategoryID="milestone"	MarketDesc="milestone, trial, post1"/>
+	<Alert id="3E04AF1D-DABB-433A-ABEF-B84C0C4F1515"	CategoryID="milestone"	MarketDesc="milestone, trial, post2"/>
+	<Alert id="3E04AF1D-DABB-433A-ABEF-B84C0C4F1516"	CategoryID="milestone"	MarketDesc="milestone, non-trail pre2"/>
+	<Alert id="3E04AF1D-DABB-433A-ABEF-B84C0C4F1517"	CategoryID="milestone"	MarketDesc="milestone, non-trail pre1"/>
+	<Alert id="3E04AF1D-DABB-433A-ABEF-B84C0C4F1518"	CategoryID="milestone"	MarketDesc="milestone, non-trail event"/>
+	<Alert id="3E04AF1D-DABB-433A-ABEF-B84C0C4F1519"	CategoryID="milestone"	MarketDesc="milestone, non-trail post1"/>
+	<Alert id="3E04AF1D-DABB-433A-ABEF-B84C0C4F151A"	CategoryID="milestone"	MarketDesc="milestone, non-trail post2"/>
+	<Alert id="5578D792-7E5A-49F3-B209-B99E80600204"	CategoryID="milestone"	MarketDesc="Subscription has expired within 5 days to extended expiry Expiry"/>
+	<Alert id="5B9DAA73-60EA-4FEA-8FBE-40C80552CF0D"	CategoryID="milestone"	MarketDesc="Subscription ends today Expiry"/>
+	<Alert id="9751CE28-B3DF-4F1D-95EC-F9785D3B153D"	CategoryID="milestone"	MarketDesc="Subscription has expired within 5 days to extended expiry Expiry"/>
+	<Alert id="B51ABE5E-5F50-4DAD-B78A-E56270A2B9FE"	CategoryID="milestone"	MarketDesc="Subscription has expired until 5 days to extended expiry Expiry"/>
+	<Alert id="EExpiryMilestoneTrialAlert"	          CategoryID="milestone"	MarketDesc="Subscription expired 105 days ago Expiry"/>
+	<Alert id="ExtendedExpiryStartAlert"				      CategoryID="milestone"	MarketDesc="Extended Expiry to start tomorrow Expiry"/>
+	<Alert id="ExtendedExpiryEndAlert"					      CategoryID="milestone"	MarketDesc="Extended Expiry to end tomorrow Expiry"/>             <!-- NOT Used -->
+	<Alert id="ExtendedExpiryMilestoneAlert"	        CategoryID="milestone"  MarketDesc="Subscription expired 105 days ago Expiry"/>
+	<Alert id="ExtendedExpiryNonMilestoneAlert"		    CategoryID="milestone"	MarketDesc="Subcription has expired until 5 days to extended expiry Expiry"/>   <!-- Seems to be a non-milestone alert -->
+	<Alert id="46219A28-A03D-476F-B596-5E261D84AA48"	CategoryID="milestone"	MarketDesc="Taken from DEADCODE"/>
+	
+	
+
+	
+  <!-- subscription at risk -->
+	<Alert id="4BF486E5-B05F-4D6D-AA39-EEBEEF38DAE1"    CategoryID="subscription_atrisk"   MarketDesc="Same alert ID is used for trial and paid subscriptions"/>
+	
+	
+	
+	
+  <!-- device discovery -->
+	<Alert id="5E4ADC87-465E-43E9-BAC2-A3AEEF3355B0"	CategoryID="device_discovery_add_device"   MarketDesc="Device discovery. Add device" SuppressIfPDSettingEnabled="release_1710_toast_alert_optimization" Viewer=""/>
+
+	
+	
+	
+  <!-- reboot alerts -->
+	<Alert id="3E04AF1D-DABB-433A-ABEF-B84C0C4F151F"			CategoryID="reboot"	MarketDesc="reboot,none milestone, trial, expires tomorrow"/>
+	<Alert id="3E04AF1D-DABB-433A-ABEF-B84C0C4F1520"			CategoryID="reboot"	MarketDesc="reboot,none milestone, none trial, expires tomorrow."/>
+	<Alert id="3E04AF1D-DABB-433A-ABEF-B84C0C4F1521"			CategoryID="reboot"	MarketDesc="reboot,none milestone, trial, expires soon"/>
+	<Alert id="3E04AF1D-DABB-433A-ABEF-B84C0C4F1522"			CategoryID="reboot"	MarketDesc="reboot,none milestone, non-trial, expires soon"/>
+	<Alert id="3E04AF1D-DABB-433A-ABEF-B84C0C4F1523"			CategoryID="reboot"	MarketDesc="reboot,none milestone, trial, expired."/>
+	<Alert id="3E04AF1D-DABB-433A-ABEF-B84C0C4F1524"			CategoryID="reboot"	MarketDesc="reboot,none milestone, non-trial, expired."/>
+	<Alert id="ExtendedExpiryNonMilestoneRebootAlert"			CategoryID="reboot"	MarketDesc="Subcription has expired until 5 days to extended expiry Expiry"/>
+	<Alert id="3BE57B11-A519-4AD4-B7C6-753B4025F8E9"			CategoryID="reboot"	MarketDesc="Subscription has expired within 5 days to extended expiry Expiry"/>
+	<Alert id="1D1F4AD0-3573-4179-B536-09862DF33984"			CategoryID="reboot"	MarketDesc="Subscription ends today Expiry"/>
+	<Alert id="B6B4D2B4-202C-4591-8FB6-66A0A3990487"			CategoryID="reboot"	MarketDesc="Subscription has expired until 5 days to extended expiry Expiry"/>
+	<Alert id="C835EC89-2E9F-49E5-9B08-3C3160B6B80E"			CategoryID="reboot"	MarketDesc="Subscription has expired within 5 days to extended expiry Expiry"/>
+	<Alert id="2EEBFFDF-50BB-49E0-A27C-59213B6736FA"			CategoryID="reboot"	MarketDesc="Subscription ends today Expiry"/> 
+
+  <!-- Orion r3 alerts -->
+	<Alert id="CF3782F5-DE57-4485-B815-ABD2E5D8121C"			CategoryID="scan_complete_no_issue_detected"	MarketDesc="Scan is done, no issue detected or issues found and fixed" ShowInAlertViewerIfPDSettingEnabled="release_1710_toast_alert_optimization" Viewer="coreui" Timeout="20000"/>
+	<Alert id="670E7C1D-4B79-40EC-B7C5-69AB9F100802"			CategoryID="schedule_scan_complete_no_issue_detected"	MarketDesc="Schedule scan is done, no issue detected or issues found and fixed"  ShowInAlertViewerIfPDSettingEnabled="release_1710_toast_alert_optimization"  Viewer="coreui" Timeout="20000"/>
+	<Alert id="F68628A0-5740-4e31-A1CF-1063EA95FD42"			CategoryID="scan_complete_issues"	MarketDesc="Scan is done, issues found and not fixed" ShowInAlertViewerIfPDSettingEnabled="release_1710_toast_alert_optimization" Viewer="coreui" Timeout="-1"/>
+	<Alert id="2FDD337C-E5A0-44be-93ED-2DAFD78554CE"			CategoryID="removable_media_drive"	MarketDesc="Removable Media Drive found" ShowInAlertViewerIfPDSettingEnabled="release_1710_toast_alert_optimization" Viewer="coreui" Timeout="0" />
+	<Alert id="E9EBE83B-1A6A-4b1f-A99B-CF1E16218411"			CategoryID="threat_quarantined"	MarketDesc="Threat Quarantined"  ShowInAlertViewerIfPDSettingEnabled="release_1710_toast_alert_optimization" Viewer="coreui" Timeout="0"/>
+
+  <!-- Suppress alerts with Release 1710 -->
+  <Alert id="0A044DCF-1DA6-472A-ACD2-6AAEAF3AF235"	    CategoryID="no_longer_protected"	MarketDesc="Computer is no longer protected"   SuppressIfPDSettingEnabled="release_1710_toast_alert_optimization" Viewer="" />
+  <Alert id="4659F2B5-E694-4318-B746-7306BCF2DF0B"	    CategoryID="take_tour"		   	    MarketDesc="Take the McAfee LiveSafe tour now" SuppressIfPDSettingEnabled="release_1710_toast_alert_optimization" Viewer="" />
+  <Alert id="F6FCCBF1-B423-4c2f-994A-5AA247F6F2D3"	    CategoryID="set_up_learning_mode" MarketDesc="Setup learning mode complete"      SuppressIfPDSettingEnabled="release_1710_toast_alert_optimization" Viewer="" />
+    
+  <!-- Release 1710 alerts -->
+  <Alert id="1538568B-8381-49E0-93BA-99AD8FA44D23"	    CategoryID="rts_off" MarketDesc="realTimeScanningIsOff" ShowInAlertViewerIfPDSettingEnabled="release_1710_toast_alert_optimization" Viewer="coreui" Timeout="-1" />
+  <Alert id="38D5CB2A-DF8C-42E3-A03A-AC17183D839B"	    CategoryID="vulFinishedScan" MarketDesc="vul scanner has finished Scan" ShowInAlertViewerIfPDSettingEnabled="release_1710_toast_alert_optimization" Viewer="coreui" Timeout="-1" />
+  <Alert id="E3E568B4-525C-45AF-B502-A61550D4A526"	    CategoryID="vulScannerUpdatesWereInstalled" MarketDesc="vulnerability scanner install updates" ShowInAlertViewerIfPDSettingEnabled="release_1710_toast_alert_optimization" Viewer="coreui" Timeout="-1" />
+  <Alert id="961725BF-8992-4546-A338-D3C5CA11312C"	    CategoryID="quickCleanDone" MarketDesc="quick clean scan is done" ShowInAlertViewerIfPDSettingEnabled="release_1710_toast_alert_optimization" Viewer="coreui" Timeout="-1" />
+  <Alert id="B1EB23ED-5B27-4f1c-821A-40683741768F"	    CategoryID="device_at_risk" MarketDesc="Your device isn't fully protected" ShowInAlertViewerIfPDSettingEnabled="release_1710_toast_alert_optimization" Viewer="coreui" Timeout="-1" />
+  <Alert id="556BD1F9-BAB7-40A1-9C71-0DE5B6DF4055"	    CategoryID="software_upgrade_restart" MarketDesc="Software Upgrade" ShowInAlertViewerIfPDSettingEnabled="release_1710_toast_alert_optimization" Viewer="coreui" Timeout="-1" />
+  <Alert id="8006F185-550D-4090-B628-B52D8068B2D7"	    CategoryID="scanPaused" MarketDesc="Scan is paused" ShowInAlertViewerIfPDSettingEnabled="release_1710_toast_alert_optimization" Viewer="coreui" Timeout="20000" />
+  <Alert id="EB2B4E72-2F4A-4007-93F4-60C2D080662C"	    CategoryID="device_quick_clean" MarketDesc="Quick Clean Found Items" ShowInAlertViewerIfPDSettingEnabled="release_1710_toast_alert_optimization" Viewer="coreui" Timeout="-1" />    
+  <Alert id="{CCB8E070-688D-4186-BFD1-308378046A62}"	    CategoryID="connection_blocked" MarketDesc="Risky Connection Blocked" ShowInAlertViewerIfPDSettingEnabled="release_1710_toast_alert_optimization" Viewer="coreui" Timeout="20000" />
+  <Alert id="F93135BB-6877-44BF-9B81-599D87D94098"	    CategoryID="virus_stopped_restart" MarketDesc="Virus Stopped Restart" ShowInAlertViewerIfPDSettingEnabled="release_1710_toast_alert_optimization" Viewer="coreui" Timeout="-1" />    
+  <Alert id="7A108006-98D1-4bb3-97D0-D3A65B25C57B"	    CategoryID="software_update_check" MarketDesc="Software Update Check" ShowInAlertViewerIfPDSettingEnabled="release_1710_toast_alert_optimization" Viewer="coreui" Timeout="20000" />
+  <Alert id="EA43011F-C341-4759-8BCB-EFCB84CE94B3"	    CategoryID="firewall_off" MarketDesc="Firewall Off" ShowInAlertViewerIfPDSettingEnabled="release_1710_toast_alert_optimization" Viewer="coreui" Timeout="-1" />    
+  
+
+   <!-- Third Party AV detected alert -->
+  <Alert id="21B41CC2-6B7C-4A0C-805F-09236ABA7B04"	    CategoryID="third_party_av_detected" MarketDesc="Third Party AV Detected" ShowInAlertViewerIfPDSettingEnabled="detect_third_party_av_toast_alert" Viewer="coreui" Timeout="-1" />
+  
+   <!-- insecure wifi detected alert -->
+  <Alert id="ACA4C322-1A46-4F45-B4A1-F8B51EB2A295"	    CategoryID="insecure_wifi_detected" MarketDesc="Insecure WiFi Detected" />
+ 
+ <!-- gamify alert -->
+  <Alert id="17A487AF-2F9B-4DEC-A221-774E410A5E26"	    CategoryID="setup_checklist" MarketDesc="Setup Checklist" />
+	  
+ <!-- OES Exclusion Alert -->
+ <Alert id="A3831F30-FC8E-49FC-B143-4048D07ECC7C"	    CategoryID="oes_exclusion" MarketDesc="OES Exclusion" />
+	  
+    <!-- At-Risk
+	1538568B-8381-49E0-93BA-99AD8FA44D23 	//RTSOFF
+	B1EB23ED-5B27-4f1c-821A-40683741768F	// may be uninstall alert / other at risk
+	EA43011F-C341-4759-8BCB-EFCB84CE94B3	// FWOFF
+	-->
+
+  </Product>
+  <MessageSettings>
+  	<Message id="INFOVIZ-MONETIZE" CategoryID="infoviz_monetization"/>
+  	<Message id="uninstall-survey" CategoryID="uninstall_survey"/>
+  	<Message id="uninstall-launch" CategoryID="pre_uninstall"/>
+  </MessageSettings>
+</AlertSettings>
+
+
+
