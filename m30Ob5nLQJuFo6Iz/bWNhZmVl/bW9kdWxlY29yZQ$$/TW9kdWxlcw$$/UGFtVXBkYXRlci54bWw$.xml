@@ -1,0 +1,10 @@
+<Module name="PamUpdater" binary_file="PamUpdater.dll" binary_path="$(FOLDERID_ProgramFiles)\McAfee\CoreUI" config_file="" config_path="" log_group_name="" start_type="ondemand" factory_enabled="false">
+	<Subscription name="CoreUI.Policy.Refresh" trigger_load="true" session_filter="false"/>
+	<Subscription name="Core.Subscription.SubscriptionUpdated" trigger_load="true" session_filter="false"/>
+	<Subscription name="Core.Subscription.Expired" trigger_load="true" session_filter="false"/>
+	<Subscription name="MBP.Approval.Accept" trigger_load="true" session_filter="false"/>
+	<Subscription name="MBP.Approval.RemindMe" trigger_load="true" session_filter="false"/>
+	<Subscription name="MBP.Approval.Reject" trigger_load="true" session_filter="false"/>
+</Module>
+
+
