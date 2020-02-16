@@ -1,0 +1,227 @@
+<l10n_catalog>
+  <configuration>
+    <appid>msc</appid>
+    <appcode>msc</appcode>
+    <version>16.0.21.501</version>
+    <catname>msc_catalog</catname>
+    <affid>ODR_Dell_105_826</affid>
+    <langid>zh-cn</langid>
+  </configuration>
+  <manifest>
+    <server_package_information>
+      <fullinstall_package_list>
+        <!-- CustCabs -->
+        <server_package name="msccust.cab" url="http://download.mcafee.com/molbin/iss-loc/msc/zh-cn/group/ODR_Dell_105_826/16.0.21.501/msccust.cab">
+          <flags>
+            <download phase="main" />
+            <os>
+              <windows build_type="32" />
+            </os>
+          </flags>
+          <component_information>
+            <component name="msccust.inf" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir">
+              <md5>12e0e93c31649bd75ec28f42808623c1</md5>
+            </component>
+            <component name="ProductCustomization.json" local_install_path="%PROGRAMDATA%\McAfee\MSC">
+              <md5>04d8d7d5b2d8c9937f0abaf605143117</md5>
+            </component>
+          </component_information>
+        </server_package>
+        <server_package name="msccust64.cab" url="http://download.mcafee.com/molbin/iss-loc/msc/zh-cn/group/ODR_Dell_105_826/16.0.21.501/msccust64.cab">
+          <flags>
+            <download phase="main" />
+            <os>
+              <windows build_type="64" />
+            </os>
+          </flags>
+          <component_information>
+            <component name="msccust.inf" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir">
+              <md5>12e0e93c31649bd75ec28f42808623c1</md5>
+            </component>
+            <component name="ProductCustomization.json" local_install_path="%PROGRAMDATA%\McAfee\MSC">
+              <md5>04d8d7d5b2d8c9937f0abaf605143117</md5>
+            </component>
+          </component_information>
+        </server_package>
+        <!-- MuiCabs -->
+        <server_package name="mcoemres.cab" url="http://download.mcafee.com/molbin/iss-loc/msc/zh-cn/group/ODR_Dell_105_826/16.0.21.501/mcoemres.cab">
+          <flags>
+            <download phase="main" />
+            <os>
+              <windows build_type="32" />
+            </os>
+          </flags>
+          <component_information>
+            <component name="win32\mcoemres.dll" local-name="mcoemres.dll" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir">
+              <version>17.8.127.4</version>
+            </component>
+          </component_information>
+        </server_package>
+        <server_package name="mcoemres64.cab" url="http://download.mcafee.com/molbin/iss-loc/msc/zh-cn/group/ODR_Dell_105_826/16.0.21.501/mcoemres64.cab">
+          <flags>
+            <download phase="main" />
+            <os>
+              <windows build_type="64" />
+            </os>
+          </flags>
+          <component_information>
+            <component name="x64\mcoemres.dll" local-name="mcoemres.dll" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir">
+              <version>17.8.127.4</version>
+            </component>
+          </component_information>
+        </server_package>
+        <server_package name="oemuild.cab" url="http://download.mcafee.com/molbin/iss-loc/msc/zh-cn/group/ODR_Dell_105_826/16.0.21.501/oemuild.cab">
+          <flags>
+            <download phase="main" />
+            <os>
+              <windows build_type="32" />
+            </os>
+          </flags>
+          <component_information>
+            <component name="win32\oemuild.dll" local-name="oemuild.dll" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir">
+              <version>16.10.0.0</version>
+            </component>
+            <component name="CoreUI.partner.pam" local_install_path="$REG$:KEY=Software\McAfee\CoreUI:NAME=Install Dir">
+              <md5>c38bef2f080ebb316376f93b8f9a3ea0</md5>
+            </component>
+          </component_information>
+        </server_package>
+        <server_package name="oemuild64.cab" url="http://download.mcafee.com/molbin/iss-loc/msc/zh-cn/group/ODR_Dell_105_826/16.0.21.501/oemuild64.cab">
+          <flags>
+            <download phase="main" />
+            <os>
+              <windows build_type="64" />
+            </os>
+          </flags>
+          <component_information>
+            <component name="x64\oemuild.dll" local-name="oemuild.dll" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir">
+              <version>16.10.0.0</version>
+            </component>
+            <component name="CoreUI.partner.pam" local_install_path="$REG$:KEY=Software\McAfee\CoreUI:NAME=Install Dir">
+              <md5>c38bef2f080ebb316376f93b8f9a3ea0</md5>
+            </component>
+          </component_information>
+        </server_package>
+        <server_package name="oemui.cab" url="http://download.mcafee.com/molbin/iss-loc/msc/zh-cn/group/ODR_Dell_105_826/16.0.21.501/oemui.cab">
+          <flags>
+            <download phase="main" />
+            <os>
+              <windows build_type="32" />
+            </os>
+          </flags>
+          <component_information>
+            <component name="win32\oemui.dll" local-name="oemui.dll" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir">
+              <version>17.8.127.3</version>
+            </component>
+          </component_information>
+        </server_package>
+        <server_package name="oemui64.cab" url="http://download.mcafee.com/molbin/iss-loc/msc/zh-cn/group/ODR_Dell_105_826/16.0.21.501/oemui64.cab">
+          <flags>
+            <download phase="main" />
+            <os>
+              <windows build_type="64" />
+            </os>
+          </flags>
+          <component_information>
+            <component name="x64\oemui.dll" local-name="oemui.dll" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir">
+              <version>17.8.127.3</version>
+            </component>
+          </component_information>
+        </server_package>
+        <!-- Core UI Partner PAM Files 
+		
+		<server_package name="CoreUIPartnerPAM.cab" url="http://download.mcafee.com/molbin/iss-loc/msc/$LANGCODE$/group/$GROUP$/$PKGLEVEL$/$RELEASE_MAJOR$.$RELEASE_MINOR$.$RELEASE_SUBMINOR$.$PKG_#$/CoreUIPartnerPAM.cab">
+          <flags>
+            <download phase="main" />
+            <os>
+              <windows build_type="32" />
+            </os>
+          </flags>
+          <component_information>
+            <component name="CoreUI.partner.pam" local_install_path="$REG$:KEY=Software\McAfee\CoreUI:NAME=Install Dir">
+              <md5>[MD5:[TEMPGUID]partner-Pam\build\pam\CoreUI.partner.pam]</md5>
+            </component>
+          </component_information>
+        </server_package>
+		
+		<server_package name="CoreUIPartnerPAM.cab" url="http://download.mcafee.com/molbin/iss-loc/msc/$LANGCODE$/group/$GROUP$/$PKGLEVEL$/$RELEASE_MAJOR$.$RELEASE_MINOR$.$RELEASE_SUBMINOR$.$PKG_#$/CoreUIPartnerPAM.cab">
+          <flags>
+            <download phase="main" />
+            <os>
+              <windows build_type="64" />
+            </os>
+          </flags>
+          <component_information>
+            <component name="CoreUI.partner.pam" local_install_path="$REG$:KEY=Software\McAfee\CoreUI:NAME=Install Dir">
+              <md5>[MD5:[TEMPGUID]partner-Pam\build\pam\CoreUI.partner.pam]</md5>
+            </component>
+          </component_information>
+        </server_package> -->
+      </fullinstall_package_list>
+    </server_package_information>
+  </manifest>
+  <install_instructions>
+    <update>
+      <prepare_install>
+        <!-- NOTE: the INI file name must match the inf file name passed in installation command -->
+        <generateini file_name="msccustombkupd.inf">
+          <section name="Installer_Config" obfuscate="0">
+            <entry>
+              <name><![CDATA[ AppID ]]></name>
+              <value><![CDATA[ msc ]]></value>
+            </entry>
+          </section>
+          <section name="Installer_Config" obfuscate="0">
+            <entry>
+              <name><![CDATA[ Shared ]]></name>
+              <value><![CDATA[ 0 ]]></value>
+            </entry>
+          </section>
+          <section name="Install_NT" obfuscate="0">
+            <entry>
+              <name><![CDATA[ CabFilesNT ]]></name>
+              <value><![CDATA[ ExtractCAB ]]></value>
+            </entry>
+          </section>
+          <section name="Install_NT" obfuscate="0">
+            <entry>
+              <name><![CDATA[ InstallFiles ]]></name>
+              <value><![CDATA[ RunINF ]]></value>
+            </entry>
+          </section>
+          <section name="Version" obfuscate="0">
+            <entry>
+              <name><![CDATA[ Signature ]]></name>
+              <value><![CDATA[ $Chicago$ ]]></value>
+            </entry>
+          </section>
+          <section name="Version" obfuscate="0">
+            <entry>
+              <name><![CDATA[ AdvancedINF ]]></name>
+              <value><![CDATA[ 2.5 ]]></value>
+            </entry>
+          </section>
+          <section name="Version" obfuscate="0">
+            <entry>
+              <name><![CDATA[ LayoutFile ]]></name>
+              <value><![CDATA[ msccustombkupd.inf ]]></value>
+            </entry>
+          </section>
+          <section name="SourceDisksNames" obfuscate="0">
+            <entry>
+              <name><![CDATA[ 1 ]]></name>
+              <value><![CDATA[ "SecurityCenter Background Update Master File","",1 ]]></value>
+            </entry>
+          </section>
+        </generateini>
+      </prepare_install>
+      <install system="1">
+        <install_env_variables>
+          <!-- TO DO: point to real McInst install path -->
+          <variable type="$REG$:KEY=Software\McAfee\McInst\InstallSettings:NAME=Install Dir" name="%mcinst_path%" />
+        </install_env_variables>
+        <executeex file="%mcinst_path%\mcinst.exe" param="/install /longpath msccustombkupd.inf" validate="1" />
+      </install>
+    </update>
+  </install_instructions>
+</l10n_catalog>
