@@ -1,0 +1,679 @@
+<product_catalog>
+	<configuration>
+		<appid>msc</appid>
+		<appcode>msc</appcode>
+		<version>18.3.201.1</version>
+		<catname>msc_li_cat</catname>
+	</configuration>
+
+	<manifest>
+		<server_package_information>
+
+			<!-- Fresh Install and Update packages -->
+			<fullinstall_package_list>
+
+        <!-- MSC LI predownload packages -->
+
+				<!-- TO DO:
+					 When do we need updhelpr.cab? It is not referred to by mscLI.inf
+					 Leaving it out for now. -SB
+
+				<server_package name="updhelpr.cab" url="http://download.mcafee.com/molbin/iss-loc/msc/18.3.201/1/updhelpr.cab">
+					<flags>
+						<download phase="predownload" />
+						<extract validate="1" />
+						<os><windows build_type="32"/></os>
+					</flags>
+					<component_information>
+						<component name="updhelpr.inf" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir" >
+							<md5>template_md5</md5>
+						</component>
+					</component_information>
+				</server_package>
+
+				<server_package name="updhelpr64.cab" url="http://download.mcafee.com/molbin/iss-loc/msc/18.3.201/1/updhelpr64.cab">
+					<flags>
+						<download phase="predownload" />
+						<extract validate="1" />
+						<os><windows build_type="64"/></os>
+					</flags>
+					<component_information>
+						<component name="updhelpr.inf" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir" >
+							<md5>template_md5</md5>
+						</component>
+					</component_information>
+				</server_package>
+
+				TO DO -->
+
+				<server_package name="mscLI.cab" url="http://download.mcafee.com/molbin/iss-loc/msc/18.3.201/1/mscLI.cab">
+					<flags>
+						<download phase="predownload" />
+						<extract validate="1" />
+						<os><windows build_type="32"/></os>
+					</flags>
+				</server_package>
+
+				<server_package name="mscLI64.cab" url="http://download.mcafee.com/molbin/iss-loc/msc/18.3.201/1/mscLI64.cab">
+					<flags>
+						<download phase="predownload" />
+						<extract validate="1" />
+						<os><windows build_type="64"/></os>
+					</flags>
+				</server_package>
+
+				<!-- MSC LI second download packages -->
+
+				<server_package name="MSFix.cab" url="http://download.mcafee.com/molbin/iss-loc/msc/18.3.201/1/MSFix.cab">
+					<flags>
+						<download phase="main" />
+						<os><windows build_type="32"/></os>
+					</flags>
+					<component_information>
+						<component name="MSFix.inf" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir" >
+							<md5>c2eecf41d346ee1196f812b4e3ead7d4</md5>
+						</component>
+					</component_information>
+				</server_package>
+
+				<server_package name="MSFix64.cab" url="http://download.mcafee.com/molbin/iss-loc/msc/18.3.201/1/MSFix64.cab">
+					<flags>
+						<download phase="main" />
+						<os><windows build_type="64"/></os>
+					</flags>
+					<component_information>
+						<component name="MSFix.inf" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir" >
+							<md5>7c25cee07ff1dec64abaa3d2d8761ebc</md5>
+						</component>
+					</component_information>
+				</server_package>
+
+				<server_package name="msclgmis.cab" url="http://download.mcafee.com/molbin/iss-loc/msc/18.3.201/1/msclgmis.cab">
+					<flags>
+						<download phase="main" />
+						<os><windows build_type="32"/></os>
+					</flags>
+					<component_information>
+						<component name="mcagent.dll" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir" >
+							<version>18.3.201.0</version>
+						</component>
+					</component_information>
+				</server_package>
+
+				<server_package name="msclgmis64.cab" url="http://download.mcafee.com/molbin/iss-loc/msc/18.3.201/1/msclgmis64.cab">
+					<flags>
+						<download phase="main" />
+						<os><windows build_type="64"/></os>
+					</flags>
+					<component_information>
+						<component name="mcagent.dll" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir" >
+							<version>18.3.201.0</version>
+						</component>
+					</component_information>
+				</server_package>
+
+				<server_package name="msccmn.cab" url="http://download.mcafee.com/molbin/iss-loc/msc/18.3.201/1/msccmn.cab">
+					<flags>
+						<download phase="main" />
+						<os><windows build_type="32"/></os>
+					</flags>
+          <!-- TO DO: full component information will have to be pulled from msccmn.cab files via CBRMS INCAB Macro -->
+          <component_information>
+            <component name="mcbrwsr2.dll" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=CommonFiles Dir" >
+              <version>17.13.163.0</version>
+            </component>
+            <component name="mcutil.dll" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=CommonFiles Dir" >
+							<version>17.13.163.0</version>
+						</component>
+					</component_information>
+				</server_package>
+
+				<server_package name="msccmn64.cab" url="http://download.mcafee.com/molbin/iss-loc/msc/18.3.201/1/msccmn64.cab">
+					<flags>
+						<download phase="main" />
+						<os><windows build_type="64"/></os>
+					</flags>
+					<!-- TO DO: component information will have to be pulled from msccmn64.cab files via CBRMS INCAB Macro -->
+          <component_information>
+            <component name="mcbrwsr2.dll" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=CommonFiles Dir64" >
+              <version>17.13.163.0</version>
+            </component>
+            <component name="mcutil.dll" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=CommonFiles Dir64" >
+              <version>17.13.163.0</version>
+            </component>
+          </component_information>
+        </server_package>
+
+				<server_package name="mcmispps.cab" url="http://download.mcafee.com/molbin/iss-loc/msc/18.3.201/1/mcmispps.cab">
+					<flags>
+						<download phase="main" />
+						<os><windows build_type="32"/></os>
+					</flags>
+					<component_information>
+						<component name="mcmispps.dll" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir" >
+							<version>18.3.201.0</version>
+						</component>
+					</component_information>
+				</server_package>
+
+				<server_package name="mcmispps64.cab" url="http://download.mcafee.com/molbin/iss-loc/msc/18.3.201/1/mcmispps64.cab">
+					<flags>
+						<download phase="main" />
+						<os><windows build_type="64"/></os>
+					</flags>
+					<component_information>
+						<component name="mcmispps.dll" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir" >
+							<version>18.3.201.0</version>
+						</component>
+					</component_information>
+				</server_package>
+
+				<server_package name="mscprmgr.cab" url="http://download.mcafee.com/molbin/iss-loc/msc/18.3.201/1/mscprmgr.cab">
+					<flags>
+						<download phase="main" />
+						<os><windows build_type="32"/></os>
+					</flags>
+					<component_information>
+						<component name="mscprmgr.inf" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir" >
+							<md5>340604edbbc9674debc832fb174b60be</md5>
+						</component>
+						<component name="McPrtMgrPlugin.dll" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir" >
+							<version>18.3.201.0</version>
+						</component>
+					</component_information>
+				</server_package>
+
+				<server_package name="mscprmgr64.cab" url="http://download.mcafee.com/molbin/iss-loc/msc/18.3.201/1/mscprmgr64.cab">
+					<flags>
+						<download phase="main" />
+						<os><windows build_type="64"/></os>
+					</flags>
+					<component_information>
+						<component name="mscprmgr.inf" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir" >
+							<md5>67dbb73f7b10e4e2e84c59dfd0b44662</md5>
+						</component>
+						<component name="McPrtMgrPlugin.dll" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir" >
+							<version>18.3.201.0</version>
+						</component>
+					</component_information>
+				</server_package>
+
+				<server_package name="mscsvc.cab" url="http://download.mcafee.com/molbin/iss-loc/msc/18.3.201/1/mscsvc.cab">
+					<flags>
+						<download phase="main" />
+						<os><windows build_type="32"/></os>
+					</flags>
+					<component_information>
+						<component name="mcdbmgr.dll" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir" >
+							<version>18.3.201.0</version>
+						</component>
+						<component name="mcmscshm.dll" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir" >
+							<version>18.3.201.0</version>
+						</component>
+						<component name="mcgsshm.dll" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir" >
+							<version>18.3.201.0</version>
+						</component>
+						<component name="mclogshm.dll" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir" >
+							<version>18.3.201.0</version>
+						</component>
+						<component name="mcprsshm.dll" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir" >
+							<version>18.3.201.0</version>
+						</component>
+						<component name="mcupdshm.dll" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir" >
+							<version>18.3.201.0</version>
+						</component>
+						<component name="rprtshm.dll" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir" >
+							<version>18.3.201.0</version>
+						</component>
+						<component name="tsktcshm.dll" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir" >
+							<version>18.3.201.0</version>
+						</component>
+						<component name="mclwapi.dll" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir" >
+							<version>18.3.201.0</version>
+						</component>
+            <component name="mcpersplugin.dll" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir" >
+              <version>18.3.201.0</version>
+            </component>
+            <component name="mcwssapi.dll" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir" >
+              <version>18.3.201.0</version>
+            </component>
+          </component_information>
+				</server_package>
+
+				<server_package name="mscsvc64.cab" url="http://download.mcafee.com/molbin/iss-loc/msc/18.3.201/1/mscsvc64.cab">
+					<flags>
+						<download phase="main" />
+						<os><windows build_type="64"/></os>
+					</flags>
+					<component_information>
+						<component name="mcdbmgr.dll" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir" >
+							<version>18.3.201.0</version>
+						</component>
+						<component name="mcmscshm.dll" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir" >
+							<version>18.3.201.0</version>
+						</component>
+						<component name="mcgsshm.dll" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir" >
+							<version>18.3.201.0</version>
+						</component>
+						<component name="mclogshm.dll" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir" >
+							<version>18.3.201.0</version>
+						</component>
+						<component name="mcprsshm.dll" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir" >
+							<version>18.3.201.0</version>
+						</component>
+						<component name="mcupdshm.dll" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir" >
+							<version>18.3.201.0</version>
+						</component>
+						<component name="rprtshm.dll" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir" >
+							<version>18.3.201.0</version>
+						</component>
+						<component name="tsktcshm.dll" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir" >
+							<version>18.3.201.0</version>
+						</component>
+						<component name="mclwapi.dll" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir" >
+							<version>18.3.201.0</version>
+						</component>
+						<component name="mcpersplugin.dll" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir" >
+							<version>18.3.201.0</version>
+						</component>
+						<component name="mcwssapi.dll" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir" >
+							<version>18.3.201.0</version>
+						</component>
+          </component_information>
+				</server_package>
+
+				<server_package name="mscreg.cab" url="http://download.mcafee.com/molbin/iss-loc/msc/18.3.201/1/mscreg.cab">
+					<flags>
+						<download phase="main" />
+						<os><windows build_type="32"/></os>
+					</flags>
+					<component_information>
+						<component name="mcregobj.dll" local_install_path="%PROGRAMFILES%\McAfee\MSC\mcregobj\18,3,201,0" >
+							<version>18.3.201.0</version>
+						</component>
+					</component_information>
+				</server_package>
+
+				<server_package name="mscreg64.cab" url="http://download.mcafee.com/molbin/iss-loc/msc/18.3.201/1/mscreg64.cab">
+					<flags>
+						<download phase="main" />
+						<os><windows build_type="64"/></os>
+					</flags>
+					<component_information>
+						<component name="mcregobj.dll" local_install_path="%PROGRAMFILES%\McAfee\MSC\mcregobj\18,3,201,0" >
+							<version>18.3.201.0</version>
+						</component>
+					</component_information>
+				</server_package>
+
+				<server_package name="mscmisc.cab" url="http://download.mcafee.com/molbin/iss-loc/msc/18.3.201/1/mscmisc.cab">
+					<flags>
+						<download phase="main" />
+						<os><windows build_type="32"/></os>
+					</flags>
+					<component_information>
+            <component name="mcsubmgr.dll" local_install_path="%PROGRAMFILES%\McAfee\MSC\McSubMgr\18,3,201,0" >
+              <version>18.3.201.0</version>
+						</component>
+						<component name="mcmscver.dll" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir" >
+							<version>18.3.201.0</version>
+						</component>
+						<component name="mcsync.exe" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir" >
+							<version>18.3.201.0</version>
+						</component>
+						<component name="mchlp32.exe" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir32" >
+							<version>18.3.201.0</version>
+						</component>
+						<component name="mcuinshm.dll" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir" >
+							<version>18.3.201.0</version>
+						</component>
+						<component name="mispreg.exe" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir" >
+							<version>18.3.201.0</version>
+						</component>
+						<component name="McSnIePl.dll" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir32" >
+							<version>18.3.201.0</version>
+						</component>
+						<component name="npMcSnFFPl.dll" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir32" >
+							<version>18.3.201.0</version>
+						</component>
+						<component name="McCtxMenuFrmWrk.dll" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir" >
+							<version>18.3.201.0</version>
+						</component>
+            <component name="MSCCSPHandler.dll" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir" >
+              <version>18.3.201.0</version>
+            </component>
+          </component_information>
+				</server_package>
+
+				<server_package name="mscmisc64.cab" url="http://download.mcafee.com/molbin/iss-loc/msc/18.3.201/1/mscmisc64.cab">
+					<flags>
+						<download phase="main" />
+						<os><windows build_type="64"/></os>
+					</flags>
+					<component_information>
+            <component name="mcsubmgr.dll" local_install_path="%PROGRAMFILES%\McAfee\MSC\McSubMgr\18,3,201,0" >
+              <version>18.3.201.0</version>
+						</component>
+						<component name="mcmscver.dll" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir" >
+							<version>18.3.201.0</version>
+						</component>
+						<component name="mcsync.exe" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir" >
+							<version>18.3.201.0</version>
+						</component>
+						<component name="mchlp32.exe" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir32" >
+							<version>18.3.201.0</version>
+						</component>
+						<component name="mcuinshm.dll" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir" >
+							<version>18.3.201.0</version>
+						</component>
+						<component name="mispreg.exe" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir" >
+							<version>18.3.201.0</version>
+						</component>
+						<component name="McSnIePl64.dll" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir" >
+							<version>18.3.201.0</version>
+						</component>
+						<component name="npMcSnFFPl64.dll" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir" >
+							<version>18.3.201.0</version>
+						</component>
+						<component name="McCtxMenuFrmWrk.dll" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir" >
+							<version>18.3.201.0</version>
+						</component>
+            <component name="MSCCSPHandler.dll" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir" >
+              <version>18.3.201.0</version>
+            </component>
+          </component_information>
+				</server_package>
+
+				<server_package name="mscres.cab" url="http://download.mcafee.com/molbin/iss-loc/msc/18.3.201/1/mscres.cab">
+					<flags>
+						<download phase="main" />
+						<os><windows build_type="32"/></os>
+					</flags>
+					<component_information>
+						<component name="mscjsres.dll" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir" >
+							<version>18.3.201.0</version>
+						</component>
+            <component name="McContextUst.dll" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir" >
+              <version>18.3.201.0</version>
+            </component>
+            <component name="McPrlRes.dll" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir" >
+							<version>18.3.201.0</version>
+						</component>
+          </component_information>
+				</server_package>
+
+				<server_package name="mscres64.cab" url="http://download.mcafee.com/molbin/iss-loc/msc/18.3.201/1/mscres64.cab">
+					<flags>
+						<download phase="main" />
+						<os><windows build_type="64"/></os>
+					</flags>
+					<component_information>
+						<component name="mscjsres.dll" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir" >
+							<version>18.3.201.0</version>
+						</component>
+            <component name="McContextUst.dll" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir" >
+              <version>18.3.201.0</version>
+            </component>
+            <component name="McPrlRes.dll" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir" >
+							<version>18.3.201.0</version>
+						</component>
+          </component_information>
+				</server_package>
+
+				<server_package name="mscupd.cab" url="http://download.mcafee.com/molbin/iss-loc/msc/18.3.201/1/mscupd.cab">
+					<flags>
+						<download phase="main" />
+						<os><windows build_type="32"/></os>
+					</flags>
+					<component_information>
+						<component name="mcsvrcnt.exe" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir" >
+							<version>18.3.201.0</version>
+						</component>
+						<component name="mcinfo.exe" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir" >
+							<version>18.3.201.0</version>
+						</component>
+						<component name="mcupdate.exe" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Agent Dir" >
+							<version>18.3.201.0</version>
+						</component>
+            <component name="SecurityProductInformation.ini" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Agent Dir" >
+              <md5>73f8c36e1a11abd5c15cd1c274bc1a21</md5>
+            </component>
+          </component_information>
+				</server_package>
+
+				<server_package name="mscupd64.cab" url="http://download.mcafee.com/molbin/iss-loc/msc/18.3.201/1/mscupd64.cab">
+					<flags>
+						<download phase="main" />
+						<os><windows build_type="64"/></os>
+					</flags>
+					<component_information>
+						<component name="mcsvrcnt.exe" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir" >
+							<version>18.3.201.0</version>
+						</component>
+						<component name="mcinfo.exe" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir" >
+							<version>18.3.201.0</version>
+						</component>
+						<component name="mcupdate.exe" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Agent Dir" >
+							<version>18.3.201.0</version>
+						</component>
+            <component name="SecurityProductInformation.ini" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Agent Dir" >
+              <md5>73f8c36e1a11abd5c15cd1c274bc1a21</md5>
+            </component>
+          </component_information>
+				</server_package>
+
+				<server_package name="mscshll.cab" url="http://download.mcafee.com/molbin/iss-loc/msc/18.3.201/1/mscshll.cab">
+					<flags>
+						<download phase="main" />
+						<os><windows build_type="32"/></os>
+					</flags>
+					<component_information>
+						<component name="mcuihost.exe" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir" >
+							<version>18.3.201.0</version>
+						</component>
+					</component_information>
+				</server_package>
+
+				<server_package name="mscshll64.cab" url="http://download.mcafee.com/molbin/iss-loc/msc/18.3.201/1/mscshll64.cab">
+					<flags>
+						<download phase="main" />
+						<os><windows build_type="64"/></os>
+					</flags>
+					<component_information>
+						<component name="mcuihost.exe" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir" >
+							<version>18.3.201.0</version>
+						</component>
+					</component_information>
+				</server_package>
+
+				<server_package name="mscpstLI.cab" url="http://download.mcafee.com/molbin/iss-loc/msc/18.3.201/1/mscpstLI.cab">
+					<flags>
+						<download phase="main" />
+						<os><windows build_type="32"/></os>
+					</flags>
+					<component_information>
+						<component name="mscpstLI.inf" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir" >
+							<md5>432ffd59558de92980959ed4ff7d5b93</md5>
+						</component>
+					</component_information>
+				</server_package>
+
+				<server_package name="mscpstLI64.cab" url="http://download.mcafee.com/molbin/iss-loc/msc/18.3.201/1/mscpstLI64.cab">
+					<flags>
+						<download phase="main" />
+						<os><windows build_type="64"/></os>
+					</flags>
+					<component_information>
+						<component name="mscpstLI.inf" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir" >
+							<md5>cb4700d4566ec687034973b50f301d41</md5>
+						</component>
+					</component_information>
+				</server_package>
+
+				<server_package name="mscmods.cab" url="http://download.mcafee.com/molbin/iss-loc/msc/18.3.201/1/mscmods.cab">
+					<flags>
+						<download phase="main" />
+						<os><windows build_type="32"/></os>
+					</flags>
+					<component_information>
+						<component name="mscmods.inf" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir" >
+							<md5>928dbc8157f887bfdddfcc8f2a1437b3</md5>
+						</component>
+						<component name="SubscriptionHandler.dll" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir" >
+							<version>18.3.201.0</version>
+						</component>
+            			<component name="SubscriptionEventHandler.dll" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir" >
+              				<version>18.3.201.0</version>
+            			</component>
+						<component name="WscInteractionHandler.dll" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir" >
+              				<version>18.3.201.0</version>
+            			</component>
+						<component name="CultureChangeHandler.dll" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir" >
+              				<version>18.3.201.0</version>
+            			</component>
+						<component name="CultureLookUpHandler.dll" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir" >
+              				<version>18.3.201.0</version>
+            			</component>
+						<component name="CSPEnrollmentHandler.dll" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir" >
+              				<version>18.3.201.0</version>
+            			</component>
+						<component name="McGsMod.dll" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir" >
+              				<version>18.3.201.0</version>
+            			</component>
+						<component name="McPersHandler.dll" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir" >
+              				<version>18.3.201.0</version>
+            			</component>
+          </component_information>
+				</server_package>
+
+				<server_package name="mscmods64.cab" inf_name="mscmods64.inf" url="http://download.mcafee.com/molbin/iss-loc/msc/18.3.201/1/mscmods64.cab">
+					<flags>
+						<download phase="main" />
+						<os><windows build_type="64"/></os>
+					</flags>
+					<component_information>
+						<component name="mscmods64.inf" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir" >
+							<md5>93d668e4a67dfc4034abe89acdf4ac1b</md5>
+						</component>
+						<component name="SubscriptionHandler.dll" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir" >
+							<version>18.3.201.0</version>
+						</component>
+            			<component name="SubscriptionEventHandler.dll" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir" >
+              				<version>18.3.201.0</version>
+            			</component>
+						<component name="WscInteractionHandler.dll" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir" >
+              				<version>18.3.201.0</version>
+            			</component>
+						<component name="CultureChangeHandler.dll" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir" >
+              				<version>18.3.201.0</version>
+            			</component>
+						<component name="CultureLookUpHandler.dll" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir" >
+              				<version>18.3.201.0</version>
+            			</component>
+						<component name="CSPEnrollmentHandler.dll" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir" >
+              				<version>18.3.201.0</version>
+            			</component>
+						<component name="McGsMod.dll" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir" >
+              				<version>18.3.201.0</version>
+            			</component>
+						<component name="McPersHandler.dll" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir" >
+              				<version>18.3.201.0</version>
+            			</component>
+          </component_information>
+				</server_package>
+
+				</fullinstall_package_list>
+
+			<!-- Update-only packages -->
+			<!--
+			<server_package_list>
+			</server_package_list>
+			-->
+
+			<!-- Upgrade-only packages -->
+			<!--
+			<unconditional_upgrade_server_package_list>
+			</unconditional_upgrade_server_package_list>
+			-->
+
+			<!-- Any updates including upgrades -->
+			<!--
+			<unconditional_server_package_list>
+			</unconditional_server_package_list>
+			-->
+
+		</server_package_information>
+	</manifest>
+
+	<sharedcomplist>
+		<sharedcomponent name="mcinst" />
+	</sharedcomplist>
+
+	<install_instructions>
+		<update>
+
+			<prepare_install>
+				<!-- NOTE: the INI file name must match the inf file name passed in installation command -->
+				<generateini file_name="msclibkupd.inf">
+					<section name="Installer_Config" obfuscate="0">
+						<entry>
+							<name><![CDATA[ AppID ]]></name>
+							<value><![CDATA[ msc ]]></value>
+						</entry>
+					</section>
+					<section name="Installer_Config" obfuscate="0">
+						<entry>
+							<name><![CDATA[ Shared ]]></name>
+							<value><![CDATA[ 0 ]]></value>
+						</entry>
+					</section>
+					<section name="Install_NT" obfuscate="0">
+						<entry>
+							<name><![CDATA[ CabFilesNT ]]></name>
+							<value><![CDATA[ ExtractCAB ]]></value>
+						</entry>
+					</section>
+					<section name="Install_NT" obfuscate="0">
+						<entry>
+							<name><![CDATA[ InstallFiles ]]></name>
+							<value><![CDATA[ RunINF ]]></value>
+						</entry>
+					</section>
+					<section name="Version" obfuscate="0">
+						<entry>
+							<name><![CDATA[ Signature ]]></name>
+							<value><![CDATA[ $Chicago$ ]]></value>
+						</entry>
+					</section>
+					<section name="Version" obfuscate="0">
+						<entry>
+							<name><![CDATA[ AdvancedINF ]]></name>
+							<value><![CDATA[ 2.5 ]]></value>
+						</entry>
+					</section>
+					<section name="Version" obfuscate="0">
+						<entry>
+							<name><![CDATA[ LayoutFile ]]></name>
+							<value><![CDATA[ msclibkupd.inf ]]></value>
+						</entry>
+					</section>
+					<section name="SourceDisksNames" obfuscate="0">
+						<entry>
+							<name><![CDATA[ 1 ]]></name>
+							<value><![CDATA[ "SecurityCenter Background Update Master File","",1 ]]></value>
+						</entry>
+					</section>
+				</generateini>
+			</prepare_install>
+
+			<install system="1">
+				<install_env_variables>
+					<variable type="$REG$:KEY=Software\McAfee\McInst\InstallSettings:NAME=Install Dir" name="%mcinst_path%"/>
+				</install_env_variables>
+				<executeex file="%mcinst_path%\mcinst.exe" param="/install /longpath msclibkupd.inf" validate="1"/>
+			</install>
+
+		</update>
+	</install_instructions>
+</product_catalog>
+
