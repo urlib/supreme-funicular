@@ -1,0 +1,191 @@
+[Installer_Config]
+AppID=McProxy64
+Shared=1
+
+[DirIds]
+;Env-Var Defined ==> Program Files
+;33100 ==> All Users\Application Data
+;33000 ==> Program Files\Common files
+;33200 ==> McIns.exe Module dir
+;33300 ==> ExtractCAB location
+41700=%CommonProgramW6432%\McAfee\McProxy
+41800=%CommonProgramW6432%
+40000=%33000%\McAfee\McProxy
+42700=%33100%\McAfee\Proxy
+
+[Install_NT_x64]
+EmproxyRedirUninstall=RunINF
+RenCopyFileList=RenCopy
+DefaultInstall.NT_x64=Setup
+McProxyInstallExe=EXE
+OldX86Folder=Delfolders
+
+[UnInstall_NT_x64]
+McProxyUninstallExe=EXE
+DefaultUninstall.NT_x64=Setup
+Cleanup=Delfolders
+
+
+[Shared_pkg]
+McProxy64=%41700%\McProxy64.inf
+
+[Cleanup]
+%41700%=1
+%42700%=1
+
+[EmproxyRedirUninstall]
+rmoldfile.inf
+
+;/////////////////////////////////////////////
+
+
+[Version]
+Signature="$Chicago$"
+AdvancedINF=2.5
+LayoutFile=McProxy64.inf
+
+[DefaultInstall.NT_x64]
+AddReg=AddRegEntry
+Delfiles=RemoveOldFiles
+DelReg=RemoveUnwantedReg
+
+[DefaultUninstall.NT_x64]
+cleanup=1
+Delfiles=FileList
+DelReg=DelRegEntry,DelRegEntry64
+
+[SourceDisksNames]
+; This section specifies that all sources are in the "default" location.
+1="Proxy Files (64-bit)","",1
+
+[DestinationDirs]   
+; Destination Directories for CopyFiles/Delfiles Sections.
+; 10 indicates LDID_WIN - windows directory   
+FileList=41700
+RemoveOldFiles=41700
+
+[RemoveOldFiles]
+McProxy.ini,,,65568
+Proxyps.dll,,,65568
+Proxyres.dll,,,65568
+McProxy.exe,,,65568
+
+[FileList]
+; ,,,32 - Suppress version conflict dialog and don't overwrite newer DLLs
+McProxy64.inf,,,65568
+rmoldfile.inf,,,65568
+McProxy.dll,,,65568
+Proxyver.dll,,,65568
+
+[RenCopyFileList]
+McProxy64.inf=%41700%
+rmoldfile.inf=%41700%
+McProxy.dll=%41700%
+Proxyver.dll=%41700%
+
+[AddRegEntry]
+HKLM,Software\McAfee\McProxy\Settings,"Attempt ConnectEx",0x11001,1
+HKLM,Software\McAfee\McProxy\Settings,"Optimize Working Set On Startup",0x11001,1
+HKLM,Software\McAfee\McProxy\Settings,"Optimize Working Set Periodically",0x11001,0
+HKLM,Software\McAfee\McProxy\Settings,"Minimum Working Set Size",0x11001,0
+HKLM,Software\McAfee\McProxy\Settings,"Maximum Working Set Size",0x11001,0
+HKLM,Software\McAfee\McProxy\Settings,"Enable Monitor",0x11001,0
+HKLM,Software\McAfee\McProxy\Settings,"Socket Buffer Size",0x11001,16384
+HKLM,Software\McAfee\McProxy\Settings,"Allow Accept Encoding",0x11001,0
+HKLM,Software\McAfee\McProxy\Settings,"Block On Internal Error",0x11001,1
+HKLM,Software\McAfee\McProxy\Settings,"Window Auto-Tuning Compatible Mode",0x11001,1
+HKLM,Software\McAfee\McProxy\Plugins,,0x1000
+HKLM,Software\McAfee\McProxy\Redirect\HTTP,"80",0x1000,"iexplore.exe,firefox.exe,Netscape.exe,opera.exe,Netscp.exe,flock.exe,Safari.exe,navigator.exe,chrome.exe,WebKit2WebProcess.exe,spartan_edge.exe,MicrosoftEdge.exe,MicrosoftEdgeCP.exe"
+HKLM,Software\McAfee\McProxy\Redirect\HTTP,"*",0x1000,"aolsoftware.exe,AOLParentalControls.exe"
+HKLM,Software\McAfee\McProxy\Redirect\POP3,"110",0x1000,"OUTLOOK.EXE,WLMail.exe,msimn.exe,almail.exe,Eudora.exe,IncMail.exe,IMApp.exe,JsvMail.exe,thunderbird.exe,winmail.exe,wpmail.exe,OpenRide.exe,pocomail.exe,netscape.exe,opera.exe,thebat.exe,b2.exe,postpet3.exe,Netscp.exe,qmnet32.exe,qmpro32.exe"
+HKLM,Software\McAfee\McProxy\LSPs\Disallow,"bmnet.dll",0x1000,
+HKLM,Software\McAfee\McProxy\OEM\AOL,"HTTPHeader",0x1000,"X-AOLIAC-FWD %s HTTP/1.1\r\n\r\n"
+HKLM,Software\McAfee\McProxy\OEM\AOL,"HTTPProxy",0x1000,"aolsoftware.exe,AOLParentalControls.exe"
+HKLM,Software\McAfee\Platform\McSvcHost\McCoreSvc,"McProxy",0x1000,"{858CCFAD-107A-4806-ACC4-68C84614EDDE}"
+HKLM,Software\Classes\AppID\McProxy.DLL,"AppID",0x1000,"{EB2A08CF-3FB6-412F-98FD-A334B0EEF5AF}"
+HKLM,Software\Classes\McProxy.McSvcSubsystem,"",0x1000,"McSvcSubsystem Class"
+HKLM,Software\Classes\McProxy.McSvcSubsystem\CLSID,"",0x1000,{858CCFAD-107A-4806-ACC4-68C84614EDDE}
+HKLM,Software\Classes\McProxy.McSvcSubsystem\CurVer,"",0x1000,"McProxy.McSvcSubsystem.1"
+HKLM,Software\Classes\CLSID\{858CCFAD-107A-4806-ACC4-68C84614EDDE},"",0x1000,"McSvcSubsystem Class"
+HKLM,Software\Classes\CLSID\{858CCFAD-107A-4806-ACC4-68C84614EDDE},"AppID",0x1000,"{EB2A08CF-3FB6-412F-98FD-A334B0EEF5AF}"
+HKLM,Software\Classes\CLSID\{858CCFAD-107A-4806-ACC4-68C84614EDDE}\InprocServer32,"",0x1000,"%41800%\McAfee\McProxy\McProxy.dll"
+HKLM,Software\Classes\CLSID\{858CCFAD-107A-4806-ACC4-68C84614EDDE}\InprocServer32,"ThreadingModel",0x1000,"Both"
+HKLM,Software\Classes\CLSID\{858CCFAD-107A-4806-ACC4-68C84614EDDE}\ProgID,"",0x1000,"McProxy.McSvcSubsystem.1"
+HKLM,Software\Classes\CLSID\{858CCFAD-107A-4806-ACC4-68C84614EDDE}\TypeLib,"",0x1000,"{215A2654-A87A-474f-9FC6-F5531D32CEC3}"
+HKLM,Software\Classes\CLSID\{858CCFAD-107A-4806-ACC4-68C84614EDDE}\VersionIndependentProgID,"",0x1000,"McProxy.McSvcSubsystem"
+HKLM,Software\Classes\CLSID\{D578D806-C260-4321-9AE0-3B181B39538C},"",0x1000,"ProxyVer Class"
+HKLM,Software\Classes\CLSID\{D578D806-C260-4321-9AE0-3B181B39538C},"AppID",0x1000,"B189DF38-9172-4467-8399-3A0C36CE20AC"
+HKLM,Software\Classes\CLSID\{D578D806-C260-4321-9AE0-3B181B39538C}\InprocServer32,"",0x1000,"%41800%\McAfee\McProxy\Proxyver.dll"
+HKLM,Software\Classes\CLSID\{D578D806-C260-4321-9AE0-3B181B39538C}\InprocServer32,"ThreadingModel",0x1000,"Both"
+HKLM,Software\Classes\CLSID\{D578D806-C260-4321-9AE0-3B181B39538C}\TypeLib,"",0x1000,"{D578D806-C260-4321-9AE0-3B181B39538C}"
+HKLM,Software\Classes\CLSID\{0A9B27F1-F902-43a1-8663-BFF940E2F280},"",0x1000,"RedirVer Class"
+HKLM,Software\Classes\CLSID\{0A9B27F1-F902-43a1-8663-BFF940E2F280},"AppID",0x1000,"B189DF38-9172-4467-8399-3A0C36CE20AC"
+HKLM,Software\Classes\CLSID\{0A9B27F1-F902-43a1-8663-BFF940E2F280}\InprocServer32,"",0x1000,"%41800%\McAfee\McProxy\Proxyver.dll"
+HKLM,Software\Classes\CLSID\{0A9B27F1-F902-43a1-8663-BFF940E2F280}\InprocServer32,"ThreadingModel",0x1000,"Both"
+HKLM,Software\Classes\CLSID\{0A9B27F1-F902-43a1-8663-BFF940E2F280}\TypeLib,"",0x1000,"{0A9B27F1-F902-43a1-8663-BFF940E2F280}"
+HKLM,Software\Classes\CLSID\{0E3F1A07-DA76-4168-BA0F-4AFA3007CEFF},"",0x1000,"EmProxyVer Class"
+HKLM,Software\Classes\CLSID\{0E3F1A07-DA76-4168-BA0F-4AFA3007CEFF},"AppID",0x1000,"B189DF38-9172-4467-8399-3A0C36CE20AC"
+HKLM,Software\Classes\CLSID\{0E3F1A07-DA76-4168-BA0F-4AFA3007CEFF}\InprocServer32,"",0x1000,"%41800%\McAfee\McProxy\Proxyver.dll"
+HKLM,Software\Classes\CLSID\{0E3F1A07-DA76-4168-BA0F-4AFA3007CEFF}\InprocServer32,"ThreadingModel",0x1000,"Both"
+HKLM,Software\Classes\CLSID\{0E3F1A07-DA76-4168-BA0F-4AFA3007CEFF}\TypeLib,"",0x1000,"{0E3F1A07-DA76-4168-BA0F-4AFA3007CEFF}"
+HKLM,Software\Classes\Interface\{4CE3F02C-E146-4C4F-A35D-16C9DA764CC2},"",0x1000,"IProxyVer"
+HKLM,Software\Classes\Interface\{4CE3F02C-E146-4C4F-A35D-16C9DA764CC2}\NumMethods,"",0x1000,"7"
+HKLM,Software\Classes\Interface\{4CE3F02C-E146-4C4F-A35D-16C9DA764CC2}\ProxyStubClsid,"",0x1000,"{00020424-0000-0000-C000-000000000046}"
+HKLM,Software\Classes\Interface\{4CE3F02C-E146-4C4F-A35D-16C9DA764CC2}\ProxyStubClsid32,"",0x1000,"{4CE3F02C-E146-4C4F-A35D-16C9DA764CC2}"
+HKLM,Software\Classes\Interface\{4CE3F02C-E146-4C4F-A35D-16C9DA764CC2}\TypeLib,"",0x1000,"{E4B7322B-83E2-4715-80E5-85ACD95AE7DE}"
+HKLM,Software\Classes\Interface\{4CE3F02C-E146-4C4F-A35D-16C9DA764CC2}\TypeLib,"Version",0x1000,"1.0"
+HKLM,Software\Classes\Interface\{8E9EFC74-7B0D-4CEF-8A8F-FAD05CF70AD4},"",0x1000,"IRedirVer"
+HKLM,Software\Classes\Interface\{8E9EFC74-7B0D-4CEF-8A8F-FAD05CF70AD4}\NumMethods,"",0x1000,"7"
+HKLM,Software\Classes\Interface\{8E9EFC74-7B0D-4CEF-8A8F-FAD05CF70AD4}\ProxyStubClsid,"",0x1000,"{00020424-0000-0000-C000-000000000046}"
+HKLM,Software\Classes\Interface\{8E9EFC74-7B0D-4CEF-8A8F-FAD05CF70AD4}\ProxyStubClsid32,"",0x1000,"{4CE3F02C-E146-4C4F-A35D-16C9DA764CC2}"
+HKLM,Software\Classes\Interface\{8E9EFC74-7B0D-4CEF-8A8F-FAD05CF70AD4}\TypeLib,"",0x1000,"{E4B7322B-83E2-4715-80E5-85ACD95AE7DE}"
+HKLM,Software\Classes\Interface\{8E9EFC74-7B0D-4CEF-8A8F-FAD05CF70AD4}\TypeLib,"Version",0x1000,"1.0"
+HKLM,Software\Classes\Interface\{F5C2CD90-ECE8-4BF8-9C76-36A09732F222},"",0x1000,"IEmProxyVer"
+HKLM,Software\Classes\Interface\{F5C2CD90-ECE8-4BF8-9C76-36A09732F222}\NumMethods,"",0x1000,"7"
+HKLM,Software\Classes\Interface\{F5C2CD90-ECE8-4BF8-9C76-36A09732F222}\ProxyStubClsid,"",0x1000,"{00020424-0000-0000-C000-000000000046}"
+HKLM,Software\Classes\Interface\{F5C2CD90-ECE8-4BF8-9C76-36A09732F222}\ProxyStubClsid32,"",0x1000,"{4CE3F02C-E146-4C4F-A35D-16C9DA764CC2}"
+HKLM,Software\Classes\Interface\{F5C2CD90-ECE8-4BF8-9C76-36A09732F222}\TypeLib,"",0x1000,"{E4B7322B-83E2-4715-80E5-85ACD95AE7DE}"
+HKLM,Software\Classes\Interface\{F5C2CD90-ECE8-4BF8-9C76-36A09732F222}\TypeLib,"Version",0x1000,"1.0"
+HKLM,Software\McAfee\MSC\Update\Customization\{D578D806-C260-4321-9AE0-3B181B39538C},,0x1000
+
+[DelRegEntry]
+HKLM,Software\McAfee\McProxy
+HKLM,Software\Classes\AppID\McProxy.DLL
+HKLM,Software\Classes\McProxy.McSvcSubsystem
+HKLM,Software\Classes\CLSID\{858CCFAD-107A-4806-ACC4-68C84614EDDE}
+HKLM,Software\Classes\CLSID\{D578D806-C260-4321-9AE0-3B181B39538C}
+HKLM,Software\Classes\CLSID\{0A9B27F1-F902-43a1-8663-BFF940E2F280}
+HKLM,Software\Classes\CLSID\{0E3F1A07-DA76-4168-BA0F-4AFA3007CEFF}
+HKLM,Software\Classes\Interface\{4CE3F02C-E146-4C4F-A35D-16C9DA764CC2}
+HKLM,Software\Classes\Interface\{8E9EFC74-7B0D-4CEF-8A8F-FAD05CF70AD4}
+HKLM,Software\Classes\Interface\{F5C2CD90-ECE8-4BF8-9C76-36A09732F222}
+HKLM,Software\McAfee\MSC\Update\Customization\{D578D806-C260-4321-9AE0-3B181B39538C}
+
+[DelRegEntry64]
+HKLM,Software\McAfee\McProxy,,0x3000,
+HKLM,Software\Classes\AppID\McProxy.DLL,,0x3000,
+HKLM,Software\Classes\McProxy.McSvcSubsystem,,0x3000,
+HKLM,Software\Classes\CLSID\{858CCFAD-107A-4806-ACC4-68C84614EDDE},,0x3000,
+HKLM,Software\Classes\CLSID\{D578D806-C260-4321-9AE0-3B181B39538C},,0x3000,
+HKLM,Software\Classes\CLSID\{0A9B27F1-F902-43a1-8663-BFF940E2F280},,0x3000,
+HKLM,Software\Classes\CLSID\{0E3F1A07-DA76-4168-BA0F-4AFA3007CEFF},,0x3000,
+HKLM,Software\Classes\Interface\{4CE3F02C-E146-4C4F-A35D-16C9DA764CC2},,0x3000,
+HKLM,Software\Classes\Interface\{8E9EFC74-7B0D-4CEF-8A8F-FAD05CF70AD4},,0x3000,
+HKLM,Software\Classes\Interface\{F5C2CD90-ECE8-4BF8-9C76-36A09732F222},,0x3000,
+HKLM,Software\McAfee\MSC\Update\Customization\{D578D806-C260-4321-9AE0-3B181B39538C},,0x3000,
+
+[OldX86Folder]
+%40000%=1
+
+[RemoveUnwantedReg]
+HKLM,SOFTWARE\McAfee\SharedPackages\McProxy64,"McProxy"
+HKLM,SOFTWARE\McAfee\SharedModules\c:%progra~2%common~1%mcafee%instal~1%mcinst.exe,"McProxy"
+
+
+[McProxyInstallExe]
+%11%\regsvr32.exe="/s ""%41700%\McProxy.dll""",1
+
+[McProxyUninstallExe]
+%11%\regsvr32.exe="/u /s ""%41700%\McProxy.dll""",1
+
+
