@@ -1,0 +1,7 @@
+<Module name="DADMessageBusProxy" binary_file="DADMessageBusProxy.dll" binary_path="$(FOLDERID_ProgramFiles)\McAfee\CoreUI" config_file="" config_path="" log_group_name="" start_type="ondemand" factory_enabled="false">
+	<Subscription name="DADProxy.AddNewFeature.Request" trigger_load="true" session_filter="false"/>
+	<Subscription name="DADProxy.AddNewFeature.Progress.Query" trigger_load="true" session_filter="false"/>
+	<Subscription name="DADProxy.FeatureAdded.Query" trigger_load="true" session_filter="false"/>
+</Module>
+
+
