@@ -1,0 +1,46 @@
+{
+  "version": "1.1.225",
+  "data": {
+    "metrics": [
+      "event.value",
+      "hit.duration.seconds",
+      "hit.size.inbytes",
+      "hit.engagement.userinitiated",
+      "hit.result",
+      "hit.metric.1",
+      "hit.metric.2",
+      "hit.metric.3",
+      "hit.metric.4",
+      "hit.metric.5",
+      "hit.metric.6"
+    ],
+    "dimensions": [
+      "hit.uniqueid",
+      "event.category",
+      "event.action",
+      "hit.screen",
+      "hit.action",
+      "hit.engagement.interactive",
+      "hit.engagement.desired",
+      "sub.category",
+      "tertiary.category",
+      "guid",
+      "hit.session.id",
+      "event.label",
+      "hit.feature",
+      "hit.type",
+      "hit.trigger",
+      "hit.source",
+      "hit.severity",
+      "hit.date",
+      "hit.label.1",
+      "hit.label.2",
+      "hit.label.3",
+      "hit.label.4",
+      "hit.label.5",
+      "hit.label.6",
+      "__record.created"
+    ]
+  }
+}
+
