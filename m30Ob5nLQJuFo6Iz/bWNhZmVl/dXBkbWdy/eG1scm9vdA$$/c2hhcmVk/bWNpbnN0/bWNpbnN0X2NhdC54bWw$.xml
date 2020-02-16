@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shared_catalog>
+
+	<configuration>
+		<name>mcinst</name>
+		<version>13.3.164.1</version>
+		<catname>mcinst_cat</catname>
+	</configuration>
+
+	<manifest>
+		<server_package_information>
+			<fullinstall_package_list>
+
+				<server_package name="mcinst_predownload" url="http://download.mcafee.com/molbin/shared/mcinst/13.3.164/1/mcinst_predownload.cab" local_name="mcinst_predownload.cab">
+					<flags>
+						<download phase="predownload" />
+						<extract validate="1" />
+					</flags>
+				</server_package>
+
+				<server_package name="mcinst_x86" url="http://download.mcafee.com/molbin/shared/mcinst/13.3.164/1/mcinst.cab" local_name="mcinst.cab">
+					<flags>
+						<download phase="main" />
+						<extract validate="1" />
+						<os><windows build_type="32" /></os> 
+					</flags>
+					<component_information>
+						<component name="mcinst.exe" local_install_path="%COMMONPROGRAMFILES%\McAfee\Installer\13.3.164.0">
+							<version>13.3.164.0</version>
+						</component>
+					</component_information>
+				</server_package>
+
+				<server_package name="mcinst_x64" url="http://download.mcafee.com/molbin/shared/mcinst/13.3.164/1/mcinst.cab" local_name="mcinst.cab">
+					<flags>
+						<download phase="main" />
+						<extract validate="1" />
+						<os><windows build_type="64" /></os> 
+					</flags>
+					<component_information>
+						<component name="mcinst.exe" local_install_path="%COMMONPROGRAMFILES(X86)%\McAfee\Installer\13.3.164.0">
+							<version>13.3.164.0</version>
+						</component>
+					</component_information>
+				</server_package>
+
+			</fullinstall_package_list>
+		</server_package_information>
+	</manifest>
+
+	<install_instructions>
+		<update>
+			<install system="1">
+				<extract cab="$download_dir\mcinst.cab"/>
+				<execute file="$download_dir\mcinst.exe" param="/install_myself" validate="1"/>
+			</install>
+		</update>
+	</install_instructions>
+
+</shared_catalog>
+
