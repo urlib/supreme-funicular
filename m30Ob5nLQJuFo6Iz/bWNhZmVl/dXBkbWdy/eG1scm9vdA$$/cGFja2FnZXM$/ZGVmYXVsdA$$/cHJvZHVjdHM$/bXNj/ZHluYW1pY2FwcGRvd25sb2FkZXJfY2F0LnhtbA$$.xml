@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<product_catalog>
+
+	<configuration>
+		<name>DynamicAppDownloader</name>
+		<version>1.4.101.3</version>
+		<catname>dynamicappdownloader_cat</catname>
+	</configuration>
+
+	<manifest>
+		<server_package_information>
+			<!-- Fresh Install and Update packages -->
+			<fullinstall_package_list>		
+				<server_package name="DynamicAppDownloader32.cab" inf_name="dynamicappdownloader.inf" url="http://download.mcafee.com/molbin/iss-loc/dynamicappdownloader/1.4.101/3/DynamicAppDownloader32.cab">
+					<flags>
+						<download phase="main"/>
+						<extract validate="1"/>
+						<os><windows build_type="32"/></os>
+					</flags>
+					<component_information>
+						<component name="DynamicAppDownloader32.inf" local_install_path="%COMMONPROGRAMFILES%\McAfee\DynamicAppDownloader">
+							<md5>09b6188fb3f0325acf87c58ae33dcd44</md5>
+						</component>
+						<component name="DADUpdater.exe" local_install_path="%COMMONPROGRAMFILES%\McAfee\DynamicAppDownloader" >
+							<version>1.4.101.0</version>
+						</component>
+					</component_information>
+				</server_package>				
+				<server_package name="DynamicAppDownloader64.cab" inf_name="dynamicappdownloader.inf" url="http://download.mcafee.com/molbin/iss-loc/dynamicappdownloader/1.4.101/3/DynamicAppDownloader64.cab">
+					<flags>
+						<download phase="main"/>
+						<extract validate="1"/>
+						<os><windows build_type="64"/></os>
+					</flags>
+					<component_information>
+						<component name="DynamicAppDownloader64.inf" local_install_path="%COMMONPROGRAMFILES%\McAfee\DynamicAppDownloader">
+							<md5>5bddc489aed533a4cb4cebeaf6166f88</md5>
+						</component>
+						<component name="DADUpdater.exe" local_install_path="%COMMONPROGRAMFILES%\McAfee\DynamicAppDownloader" >
+							<version>1.4.101.0</version>
+						</component>
+					</component_information>
+				</server_package>
+			</fullinstall_package_list>
+		</server_package_information>
+	</manifest>
+	<install_instructions>
+		<update>
+			<prepare_install>
+				<!-- NOTE: the INI file name must match the inf file name passed in installation command -->
+				<generateini file_name="dynamicappdownloader_upd.inf">
+					<section name="Installer_Config" obfuscate="0">
+						<entry>
+							<name><![CDATA[ AppID ]]></name>
+							<value><![CDATA[ MSC ]]></value>  <!-- Note: use the name of the product that is installing us as a shared catalog -->
+						</entry>
+					</section>
+					<section name="Installer_Config" obfuscate="0">
+						<entry>
+							<name><![CDATA[ Shared ]]></name>
+							<value><![CDATA[ 0 ]]></value>
+						</entry>
+					</section>
+					<section name="Install_NT" obfuscate="0">
+						<entry>
+							<name><![CDATA[ CabFilesNT ]]></name>
+							<value><![CDATA[ ExtractCAB ]]></value>
+						</entry>
+					</section>
+					<section name="Install_NT" obfuscate="0">
+						<entry>
+							<name><![CDATA[ InstallFiles ]]></name>
+							<value><![CDATA[ RunINF ]]></value>
+						</entry>
+					</section>
+					<section name="Version" obfuscate="0">
+						<entry>
+							<name><![CDATA[ Signature ]]></name>
+							<value><![CDATA[ $Chicago$ ]]></value>
+						</entry>
+					</section>
+					<section name="Version" obfuscate="0">
+						<entry>
+							<name><![CDATA[ AdvancedINF ]]></name>
+							<value><![CDATA[ 2.5 ]]></value>
+						</entry>
+					</section>
+					<section name="Version" obfuscate="0">
+						<entry>
+							<name><![CDATA[ LayoutFile ]]></name>
+							<value><![CDATA[ dynamicappdownloader_upd.inf ]]></value>
+						</entry>
+					</section>
+					<section name="SourceDisksNames" obfuscate="0">
+						<entry>
+							<name><![CDATA[ 1 ]]></name>
+							<value><![CDATA[ "DynamicAppDownloader Update File","",1 ]]></value>
+						</entry>
+					</section>
+				</generateini>
+			</prepare_install>
+
+			<install system="1">
+				<install_env_variables>
+					<variable type="$REG$:KEY=Software\McAfee\McInst\InstallSettings:NAME=Install Dir" name="%mcinst_path%"/>
+				</install_env_variables>
+				<executeex file="%mcinst_path%\mcinst.exe" param="/install dynamicappdownloader_upd.inf" validate="1"/>
+			</install>
+
+		</update>
+	</install_instructions>
+</product_catalog>
+
