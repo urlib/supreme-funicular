@@ -1,0 +1,20 @@
+<Module name="NotificationCenter" binary_file="NotificationCenter.dll" binary_path="$(FOLDERID_ProgramFiles)\McAfee\CoreUI" config_file="" config_path="" log_group_name="" start_type="ondemand" factory_enabled="false">
+	<Subscription name="CoreUI.NotificationCenter.Load" trigger_load="true" session_filter="false"/>
+	<Subscription name="CoreUI.NotificationCenter.AdditionalNotifications.Request" trigger_load="true" session_filter="false"/>
+	<Subscription name="CoreUI.NotificationCenter.AdditionalBalloons.Request" trigger_load="true" session_filter="false"/>
+	<Subscription name="CoreUI.NotificationCenter.BadgeNumber.PublishRefresh" trigger_load="true" session_filter="false"/>
+	<Subscription name="CoreUI.NotificationCenter.BadgeNumber.Request" trigger_load="true" session_filter="false"/>
+	<Subscription name="CoreUI.NotificationCenter.RunningProcesses.Request" trigger_load="true" session_filter="false"/>
+	<Subscription name="CoreUI.NotificationCenter.RecentActivities.Request" trigger_load="true" session_filter="false"/>
+	<Subscription name="CoreUI.NotificationCenter.HistoryNotifications.Request" trigger_load="true" session_filter="false"/>
+	<Subscription name="CoreUI.Widget.SecurityReport.Request" trigger_load="true" session_filter="false"/>
+	<Subscription name="SettingsManager.Notify.Set.Core.Antivirus.ScanResults" trigger_load="true" session_filter="false"/>
+	<Subscription name="SettingsManager.Notify.Set.Core.Quickclean.ScanResults" trigger_load="true" session_filter="false"/>
+	<Subscription name="SettingsManager.Notify.Set.Core.Quickclean.CleanResults" trigger_load="true" session_filter="false"/>
+	<Subscription name="SettingsManager.Notify.Set.Core.Shredder.ShredResults" trigger_load="true" session_filter="false"/>
+	<Subscription name="SettingsManager.Notify.Set.Core.Vulnerability.ScanResults" trigger_load="true" session_filter="false"/>
+	<Subscription name="SettingsManager.Notify.Set.Core.Vulnerability.UpdateResults" trigger_load="true" session_filter="false"/>
+	<Subscription name="SettingsManager.Notify.Set.C" trigger_load="true" session_filter="false"/>
+</Module>
+
+
