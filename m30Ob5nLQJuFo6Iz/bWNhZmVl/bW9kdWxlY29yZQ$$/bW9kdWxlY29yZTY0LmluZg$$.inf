@@ -1,0 +1,149 @@
+[Version]
+Signature="$Chicago$"
+AdvancedINF=2.5
+LayoutFile=modulecore64.inf
+
+[Installer_Config]
+AppID=modulecore
+Shared=0
+
+[SourceDisksNames]
+1="Module Core Files","",1
+
+[DirIds]
+;33100 = C:\ProgramData
+;16428 = C:\Program Files (x86)\Common Files
+51700=%CommonProgramW6432%\McAfee\ModuleCore
+51750=%CommonProgramFiles%\McAfee\ModuleCore
+51900=%33100%\McAfee\ModuleCore
+
+[DestinationDirs]
+ModuleCoreFileList=51700
+ModuleCoreServiceFileList=51700
+ModuleCoreDeprecated=51700
+ModuleCoreRegFileList=51700
+ModuleCore32FileList=51750
+
+[AddRegEntries]
+HKLM,SOFTWARE\McAfee\ModCore,Version,,"2.18.105.1"
+HKLM,SOFTWARE\McAfee\ModCore,"Install Dir",,"%51700%"
+HKLM,SOFTWARE\McAfee\ModCore,"Install Dir32",,"%51750%"
+HKLM,SOFTWARE\McAfee\ModCore,Version,0x00001000,"2.18.105.1"
+HKLM,SOFTWARE\McAfee\ModCore,Install Dir,0x00001000,%51700%
+HKLM,SOFTWARE\McAfee\ModCore,Install Dir32,0x00001000,%51750%
+HKLM,SYSTEM\CurrentControlSet\Control\SafeBoot\Minimal\ModuleCoreService,,,"Service"
+HKLM,SYSTEM\CurrentControlSet\Control\SafeBoot\Network\ModuleCoreService,,,"Service"
+
+[Del64BitKeys]
+64BitKey=HKLM,Software\McAfee\ModCore
+64BitKey=HKLM,SYSTEM\CurrentControlSet\Control\SafeBoot\Minimal\ModuleCoreService
+64BitKey=HKLM,SYSTEM\CurrentControlSet\Control\SafeBoot\Network\ModuleCoreService
+
+[DelRegEntries]
+HKLM,Software\McAfee\ModCore
+
+[DefaultInstall]
+AddReg=AddRegEntries
+CopyFiles=ModuleCoreFileList, ModuleCoreRegFileList, ModuleCore32FileList
+
+[ServiceInstall]
+CopyFiles=ModuleCoreServiceFileList
+
+[DefaultUninstall]
+DelFiles=ModuleCoreFileList
+DelFiles=ModuleCoreServiceFileList
+DelFiles=ModuleCoreDeprecated
+DelFiles=ModuleCore32FileList
+DelReg=DelRegEntries
+
+[InstallServices]
+%51700%\ModuleCoreService.exe=/install,1,1
+%51700%\ProtectedModuleHost.exe=/start,1,1
+
+[UninstallServices]
+%51700%\ModuleCoreService.exe=/uninstall,1,1
+%51700%\ProtectedModuleHost.exe=/uninstall,1,1
+
+[StartService]
+%11%\net.exe=start """McAfee Module Core Service""",1,1
+
+[StopServices]
+%51700%\ModuleCoreService.exe=/stop,1,1
+%51700%\ProtectedModuleHost.exe=/stop,1,1
+
+[ModuleCoreServiceFileList]
+ModuleCoreService.exe,,,0x00014020
+ProtectedModuleHost.exe,,,0x0014020
+
+[ModuleCoreRegFileList]
+ModuleCoreReg.exe,,,0x00014020
+
+[ModuleCoreFileList]
+modulecore64.inf,,,0x00014020
+MessageBus.dll,,,0x00014020
+SettingsManager.dll,,,0x00014020
+ModuleManager.dll,,,0x00014020
+ModuleRegister.exe,,,0x00014020
+SystemMonitor.dll,,,0x00014020
+SessionMonitor.dll,,,0x00014020
+UWPBridgeModule.dll,,,0x00014020
+UWPBridgeModuleShim.dll,,,0x00014020
+McDspBridge.dll,,,0x00014020
+concrt140.dll,,,0x00014020
+msvcp140.dll,,,0x00014020
+vccorlib140.dll,,,0x00014020
+vcruntime140.dll,,,0x00014020
+
+[ModuleCore32FileList]
+MessageBus.dll,32\MessageBus.dll,,0x00014020
+ModuleManager.dll,32\ModuleManager.dll,,0x00014020
+
+[ModuleCoreDeprecated]
+SettingsManagerClient.dll,,,0x00014020
+NamedPipeIPC.dll,,,0x00014020
+NamedPipeClient.dll,,,0x00014020
+MessageBusNamedPipeP2P.dll,,,0x00014020
+publisher_ipc_config.xml,,,0x00014020
+subscriber_ipc_config.xml,,,0x00014020
+ModuleCoreService.xml,,,0x00014020
+
+[Install_NT]
+ServiceInstall=Setup
+UnRegisterModule=EXE
+StopServices=EXE
+DefaultInstall=Setup
+InstallServices=EXE
+PreRegisterModule=EXE
+StartService=EXE
+RegisterModule=EXE
+
+[UnInstall_NT]
+Del64BitKeys=DelReg64
+UnRegisterModule=EXE
+UninstallServices=EXE
+DefaultUninstall=Setup
+Cleanup=DelFolders
+
+[Cleanup]
+;Folder-to-be-deleted=[1=Delete parent folder if empty](optional)
+%51900%=1
+%51700%\Modules=1
+%51750%=1
+
+[PreRegisterModule]
+%51700%\ModuleCoreService.exe=/register=SettingsManager /binaryFile=SettingsManager.dll /binaryPath="""%51700%""" /startType=6443AAD10841411E325DF4834AF74E07 /factoryEnabled=true,1,1
+
+[RegisterModule]
+%51700%\ModuleCoreService.exe=/register=SettingsManager /binaryFile=SettingsManager.dll /binaryPath="""%51700%""" /startType=6443AAD10841411E325DF4834AF74E07 /factoryEnabled=true,1,1
+%51700%\ModuleCoreService.exe=/register=SessionMonitor /binaryFile=SessionMonitor.dll /binaryPath="""%51700%""" /userMode=true /factoryEnabled=true,1,1
+%51700%\ModuleCoreService.exe=/register=UWPBridgeModule /binaryFile=UWPBridgeModule.dll /binaryPath="""%51700%""" /userMode=true,1,1
+
+[UnRegisterModule]
+%51700%\ModuleCoreService.exe=/unregister=SettingsManager,1,1
+%51700%\ModuleCoreService.exe=/unregister=SystemMonitor,1,1
+%51700%\ModuleCoreService.exe=/unregister=SessionMonitor /userMode=true,1,1
+%51700%\ModuleCoreService.exe=/unregister=UWPBridgeModule /userMode=true,1,1
+
+[OCXRegister]
+%51700%\McDspBridge.dll
+
