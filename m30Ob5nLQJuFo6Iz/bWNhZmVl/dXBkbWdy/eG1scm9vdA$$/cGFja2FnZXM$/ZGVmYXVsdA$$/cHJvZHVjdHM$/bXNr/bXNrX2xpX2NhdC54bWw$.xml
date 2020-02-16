@@ -1,0 +1,344 @@
+<product_catalog>
+	<configuration>
+		<appid>msk</appid>
+		<appcode>msk</appcode>
+		<version>19.3.169.1</version>
+		<catname>msk_li_cat</catname>
+	</configuration>
+
+	<manifest>
+		<server_package_information>
+
+			<!-- Fresh Install and Update packages -->
+			<fullinstall_package_list>
+   
+
+        <!-- MSK LI predownload packages -->
+
+				<server_package name="mskli.cab" url="http://download.mcafee.com/molbin/iss-loc/msk/19.3.169/1/mskli.cab">
+					<flags>
+						<download phase="predownload" />
+						<extract validate="1" />						
+					</flags>					
+				</server_package>
+				
+				<server_package name="mskcore32.cab" inf_name="mskcore32.inf" url="http://download.mcafee.com/molbin/iss-loc/msk/19.3.169/1/mskcore32.cab">
+					<flags>
+						<download phase="main" />
+						<extract validate="1" />
+						<os><windows build_type="32"/></os>						
+					</flags>
+					<component_information>
+						<component name="mskcore32.inf" local_install_path="$REG$:KEY=Software\McAfee\MSK:NAME=Install Dir" >
+							<md5>c6b3dc6ce88e5f606388a7eaf50e2690</md5>
+						</component>
+						<component name="mskmisp.inf" local_install_path="$REG$:KEY=Software\McAfee\MSK:NAME=Install Dir" >
+							<md5>cdf52332df0f672837c1c7d930bb7d9a</md5>
+						</component>
+						<component name="mskplg32.inf" local_install_path="$REG$:KEY=Software\McAfee\MSK:NAME=Install Dir" >
+							<md5>063a958112263ca11efa2c51b040519d</md5>
+						</component>
+						<component name="msksrv.inf" local_install_path="$REG$:KEY=Software\McAfee\MSK:NAME=Install Dir" >
+							<md5>d770edb25bfef2585c10f46aa588146d</md5>
+						</component>
+						<component name="masecore.dll" local_install_path="$REG$:KEY=Software\McAfee\MSK:NAME=Install Dir" >
+							<version>3.0.0.433</version>
+						</component>
+						<component name="msktbird_3.jar" local_install_path="%PROGRAMFILES%\McAfee\MSK\chrome" >
+						<md5>cda1a025fc07ac85d338f8608333bfeb</md5>
+						</component>
+						<component name="oemcfg.xml" local_install_path="$REG$:KEY=Software\McAfee\MSK:NAME=Install Dir" >
+							<md5>ce01d817ad698de87f2376f0af0f4b78</md5>
+						</component>
+						<component name="mskmisp.dll" local_install_path="$REG$:KEY=Software\McAfee\MSK:NAME=Install Dir" >
+							<version>19.3.169.0</version>
+						</component>
+						<component name="mcabimp.dll" local_install_path="$REG$:KEY=Software\McAfee\MSK:NAME=Install Dir" >
+							<version>19.3.169.0</version>
+						</component>
+						<component name="mskcshim.dll" local_install_path="$REG$:KEY=Software\McAfee\MSK:NAME=Install Dir" >
+							<version>19.3.169.0</version>
+						</component>
+						<component name="mskengn.dll" local_install_path="$REG$:KEY=Software\McAfee\MSK:NAME=Install Dir" >
+							<version>19.3.169.0</version>
+						</component>
+						<component name="mskjsres.dll" local_install_path="$REG$:KEY=Software\McAfee\MSK:NAME=Install Dir" >
+							<version>19.3.169.0</version>
+						</component>
+						<component name="mskjsreso.dll" local_install_path="$REG$:KEY=Software\McAfee\MSK:NAME=Install Dir" >
+							<version>18.1.158.0</version>
+						</component>
+						<component name="MSKModule.dll" local_install_path="$REG$:KEY=Software\McAfee\MSK:NAME=Install Dir" >
+							<version>19.3.169.0</version>
+						</component>
+						<component name="mskppv.dll" local_install_path="$REG$:KEY=Software\McAfee\MSK:NAME=Install Dir" >
+							<version>19.3.169.0</version>
+						</component>
+						<component name="mskpxplg.dll" local_install_path="$REG$:KEY=Software\McAfee\MSK:NAME=Install Dir" >
+							<version>19.3.169.0</version>
+						</component>
+						<component name="MskSet.dll" local_install_path="$REG$:KEY=Software\McAfee\MSK:NAME=Install Dir" >
+							<version>19.3.169.0</version>
+						</component>
+						<component name="msksrvr.dll" local_install_path="$REG$:KEY=Software\McAfee\MSK:NAME=Install Dir" >
+							<version>19.3.169.0</version>
+						</component>
+						<component name="mskupd.dll" local_install_path="$REG$:KEY=Software\McAfee\MSK:NAME=Install Dir" >
+							<version>19.3.169.0</version>
+						</component>
+						<component name="mskwm.dll" local_install_path="$REG$:KEY=Software\McAfee\MSK:NAME=Install Dir" >
+							<version>19.3.169.0</version>
+						</component>
+						<component name="mskxagnt.exe" local_install_path="$REG$:KEY=Software\McAfee\MSK:NAME=Install Dir" >
+							<version>19.3.169.0</version>
+						</component>
+						<component name="mskxaif.dll" local_install_path="$REG$:KEY=Software\McAfee\MSK:NAME=Install Dir" >
+							<version>19.3.169.0</version>
+						</component>
+						<component name="rptspam.dll" local_install_path="$REG$:KEY=Software\McAfee\MSK:NAME=Install Dir" >
+							<version>19.3.169.0</version>
+						</component>
+						<component name="tbirdins.dll" local_install_path="$REG$:KEY=Software\McAfee\MSK:NAME=Install Dir" >
+							<version>19.3.169.0</version>
+						</component>
+						<component name="mskoladd.dll" local_install_path="$REG$:KEY=Software\McAfee\MSK:NAME=Install Dir" >
+							<version>19.3.169.0</version>
+						</component>
+						<component name="mskres.dll" local_install_path="$REG$:KEY=Software\McAfee\MSK:NAME=Install Dir" >
+							<version>19.3.169.0</version>
+						</component>
+						<component name="msktbcl.dll" local_install_path="%PROGRAMFILES%\McAfee\MSK\components" >
+							<version>19.3.169.0</version>
+						</component>
+						<component name="chrome.manifest" local_install_path="$REG$:KEY=Software\McAfee\MSK:NAME=Install Dir" >
+							<md5>13518da23fa56f4e717f1316f7f32df9</md5>
+						</component>
+						<component name="install.rdf" local_install_path="$REG$:KEY=Software\McAfee\MSK:NAME=Install Dir" >
+							<md5>3ce4d618150b4dff54b89a7e87e91b2f</md5>
+						</component>
+						<component name="MSKAutoFillRes.dll" local_install_path="$REG$:KEY=Software\McAfee\MSK:NAME=Install Dir">
+							<version>19.3.169.0</version>
+						</component>
+					</component_information>
+				</server_package>
+				
+				<server_package name="mskcore64.cab" inf_name="mskcore64.inf" url="http://download.mcafee.com/molbin/iss-loc/msk/19.3.169/1/mskcore64.cab">
+					<flags>
+						<download phase="main" />
+						<extract validate="1" />
+						<os><windows build_type="64"/></os>						
+					</flags>
+					<component_information>
+						<component name="mskcore64.inf" local_install_path="$REG$:KEY=Software\McAfee\MSK:NAME=Install Dir" >
+							<md5>f158b986b2fb6fc9cdfb660838e5771f</md5>
+						</component>
+						<component name="mskmisp.inf" local_install_path="$REG$:KEY=Software\McAfee\MSK:NAME=Install Dir" >
+							<md5>cdf52332df0f672837c1c7d930bb7d9a</md5>
+						</component>
+						<component name="mskplg64.inf" local_install_path="$REG$:KEY=Software\McAfee\MSK:NAME=Install Dir" >
+							<md5>db8c7be38572472e019ddf3ec4237ad1</md5>
+						</component>
+						<component name="msksrv.inf" local_install_path="$REG$:KEY=Software\McAfee\MSK:NAME=Install Dir" >
+							<md5>d770edb25bfef2585c10f46aa588146d</md5>
+						</component>
+						<component name="masecore64.dll" local_install_path="$REG$:KEY=Software\McAfee\MSK:NAME=Install Dir" >
+							<version>3.0.0.433</version>
+						</component>
+						<component name="msktbird_3.jar" local_install_path="%PROGRAMFILES%\McAfee\MSK\chrome" >
+							<md5>cda1a025fc07ac85d338f8608333bfeb</md5>
+						</component>
+						<component name="oemcfg.xml" local_install_path="$REG$:KEY=Software\McAfee\MSK:NAME=Install Dir" >
+							<md5>ce01d817ad698de87f2376f0af0f4b78</md5>
+						</component>
+						<component name="MskSet.dll" local_install_path="$REG$:KEY=Software\McAfee\MSK:NAME=Install Dir" >
+							<version>19.3.169.0</version>
+						</component>
+						<component name="rptspam.dll" local_install_path="$REG$:KEY=Software\McAfee\MSK:NAME=Install Dir" >
+							<version>19.3.169.0</version>
+						</component>
+						<component name="tbirdins.dll" local_install_path="$REG$:KEY=Software\McAfee\MSK:NAME=Install Dir" >
+							<version>19.3.169.0</version>
+						</component>
+						<component name="mskoladd.dll" local_install_path="$REG$:KEY=Software\McAfee\MSK:NAME=Install Dir" >
+							<version>19.3.169.0</version>
+						</component>
+						<component name="mskmisp.dll" local_install_path="$REG$:KEY=Software\McAfee\MSK:NAME=Install Dir" >
+							<version>19.3.169.0</version>
+						</component>
+						<component name="mcabimp.dll" local_install_path="$REG$:KEY=Software\McAfee\MSK:NAME=Install Dir" >
+							<version>19.3.169.0</version>
+						</component>
+						<component name="mskcshim.dll" local_install_path="$REG$:KEY=Software\McAfee\MSK:NAME=Install Dir" >
+							<version>19.3.169.0</version>
+						</component>
+						<component name="mskengn.dll" local_install_path="$REG$:KEY=Software\McAfee\MSK:NAME=Install Dir" >
+							<version>19.3.169.0</version>
+						</component>
+						<component name="mskjsres.dll" local_install_path="$REG$:KEY=Software\McAfee\MSK:NAME=Install Dir" >
+							<version>19.3.169.0</version>
+						</component>
+						<component name="mskjsreso.dll" local_install_path="$REG$:KEY=Software\McAfee\MSK:NAME=Install Dir" >
+							<version>18.1.158.0</version>
+						</component>
+						<component name="MSKModule.dll" local_install_path="$REG$:KEY=Software\McAfee\MSK:NAME=Install Dir" >
+							<version>19.3.169.0</version>
+						</component>
+						<component name="mskppv.dll" local_install_path="$REG$:KEY=Software\McAfee\MSK:NAME=Install Dir" >
+							<version>19.3.169.0</version>
+						</component>
+						<component name="mskpxplg.dll" local_install_path="$REG$:KEY=Software\McAfee\MSK:NAME=Install Dir" >
+							<version>19.3.169.0</version>
+						</component>
+						<component name="MskSet64.dll" local_install_path="$REG$:KEY=Software\McAfee\MSK:NAME=Install Dir" >
+							<version>19.3.169.0</version>
+						</component>
+						<component name="msksrvr.dll" local_install_path="$REG$:KEY=Software\McAfee\MSK:NAME=Install Dir" >
+							<version>19.3.169.0</version>
+						</component>
+						<component name="mskupd.dll" local_install_path="$REG$:KEY=Software\McAfee\MSK:NAME=Install Dir" >
+							<version>19.3.169.0</version>
+						</component>
+						<component name="mskwm.dll" local_install_path="$REG$:KEY=Software\McAfee\MSK:NAME=Install Dir" >
+							<version>19.3.169.0</version>
+						</component>
+						<component name="mskxagnt.exe" local_install_path="$REG$:KEY=Software\McAfee\MSK:NAME=Install Dir" >
+							<version>19.3.169.0</version>
+						</component>
+						<component name="mskxaif.dll" local_install_path="$REG$:KEY=Software\McAfee\MSK:NAME=Install Dir" >
+							<version>19.3.169.0</version>
+						</component>
+						<component name="rptspm64.dll" local_install_path="$REG$:KEY=Software\McAfee\MSK:NAME=Install Dir" >
+							<version>19.3.169.0</version>
+						</component>
+						<component name="mskola64.dll" local_install_path="$REG$:KEY=Software\McAfee\MSK:NAME=Install Dir" >
+							<version>19.3.169.0</version>
+						</component>
+						<component name="mskres.dll" local_install_path="$REG$:KEY=Software\McAfee\MSK:NAME=Install Dir" >
+							<version>19.3.169.0</version>
+						</component>
+						<component name="chrome.manifest" local_install_path="$REG$:KEY=Software\McAfee\MSK:NAME=Install Dir" >
+							<md5>13518da23fa56f4e717f1316f7f32df9</md5>
+						</component>
+						<component name="install.rdf" local_install_path="$REG$:KEY=Software\McAfee\MSK:NAME=Install Dir" >
+							<md5>3ce4d618150b4dff54b89a7e87e91b2f</md5>
+						</component>
+						<component name="msktbcl.dll" local_install_path="%PROGRAMFILES%\McAfee\MSK\components" >
+							<version>19.3.169.0</version>
+						</component>
+						<component name="MSKAutoFillRes.dll" local_install_path="$REG$:KEY=Software\McAfee\MSK:NAME=Install Dir">
+							<version>19.3.169.0</version>
+						</component>
+					</component_information>
+				</server_package>
+				
+				<server_package name="substli.cab" url="http://download.mcafee.com/molbin/iss-loc/msk/19.3.169/1/substli.cab">
+					<flags>
+						<download phase="predownload" />
+						<extract validate="1" />
+					</flags>
+					<component_information>
+						<component name="substLI.inf" local_install_path="$REG$:KEY=Software\McAfee\MSK:NAME=Install Dir" >
+							<md5>b9915862c0e3363a2dbf3650c3bb8bae</md5>
+						</component>						
+						<component name="mskLI.inf" local_install_path="$REG$:KEY=Software\McAfee\MSK:NAME=Install Dir" >
+							<md5>5106ef1f2dd2fb457c40715f5ad0b1d4</md5>
+						</component>
+					</component_information>
+				</server_package>
+								
+				<server_package name="mskcmupd.cab" url="http://download.mcafee.com/molbin/iss-loc/msk/19.3.169/1/mskcmupd.cab">
+					<flags>
+						<download phase="main" />
+						<extract validate="1" />						
+					</flags>					
+				</server_package>
+
+			</fullinstall_package_list>		
+
+				
+			<!-- Upgrade-only packages -->
+			<!--
+			<unconditional_upgrade_server_package_list>
+			</unconditional_upgrade_server_package_list>
+			-->
+
+			<!-- Any updates including upgrades -->
+			<!--
+			<unconditional_server_package_list>
+			</unconditional_server_package_list>
+			-->
+
+		</server_package_information>
+	</manifest>
+
+	<sharedcomplist>
+		<sharedcomponent name="mcinst" />
+	</sharedcomplist>
+
+	<install_instructions>
+		<update>
+			<prepare_install>
+				<!-- NOTE: the INI file name must match the inf file name passed in installation command -->
+				<generateini file_name="msklibkupd.inf">
+					<section name="Installer_Config" obfuscate="0">
+						<entry>
+							<name><![CDATA[ AppID ]]></name>
+							<value><![CDATA[ msk ]]></value>
+						</entry>
+					</section>
+					<section name="Installer_Config" obfuscate="0">
+						<entry>
+							<name><![CDATA[ Shared ]]></name>
+							<value><![CDATA[ 0 ]]></value>
+						</entry>
+					</section>
+					<section name="Install_NT" obfuscate="0">
+						<entry>
+							<name><![CDATA[ CabFilesNT ]]></name>
+							<value><![CDATA[ ExtractCAB ]]></value>
+						</entry>
+					</section>
+					<section name="Install_NT" obfuscate="0">
+						<entry>
+							<name><![CDATA[ InstallFiles ]]></name>
+							<value><![CDATA[ RunINF ]]></value>
+						</entry>
+					</section>
+					<section name="Version" obfuscate="0">
+						<entry>
+							<name><![CDATA[ Signature ]]></name>
+							<value><![CDATA[ $Chicago$ ]]></value>
+						</entry>
+					</section>
+					<section name="Version" obfuscate="0">
+						<entry>
+							<name><![CDATA[ AdvancedINF ]]></name>
+							<value><![CDATA[ 2.5 ]]></value>
+						</entry>
+					</section>
+					<section name="Version" obfuscate="0">
+						<entry>
+							<name><![CDATA[ LayoutFile ]]></name>
+							<value><![CDATA[ msklibkupd.inf ]]></value>
+						</entry>
+					</section>
+					<section name="SourceDisksNames" obfuscate="0">
+						<entry>
+							<name><![CDATA[ 1 ]]></name>
+							<value><![CDATA[ "MSK Background Update Master File","",1 ]]></value>
+						</entry>
+					</section>
+				</generateini>
+			</prepare_install>
+
+			<install system="1">
+				<install_env_variables>
+					<variable type="$REG$:KEY=Software\McAfee\McInst\InstallSettings:NAME=Install Dir" name="%mcinst_path%"/>
+				</install_env_variables>
+				<executeex file="%mcinst_path%\McInst.exe" param="/install /longpath msklibkupd.inf" validate="1"/>
+			</install>
+
+		</update>
+	</install_instructions>
+</product_catalog>
+
