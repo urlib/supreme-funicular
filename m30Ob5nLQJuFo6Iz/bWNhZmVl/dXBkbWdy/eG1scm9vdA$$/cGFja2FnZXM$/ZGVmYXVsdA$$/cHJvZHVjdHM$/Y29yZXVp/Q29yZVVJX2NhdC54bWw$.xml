@@ -1,0 +1,108 @@
+<product_catalog>
+
+  <configuration>
+    <appid>CoreUI</appid>
+    <appcode>CoreUI</appcode>
+    <version>18.3.196.1</version>
+    <catname>CoreUI_cat</catname>
+  </configuration>
+
+  <manifest>
+    <server_package_information>
+      <fullinstall_package_list>
+
+        <server_package name="CoreUI_predownload.cab" url="http://download.mcafee.com/molbin/iss-loc/CoreUI/18.3.196/1/CoreUI_predownload.cab">
+          <flags>
+            <download phase="predownload" />
+            <extract validate="1" />
+          </flags>
+        </server_package>
+
+        <server_package name="CoreUI.cab" inf_name="CoreUI.inf" url="http://download.mcafee.com/molbin/iss-loc/CoreUI/18.3.196/1/CoreUI.cab">
+          <component_information>
+            <component name="CoreUI.inf" local_install_path="$REG$:KEY=Software\McAfee\CoreUI:NAME=Install Dir">
+              <md5>842eeaf71fb0567b680bb50856049485</md5>
+            </component>
+            <component name="CoreUI.pam" local_install_path="$REG$:KEY=Software\McAfee\CoreUI:NAME=Install Dir">
+              <md5>0a3b411c44a186188c4ba148c20a3b1c</md5>
+            </component>
+            <component name="CoreUI.res.pam" local_install_path="$REG$:KEY=Software\McAfee\CoreUI:NAME=Install Dir">
+              <md5>51d4d80d5c32f02ae29e9cd512515889</md5>
+            </component>
+            <component name="license.txt" local_install_path="$REG$:KEY=Software\McAfee\CoreUI:NAME=Install Dir">
+              <md5>9584ee18d53d9e79128de0303438affe</md5>
+            </component>
+          </component_information>
+        </server_package>
+
+      </fullinstall_package_list>
+    </server_package_information>
+  </manifest>
+
+  <install_instructions>
+    <update>
+      <prepare_install>
+        <!-- NOTE: the INI file name must match the inf file name passed in installation command -->
+        <generateini file_name="CoreUI_update.inf">
+          <section name="Installer_Config" obfuscate="0">
+            <entry>
+              <name><![CDATA[ AppID ]]></name>
+              <value><![CDATA[ CoreUI ]]></value>
+            </entry>
+          </section>
+          <section name="Installer_Config" obfuscate="0">
+            <entry>
+              <name><![CDATA[ Shared ]]></name>
+              <value><![CDATA[ 0 ]]></value>
+            </entry>
+          </section>
+          <section name="Install_NT" obfuscate="0">
+            <entry>
+              <name><![CDATA[ CabFilesNT ]]></name>
+              <value><![CDATA[ ExtractCAB ]]></value>
+            </entry>
+          </section>
+          <section name="Install_NT" obfuscate="0">
+            <entry>
+              <name><![CDATA[ InstallFiles ]]></name>
+              <value><![CDATA[ RunINF ]]></value>
+            </entry>
+          </section>
+          <section name="Version" obfuscate="0">
+            <entry>
+              <name><![CDATA[ Signature ]]></name>
+              <value><![CDATA[ $Chicago$ ]]></value>
+            </entry>
+          </section>
+          <section name="Version" obfuscate="0">
+            <entry>
+              <name><![CDATA[ AdvancedINF ]]></name>
+              <value><![CDATA[ 2.5 ]]></value>
+            </entry>
+          </section>
+          <section name="Version" obfuscate="0">
+            <entry>
+              <name><![CDATA[ LayoutFile ]]></name>
+              <value><![CDATA[ CoreUI_update.inf ]]></value>
+            </entry>
+          </section>
+          <section name="SourceDisksNames" obfuscate="0">
+            <entry>
+              <name><![CDATA[ 1 ]]></name>
+              <value><![CDATA[ "CoreUI Update Master File","",1 ]]></value>
+            </entry>
+          </section>
+        </generateini>
+      </prepare_install>
+
+      <install system="1">
+        <install_env_variables>
+          <variable type="$REG$:KEY=Software\McAfee\McInst\InstallSettings:NAME=Install Dir" name="%mcinst_path%"/>
+        </install_env_variables>
+        <executeex file="%mcinst_path%\mcinst.exe" param="/install CoreUI_update.inf /noselfcopyinstaller /noproductrefcountincrement" validate="1"/>
+      </install>
+
+    </update>
+  </install_instructions>
+</product_catalog>
+
