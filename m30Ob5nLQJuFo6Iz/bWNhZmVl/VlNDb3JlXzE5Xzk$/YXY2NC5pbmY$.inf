@@ -1,0 +1,160 @@
+[Version]
+Signature="$Chicago$"
+AdvancedINF=2.5
+LayoutFile=av.inf
+
+[SourceDisksNames]
+1="McAfee VSCore VirusScan","",1
+
+[Installer_Config]
+AppID=VSCore
+Shared=0
+
+[Env-Var]
+%VSINSTALL_DIR%=$REG$Key=Software\McAfee\VirusScan\InstallSettings:Name=Install Dir
+%VSINSTALL_DIR64%=$REG$Key=Software\McAfee\VirusScan\InstallSettings:Name=Install Dir 64
+%VSCOREINSTALL_DIR%=$REG$Key=Software\McAfee\SystemCore\VSCore:Name=szInstallDir32
+%VSCOREINSTALL_DIR64%=$REG$Key=Software\McAfee\SystemCore\VSCore:Name=szInstallDir64
+
+
+[Env-Var64]
+%VSINSTALL_DIR%=$REG$Key=Software\McAfee\VirusScan\InstallSettings:Name=Install Dir
+%VSINSTALL_DIR64%=$REG$Key=Software\McAfee\VirusScan\InstallSettings:Name=Install Dir 64
+%VSCOREINSTALL_DIR%=$REG$Key=Software\McAfee\SystemCore\VSCore:Name=szInstallDir32
+%VSCOREINSTALL_DIR64%=$REG$Key=Software\McAfee\SystemCore\VSCore:Name=szInstallDir64
+[DirIds]
+52000=%VSINSTALL_DIR%
+53000=%VSINSTALL_DIR64%
+54000=%VSCOREINSTALL_DIR%
+55000=%VSCOREINSTALL_DIR64%
+56000=%33100%\McAfee\VirusScan\Quarantine
+56100=%33100%\McAfee\VirusScan
+60000=%33000%\McAfee\VSCore_19_9
+61000=%CommonProgramW6432%\McAfee\VSCore_19_9
+
+[DestinationDirs]
+VSCoreProductLegacy86=52000
+VSCoreProductLegacySys86=11
+VSCoreProductLegacyDrivers86=11,drivers
+
+[Shared_pkg]
+VSCoreAv86=%60000%\av.inf
+VSCoreAv64=%61000%\av64.inf
+
+[Install_NT]
+AvLiPresetup86=Setup
+AvLiPostSetup86=Setup
+
+[UnInstall_NT]
+AvLiUninstall86=Setup
+
+[Install_VISTA]
+AvLiPresetup86=Setup
+AvLiPostSetup86=Setup
+
+[UnInstall_VISTA]
+AvLiUninstall86=Setup
+
+[Install_VISTA_x64]
+AvLiPresetup64=Setup
+AvLiPostSetup64=Setup
+
+[UnInstall_VISTA_x64]
+AvLiUninstall64=Setup
+
+[AvLiPresetup86]
+DelFiles=VSCoreProductLegacy86,VSCoreProductLegacySys86,VSCoreProductLegacyDrivers86
+DelReg=VSCoreRegistryLegacy86
+AddReg=BOPSettings
+
+[AvLiPostSetup86]
+AddReg=APSettings
+
+[AvLiUninstall86]
+Cleanup=1
+DelReg=VSCoreRegistryRoots
+DelFiles=VSCoreProductLegacy86,VSCoreProductLegacySys86,VSCoreProductLegacyDrivers86
+
+[AvLiPresetup64]
+DelFiles=VSCoreProductLegacy86,VSCoreProductLegacySys86,VSCoreProductLegacyDrivers86
+DelReg=VSCoreRegistryLegacy86
+AddReg=BOPSettings
+
+[AvLiPostSetup64]
+AddReg=APSettings64
+
+[AvLiUninstall64]
+Cleanup=1
+DelVSCoreRegRoots64=DelReg64
+DelReg=VSCoreRegistryRoots
+DelFiles=VSCoreProductLegacy86,VSCoreProductLegacySys86,VSCoreProductLegacyDrivers86
+
+[VSCoreProductLegacy86]
+naiavfin.exe,,,65568
+naiavf5a.sys,,,65568
+naiavf5i.sys,,,65568
+naiavf5x.sys,,,65568
+naiavf5x.cat,,,65568
+EntDrv50.sys,,,65568
+EntDrv51.sys,,,65568
+EntDrv52.sys,,,65568
+mytilus2.dll,,,65568
+mytilus.dll,,,65568
+scriptcl.dll,,,65568
+scriptsv.dll,,,65568
+mfecaka.dll,,,65568
+mfecakk.inf,,,65568
+mfecakk.sys,,,65568
+mfeavfk.cat,,,65568
+mfeavfk.inf,,,65568
+mferkdk.cat,,,65568
+mferkdk.inf,,,65568
+mferkdk.sys,,,65568
+
+[VSCoreProductLegacySys86]
+EntAPI.dll,,,65568
+
+[VSCoreProductLegacyDrivers86]
+naiavf5a.sys,,,65568
+naiavf5i.sys,,,65568
+naiavf5x.sys,,,65568
+NaiFiltr.sys,,,65568
+NaiFsRec.sys,,,65568
+
+[VSCoreRegistryLegacy86]
+HKLM,Software\Network Associates\TVD
+HKLM,Software\McAfee\VSCore\On Access Scanner\McShield\Configuration,"dwDebugFlags"
+HKLM,Software\McAfee\VSCore\On Access Scanner\McShield\Configuration,"DisableFilterExtensionOptimisation"
+HKLM,Software\McAfee\VSCore\On Access Scanner\McShield\Configuration,"DisableFilterNetworkScansOptimisation"
+HKLM,Software\McAfee\VSCore\On Access Scanner\McShield\Configuration,"DisableFilterLocalScansOptimisation"
+HKLM,Software\McAfee\VSCore\On Access Scanner\McShield\Configuration,"NumberOfScanners"
+HKLM,Software\McAfee\VSCore\On Access Scanner\McShield\Configuration,"DontTellAnnouncerAboutHibernate"
+HKLM,Software\McAfee\VSCore\On Access Scanner\McShield\Configuration\Default,"uAction_Auto"
+HKLM,Software\McAfee\VSCore\On Access Scanner\McShield\Configuration\Default,"uAction_Cookie_Auto"
+HKLM,Software\McAfee\VSCore\On Access Scanner\McShield\Configuration\High,"uAction_Auto"
+HKLM,Software\McAfee\VSCore\On Access Scanner\McShield\Configuration\High,"uAction_Cookie_Auto"
+HKLM,System\CurrentControlSet\Services\NaiFsRec
+HKLM,System\CurrentControlSet\Services\NaiFiltr
+HKLM,System\CurrentControlSet\Services\NaiAvFilter1
+
+[VSCoreRegistryRoots]
+HKLM,System\CurrentControlSet\Services\VxD\VshInit
+HKLM,Software\McAfee\SystemCore\VSCore
+HKLM,Software\McAfee\AVEngine
+
+[DelVSCoreRegRoots64]
+64BitKey=HKLM,System\CurrentControlSet\Services\VxD\VshInit
+64BitKey=HKLM,Software\McAfee\SystemCore\VSCore
+64BitKey=HKLM,Software\McAfee\AVEngine
+
+[BOPSettings]
+HKLM,Software\McAfee\SystemCore\VSCore\On Access Scanner\BehaviourBlocking,"BOPMode",65537,1
+HKLM,Software\McAfee\SystemCore\VSCore\On Access Scanner\BehaviourBlocking,"BOPShowMessages",65537,1
+
+[APSettings64]
+HKLM,Software\McAfee\AP\McVSCIns,"APEnabled",69635,1
+
+[APSettings]
+HKLM,Software\McAfee\AP\McVSCIns,"APEnabled",65539,1
+;HKLM,Software\McAfee\SystemCore\VSCore\On Access Scanner\BehaviourBlocking,"ProductID",0,VSO1600
+
