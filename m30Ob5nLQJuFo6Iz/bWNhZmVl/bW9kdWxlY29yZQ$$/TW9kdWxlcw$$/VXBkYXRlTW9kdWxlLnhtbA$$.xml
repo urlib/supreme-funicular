@@ -1,0 +1,10 @@
+<Module name="UpdateModule" binary_file="UpdateModule.dll" binary_path="C:\Program Files\McAfee\UpdateModule" config_file="" config_path="" log_group_name="" start_type="ondemand" factory_enabled="false">
+	<Subscription name="Core.Update.RefreshState" trigger_load="true" session_filter="false"/>
+	<Subscription name="Core.Update.ChangeState" trigger_load="true" session_filter="false"/>
+	<Subscription name="Core.Update.Personalize" trigger_load="true" session_filter="false"/>
+	<Subscription name="Core.Update.RunUpdate" trigger_load="true" session_filter="false"/>
+	<Subscription name="Core.Update.RefreshUpdateProgress" trigger_load="true" session_filter="false"/>
+	<Subscription name="Core.Update.UpdateProgress" trigger_load="true" session_filter="false"/>
+</Module>
+
+
