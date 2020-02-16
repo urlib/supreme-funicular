@@ -1,0 +1,46 @@
+[Version]
+Signature="$Chicago$"
+AdvancedINF=2.5
+LayoutFile=mcsp64.inf
+
+[Installer_Config]
+AppID=MCSP
+Shared=0
+
+[SourceDisksNames]
+1="MCSP Files","",1
+
+[DirIds]
+;33000 = C:\Program Files\Common Files
+;33100 = C:\Documents and Settings\All Users\Application Data
+;33100 ==> All Users\Application Data
+;33400 = C:\Program Files\Common Files\McAfee\Installer
+;33500 = C:\Program Files
+
+; application binary file folder
+47000=%CommonProgramW6432%\McAfee\CSP
+
+[DestinationDirs]   
+MCSPFileList=47000
+RenCopyList=47000
+
+[DefaultInstall]
+CopyFiles=MCSPFileList
+
+;Adding this line as part of defect fix:1222874 for 2.8
+[RenCopyList]
+mccspinstall.exe=%47000%
+
+[DefaultUnInstall]
+DelFiles=MCSPFileList,RenCopyList
+
+[MCSPFileList]
+mcsp64.inf,,,65568
+
+[Install_NT]
+DefaultInstall=Setup
+RenCopyList=RenCopy
+
+[UnInstall_NT]
+DefaultUnInstall=Setup
+
