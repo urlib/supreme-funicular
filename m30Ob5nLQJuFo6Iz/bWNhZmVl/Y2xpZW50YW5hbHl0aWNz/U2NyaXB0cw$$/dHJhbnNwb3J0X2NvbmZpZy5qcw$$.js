@@ -1,0 +1,3 @@
+/*! $FileVersion=1.1.206 */ var transport_config_fileVersion = "1.1.206"; 
+function getEventTransportProfiles(){var a={getProfiles:function(){if(this.__allProfiles){return this._allProfiles}try{this._allProfiles=JSONManager.create("profile")}catch(b){logError("ERROR: Could not load profile.json "+b.message)}return this._allProfiles},_allProfiles:{}};return a.getProfiles()}ModuleManager.registerFactory("transport_config",getEventTransportProfiles);
+//077910CCCEBA180BB95AF2C5889B8B3CE60E759DFDF3C8162124080383B109E80B38F588239ADA940319549290CA7BEA6F79E608F9F7751C69EB07803F003ABD++
