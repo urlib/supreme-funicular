@@ -1,0 +1,81 @@
+[Version]
+Signature="$Chicago$"
+AdvancedINF=2.5
+LayoutFile=nmcuc.inf
+
+[Installer_Config]
+AppID=MHN
+Shared=1
+
+[SourceDisksNames]
+1="McAfee MHN User Configuration Files","",1
+
+[DirIds]
+46000=%33000%\McAfee\MHN
+47000=%CommonProgramW6432%\McAfee\MHN
+
+ 
+[Install_NT]
+DefaultInstall=Setup
+RunProgram=EXE
+
+[Install_NT_X64]
+DefaultInstall64=Setup
+RunProgram=EXE
+
+[Uninstall_NT]
+DefaultUninstall=Setup
+
+[UnInstall_NT_X64]
+DefaultUninstall64=Setup
+OEMROOT64=DelReg64
+
+[DestinationDirs]   
+FileList=46000
+FileList64=47000
+
+[DefaultInstall]
+CopyFiles=FileList
+AddReg=Customization32
+
+[DefaultInstall64]
+CopyFiles=FileList64
+AddReg=Customization64
+
+[DefaultUninstall]
+DelFiles=FileList
+DelReg=OEMROOT32
+
+[DefaultUninstall64]
+DelFiles=FileList64
+
+
+[FileList]
+nmcuc.inf,,,65568
+
+[FileList64]
+nmcuc.inf,,,65568
+
+
+[OEMROOT32]
+HKLM,Software\McAfee\HomeNet\OEM\overrides
+
+[OEMROOT64]
+64BitKey=HKLM,Software\McAfee\HomeNet\OEM\overrides
+
+
+[Customization32]
+
+[Customization64]
+; HomeNetwork overrides settings  ; HKLM,Software\McAfee\HomeNet\OEM\overrides
+; Features 
+; M@ys
+; TrustWithMPF
+; Learning Mode
+; Alerts
+; Intruder
+; Persistence Manager
+; Network Monitor
+
+
+
