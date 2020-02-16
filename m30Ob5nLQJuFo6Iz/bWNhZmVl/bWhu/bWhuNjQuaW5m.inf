@@ -1,0 +1,389 @@
+[Version]
+Signature="$Chicago$"
+AdvancedINF=2.5
+LayoutFile=mhn64.inf
+
+[Installer_Config]
+AppID=MHN
+Shared=0
+VersionToInstall=12.3.178
+CurrentVersionRegKey=HKLM,SOFTWARE\McAfee\HomeNet\AppInfo\Substitute,build
+
+[Env-Var64]
+%SELECTED_LCID%=$REG$Key=SOFTWARE\McAfee\MSC\AppInfo\Substitute:Name=lcid
+
+
+[SourceDisksNames]
+1="MHN Files","",1
+
+[DirIds]
+;33000 = C:\Program Files\Common Files
+;33100 = C:\Documents and Settings\All Users\Application Data
+;33100 ==> All Users\Application Data
+;33400 = C:\Program Files\Common Files\McAfee\Installer
+;33500 = C:\Program Files
+
+; application binary file folder
+46050=%CommonProgramW6432%\McAfee\MNA
+46150=%CommonProgramW6432%\McAfee\NMC
+
+46250=%CommonProgramW6432%\McAfee\Platform\McSvcHost
+47000=%CommonProgramW6432%\McAfee\MHN
+
+; application data folders
+46400=%33100%\McAfee\MNA
+46500=%33100%\McAfee\MNM
+46600=%33100%\McAfee\MHN
+
+
+41111=%windir%\system32
+
+80001=%CommonProgramW6432%\McAfee\ModuleCore
+
+[DestinationDirs]   
+MNAFileList=46050
+MNALegacyFiles=46050
+NMCFileList=46150
+NMCLegacyFiles=46150
+MHNFileList=47000
+DelFileListForRenCopy=47000
+PreInstallFileList=47000
+MozyRemover=47000
+MaysResFiles=47000
+
+[DefaultInstall]
+; install HomeNetwork stuff
+CopyFiles=MHNFileList
+;msalmoni - The RenCopy command can only be called at the top level
+:           Moving to Install_NT section
+;RenCopyList=RenCopy
+AddReg=AddRegEntry
+AddReg=SubstInfo
+
+[UnRegisterLegacy]
+;STOP Legacy HomeNet service McNASvc
+%46050%\mcnasvc.exe="/unregserver",1
+
+[DefaultUnInstall]
+DelFiles=MHNFileList
+DelFiles=DelFileListForRenCopy
+DelReg=HomeNetRoot,HomeNetRoot64
+DelReg=HomeNetworkService
+DelFiles=MaysResFile
+
+[MNALegacyFiles]
+McNASvc.exe,,,65568
+McNARegPS.dll,,,65568
+McNASvcPS.dll,,,65568
+McUJ.dll,,,65568
+McUJGuiPS.dll,,,65568
+McUJGui.exe,,,65568
+mna.inf,,,65568
+
+[MNAFileList]
+McNARgPS.dll,,,65568
+McNAReg.dll,,,65568
+McNASvPS.dll,,,65568
+McNASvc.dll,,,65568
+McNaIns.dll,,,65568
+mna32.inf,,,65568
+mna64.inf,,,65568
+McNAVer.dll,,,65568
+McTrstPS.dll,,,65568
+McAltHst.exe,,,65568
+McAltHPS.dll,,,65568
+
+[NMCLegacyFiles]
+McNmcCoR.dll,,,65568
+nmclang.inf,,,65568
+nmcins.inf,,,65568
+
+[NMCFileList]
+nmcLI32.inf,,,65568
+nmcLI64.inf,,,65568
+McNmcSPS.dll,,,65568
+McNmcSrv.dll,,,65568
+McNmcVer.dll,,,65568
+McNmcShell.exe,,,65568
+McHNShim.dll,,,65568
+McHNShPS.dll,,,65568
+McNMAtpg.dll,,,65568
+NMCJsRes.dll,,,65568
+;ND files
+McNDSv.dll,,,65568
+McNDSVPS.dll,,,65568
+McNdAtpg.dll,,,65568
+; Discovery
+McDisc.dll,,,65568
+McDiscPS.dll,,,65568
+McMPFEvt.dll,,,65568
+;MUI Resources
+McNDLor.dll,,,65568
+McNmcLor.dll,,,65568
+;from the original LD files
+nmcuicfg.dat,,,65568
+;readme.txt,readme.txt,,65568
+
+[MHNFileList]
+MHNShell.exe,,,65568
+MhnIns.dll,,,65568
+mhn64.inf,,,65568
+
+[MozyRemover]
+MozyRemove.exe,,,65568
+
+[MaysResFiles]
+MaysRes.dll,,,65568
+
+[RenCopyList]
+HomeNetVer.dll=%47000%
+HomeNetSvc.dll=%47000%
+AlertHost.exe=%47000%
+AlertRes.dll=%47000%
+ScriptRes.dll=%47000%
+ScriptResO.dll=%47000%
+HomeNetRes.dll=%47000%
+AlertHostPS.dll=%47000%
+MHNModule.dll=%47000%
+WiFiAdvisorModule.dll=%47000%
+
+; Need to remove the file during uninstall so can't be part 
+; of the original list otherwise it will be installed.
+[DelFileListForRenCopy]
+HomeNetVer.dll,,,65568
+HomeNetSvc.dll,,,65568
+AlertHost.exe,,,65568
+AlertRes.dll,,,65568
+ScriptRes.dll,,,65568
+ScriptResO.dll,,,65568
+HomeNetRes.dll,,,65568
+AlertHostPS.dll,,,65568
+MaysRes.dll,,,65568
+MHNModule.dll,,,65568
+WiFiAdvisorModule.dll,,,65568
+
+[PostInstall]
+%41111%\rundll32.exe="""%47000%\MhnIns.dll"",MigrateLegacySettings",1
+
+[RemoveOld]
+DelReg=DelOldRegEntry
+
+[UnregisterOldNMC]
+%11%\regsvr32.exe=/u /s """%46150%\McDisc.dll""",1,0
+%11%\regsvr32.exe=/u /s """%46150%\McHNShim.dll""",1,0
+%11%\regsvr32.exe=/u /s """%46150%\McNdAtpg.dll""",1,0
+%11%\regsvr32.exe=/u /s """%46150%\McNMAtpg.dll""",1,0
+%11%\regsvr32.exe=/u /s """%46150%\McNmcSrv.dll""",1,0
+%11%\regsvr32.exe=/u /s """%46150%\McNmcVer.dll""",1,0
+
+%11%\regsvr32.exe=/u /s """%46150%\McDiscPS.dll""",1,0
+%11%\regsvr32.exe=/u /s """%46150%\McHNShPS.dll""",1,0
+%11%\regsvr32.exe=/u /s """%46150%\McNmcSPS.dll""",1,0
+%11%\regsvr32.exe=/u /s """%46150%\McNDSVPS.dll""",1,0
+
+[UnregisterOldMNA]
+%11%\regsvr32.exe=/u /s """%46050%\McNAReg.dll""",1,0
+%11%\regsvr32.exe=/u /s """%46050%\McNARgPS.dll""",1,0
+%11%\regsvr32.exe=/u /s """%46050%\McNASvc.dll""",1,0
+%11%\regsvr32.exe=/u /s """%46050%\McNASvPS.dll""",1,0
+%11%\regsvr32.exe=/u /s """%46050%\McNAVer.dll""",1,0
+%11%\regsvr32.exe=/u /s """%46050%\McAltHPS.dll""",1,0
+%11%\regsvr32.exe=/u /s """%46050%\McTrstPS.dll""",1,0
+%46050%\McAltHst.exe=/UnregServer
+
+[DelOldRegEntry]
+HKLM,Software\McAfee\HomeNet\MNA
+HKLM,Software\McAfee\HomeNet\NMC
+HKLM,Software\McAfee\HomeNet\MNM
+HKLM,SOFTWARE\McAfee\HomeNet\NetworkDiscovery
+HKLM,Software\McAfee\HomeNet\OEM
+HKLM,Software\McAfee\HomeNet\Settings
+HKLM,SOFTWARE\McAfee\SharedPackages\MNA
+HKLM,SOFTWARE\McAfee\SharedPackages\NMC
+HKLM,SYSTEM\CurrentControlSet\services\McNASvc
+HKLM,SYSTEM\ControlSet001\services\McNASvc
+HKLM,Software\McAfee\HomeNet\MAYS
+
+[HomeNetRoot64]
+HKLM,Software\McAfee\HomeNet,,0x3000,
+HKLM,Software\McAfee\MHN,,0x3000,
+HKCU,Software\McAfee\WiFiAdvisor,,0x3000,
+
+[HomeNetRoot]
+HKLM,Software\McAfee\HomeNet
+HKLM,Software\McAfee\MHN
+HKCU,Software\McAfee\WiFiAdvisor
+
+[HomeNetworkService]
+HKLM,SYSTEM\CurrentControlSet\services\HomeNetSvc
+
+[OCXRegister]
+AlertHost.exe
+HomeNetVer.dll
+
+
+[RemoveOldFiles]
+DelFiles=MNALegacyFiles,MNAFileList,NMCLegacyFiles,NMCFileList,MozyRemover,MaysResFiles
+
+[Install_NT]
+; stop MNA service
+StopMNAService=EXE
+
+; unregister old MNA and NMC stuff
+UnRegisterLegacy=EXE
+UnregisterOldNMC=EXE
+UnregisterOldMNA=EXE
+
+; install MHN stuff
+; Salmoni
+UnregisterModule64=EXE
+RenCopyList=RenCopy
+RegisterModule64=EXE
+DefaultInstall=Setup
+
+; Migrate Legacy settings 
+PostInstall=EXE
+MHNSvcInstallExe=Exe
+
+; remove old stuff
+RemoveOld=Setup
+RemoveOldFiles=Setup
+CleanupOld=DelFolders
+
+[UnInstall_NT]
+MHNSvcUninstallExe=Exe
+DefaultUnInstall=Setup
+;NAService=createservice
+Cleanup=DelFolders
+StopService=EXE
+Delreg=HomeNetRoot,Del_RegEntry
+UnregisterModule64=EXE
+
+[StopMNAService]
+;STOP McNASvc
+%41111%\net.exe="stop McNASvc",1,1
+
+[StopService]
+; Stop HomeNetSvc service
+%41111%\net.exe="stop HomeNetSvc",1,1
+
+[CleanupOld]
+%46050%
+%46150%
+%46400%
+%46500%
+
+[Cleanup]
+%47000%
+%46600%
+
+
+[strings]
+build=12.3.178
+domain=us.mcafee.com
+lang=en-us
+appcode="nmc"
+vers=12.3
+
+[SubstInfo]
+HKLM,Software\McAfee\HomeNet\AppInfo\Substitute,"domain",4096,"%domain%"
+HKLM,Software\McAfee\HomeNet\AppInfo\Substitute,"lang",4096,"%lang%"
+HKLM,Software\McAfee\HomeNet\AppInfo\Substitute,"appcode",4096,"%appcode%"
+HKLM,Software\McAfee\HomeNet\AppInfo\Substitute,"version",4096,"%vers%"
+HKLM,Software\McAfee\HomeNet\AppInfo\Substitute,"buildLD",4096,"%build%"
+
+[AddRegEntry]
+; Write the path to the LCID folder. Used by MHN version dll to get the versions of the resource DLLs
+HKLM,Software\McAfee\HomeNet,"Install Dir",4096,"%47000%"
+; Register Service with McSvcHost
+HKLM,Software\McAfee\Platform\McSvcHost\McCoreSvc,"HomeNetSvc",4096,"{BBEDBE75-6E9C-40CB-8D3C-681E9F03807E}"
+; Register Version DLL with MSC
+HKLM,Software\McAfee\MSC\Update\Customization\{169C3F7A-F974-4B6B-BF09-DD7D08EAC3CE},4096,0x00000000,
+
+; Resource DLL info
+HKLM,Software\McAfee\MSC\Settings\ApplicationInfo\NMC,"ResDll",4096,"%47000%\HomeNetRes.dll"
+HKLM,Software\McAfee\MSC\Settings\ApplicationInfo\NMC,"UIDll",4096,"%47000%\ScriptRes.dll"
+
+; Register MNM with MSC. Require a ResDLL and UIDll entry
+; same as NMC version
+HKLM,Software\McAfee\MSC\Settings\ApplicationInfo\MNM,"ResDll",4096,"%47000%\HomeNetRes.dll"
+HKLM,Software\McAfee\MSC\Settings\ApplicationInfo\MNM,"UIDll",4096,"%47000%\ScriptRes.dll"
+
+; HomePage entries
+HKLM,"SOFTWARE\McAfee\MSC\Settings\protcat\AA747A62-493D-4082-A2EF-C4AD2049AA23\0F167695-3F7C-421c-89E8-40544CE9D1A7\installed","LinkContext",4096,"network_manager"
+HKLM,"SOFTWARE\McAfee\MSC\Settings\protcat\AA747A62-493D-4082-A2EF-C4AD2049AA23\0F167695-3F7C-421c-89E8-40544CE9D1A7\installed","LinkType",69633,1
+
+; TOC entries
+HKLM,Software\McAfee\MSC\Settings\toc\4776FB3D-A5E3-46b8-ACAA-181CB546FD67,"NameResId",69633,151285
+HKLM,Software\McAfee\MSC\Settings\toc\4776FB3D-A5E3-46b8-ACAA-181CB546FD67,"SectionGuid",4096,"{7F7BB30F-D5D3-43F8-8B93-E2EEF69EBB4D}"
+HKLM,Software\McAfee\MSC\Settings\toc\4776FB3D-A5E3-46b8-ACAA-181CB546FD67,"UiVisible",69633,1
+HKLM,Software\McAfee\MSC\Settings\toc\4776FB3D-A5E3-46b8-ACAA-181CB546FD67,"LinkType",69633,1
+HKLM,Software\McAfee\MSC\Settings\toc\4776FB3D-A5E3-46b8-ACAA-181CB546FD67,"LinkContext",4096,"network_manager"
+HKLM,Software\McAfee\MSC\Settings\toc\4776FB3D-A5E3-46b8-ACAA-181CB546FD67,"NotesResId",69633,216832
+HKLM,Software\McAfee\MSC\Settings\toc\4776FB3D-A5E3-46b8-ACAA-181CB546FD67,"DisplayOrder",69633,132
+
+; TODO: add OEM default settings here
+
+; Service Settings
+HKLM,Software\McAfee\HomeNet,"DelayedStartXPOnly",69633,120000
+HKLM,Software\McAfee\HomeNet,"HardwarePollMin",69633,30000
+HKLM,Software\McAfee\HomeNet,"HardwarePollMax",69633,3600000
+HKLM,Software\McAfee\HomeNet,"AlertHostTimeout",69633,60
+HKLM,Software\McAfee\HomeNet,"Overcrowded nodes threshold",69633,64
+
+HKLM,Software\McAfee\HomeNet,"FirewallPollUIOff",69633,600000
+HKLM,Software\McAfee\HomeNet,"FirewallPollUIOpen",69633,15000
+
+HKLM,Software\McAfee\HomeNet,"ListenerRetryInterval",69633,120
+
+HKLM,Software\McAfee\HomeNet,"TrustPromptTimeout",69633,20
+HKLM,Software\McAfee\HomeNet,"MaximumConcurrentTasks",69633,10
+
+HKLM,Software\McAfee\HomeNet,"UIClosedARPTableScanFrequency",69633,60
+HKLM,Software\McAfee\HomeNet,"UIOpenedARPTableScanFrequency",69633,10
+
+HKLM,Software\McAfee\HomeNet,"AirDetection",69633,1
+HKLM,Software\McAfee\HomeNet,"BTDetection",69633,1
+
+; Alerts Settings
+HKLM,Software\McAfee\HomeNet\Alerts,"AlertsEnabled",69633,1
+HKLM,Software\McAfee\HomeNet\Alerts,"NewPCAlertEnabled",69633,1
+HKLM,Software\McAfee\HomeNet\Alerts,"IntruderAlertEnabled",69633,1
+HKLM,Software\McAfee\HomeNet\Alerts,"WatchAlertEnabled",69633,1
+HKLM,Software\McAfee\HomeNet\Alerts,"LearningModeAlertEnabled",69633,1
+HKLM,Software\McAfee\HomeNet\Alerts,"AlertTimeout",69633,15
+
+; Learning Mode Settings
+HKLM,Software\McAfee\HomeNet\LearningMode,"LearningModeEnabled",69633,1
+HKLM,Software\McAfee\HomeNet\LearningMode,"LearningModeDuration",69633,259200
+; Network Trust Values
+; comment out those two settings to support MSSB project, the change will not affect normal MHN
+; because if the registry entries is not availble, it will be automatically created
+;HKLM,Software\McAfee\HomeNet\Network Trust,"mpf_follows_nmc_trust",69633,1
+;HKLM,Software\McAfee\HomeNet\Network Trust,"nmc_follows_mpf_trust",69633,1
+
+; Persistence Manager settings
+HKLM,Software\McAfee\HomeNet\Persistence Manager,"Persistence DB flush",69633,1800
+; Network Monitor
+HKLM,Software\McAfee\HomeNet\Network Monitor,"Monitoring Enabled",69633,1
+
+HKLM,Software\McAfee\HomeNet\Network Monitor,"NotifyMe",69633,1
+[Del_RegEntry]
+HKLM,Software\McAfee\Platform\McSvcHost\McCoreSvc,"HomeNetSvc",4096,"{BBEDBE75-6E9C-40CB-8D3C-681E9F03807E}"
+HKLM,Software\McAfee\MSC\Update\Customization\{169C3F7A-F974-4B6B-BF09-DD7D08EAC3CE},4096,0x00000000,
+
+[RegisterModule64]
+%80001%\ModuleCoreService.exe=/register=MHNModule /moduleConfigFile="""%33300%"""\MHNModuleConfig.xml /userMode=true,1,1
+%80001%\ModuleCoreService.exe=/register=WiFiAdvisorModule /binaryFile="WiFiAdvisorModule.dll" /binaryPath="""%47000%""" /userMode=true /startType=ondemand /messageTriggers="SystemMonitor.WiFiStatus.Connected",1,1
+
+[UnregisterModule64]
+%80001%\ModuleRegister.exe=/unregister=MHNModule,1,1
+%80001%\ModuleCoreService.exe=/unregister=MHNModule /userMode=true,1,1
+%80001%\ModuleCoreService.exe=/unregister=WiFiAdvisorModule /userMode=true,1,1
+
+[MHNSvcInstallExe]
+%11%\regsvr32.exe="/s ""%47000%\HomeNetSvc.dll""",1
+
+[MHNSvcUninstallExe]
+%11%\regsvr32.exe="/u /s ""%47000%\HomeNetSvc.dll""",1
+
