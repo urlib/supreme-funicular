@@ -1,0 +1,193 @@
+[Version]
+Signature="$Chicago$"
+AdvancedINF=2.5
+LayoutFile=oobesvc.inf
+
+[Installer_Config]
+AppID=oobesvc2
+Shared=1
+
+[Env-Var]
+
+[SourceDisksNames]
+1="OOBE Svc2 Files","",1
+
+;;;;Destinations;;;;;;;;
+;;;;on 32 bit OS
+;%33000% - > C:\Program Files \Common Files
+;
+;;;;on 64 bit
+;%CommonProgramW6432% -> C:\Program Files\Common Files
+[DirIds]
+46000=%33500%\McAfee\MSC\OOBEService
+46200=%33000%\Mcafee\Platform\McSvcHost
+46300=%ProgramW6432%\McAfee\MSC\OOBEService
+46400=%CommonProgramW6432%\McAfee\Platform\McSvcHost
+46501=%33000%\McAfee\OOBE
+46601=%CommonProgramW6432%\McAfee\OOBE
+46100=%33500%\McAfee\MSC
+46201=%ProgramW6432%\McAfee\MSC
+
+[DestinationDirs]
+SvcFileList=46501
+SvcFileList64=46601
+CustomInf64=46601
+CustomInf32=46501
+DeletePreviousInstallFiles=46100
+DeletePreviousInstallFiles64=46201
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;
+;;;;	32 bit installation
+
+
+[DefaultInstall]
+CopyFiles=SvcFileList, CustomInf32
+AddReg=AddRegEntry
+;DelFiles=DeletePreviousInstallFiles
+
+[DefaultUnInstall]
+DelFiles=SvcFileList
+DelReg=DelRegEntry
+
+[SvcFileList]
+McOobeSv.dll,,,65568
+
+[AddRegEntry]
+HKLM,Software\McAfee\McOobeSvc2,"Install Dir",,"%46501%"
+HKLM,Software\McAfee\McOobeSvc2,"Build",,"%build%"
+HKLM,Software\McAfee\McOobeSvc2,"BuildNum",,"%buildnum%"
+HKLM,Software\McAfee\MSC\Update\Customization,"McOobeSv.dll", ,"%46501%"
+
+[AddRegObfuscated]
+HKLM,Software\McAfee\McOobeSvc,"oobe_rkey", ,"SOFTWARE\Microsoft\Windows\CurrentVersion\Setup\State"
+HKLM,Software\McAfee\McOobeSvc,"oobe_vname", ,"ImageState"
+HKLM,Software\McAfee\McOobeSvc,"oobe_value",,"IMAGE_STATE_COMPLETE"
+HKLM,Software\McAfee\PartnerCore\OOBESvc\EndWhitelistingGracePeriod,"Polling",65537,1
+HKLM,Software\McAfee\PartnerCore\OOBESvc\EndWhitelistingGracePeriod,"SleepInterval",65537,60
+HKLM,Software\McAfee\PartnerCore\OOBESvc\EndWhitelistingGracePeriod,"MaxRetry",65537,10000
+
+[Install_NT]
+AddRegObfuscated=RegObfuscate
+DefaultInstall=Setup
+RunOobeSvc=EXE
+
+[OOBEService]
+; 131072 (0x00020000L) == STANDARD_RIGHTS_READ
+; 16 == SERVICE_WIN32_OWN_PROCESS
+; 32 == SERVICE_WIN32_SHARE_PROCESS
+; 2 == SERVICE_AUTO_START
+%46200%\McSvHost.exe=McOobeSv2,McAfee OOBE Service2,131072,32,2,,,
+failures=1,1,0
+resetfailcountafterdays=1
+restartserviceafterminutes=1
+CommandLine="/McCoreSvc"
+DescDLL=default
+
+[UnInstall_NT]
+DefaultUnInstall=Setup
+OOBESVCCleanup=DelFolders
+
+[CustomInf32]
+oobesvc.inf,,,65568
+
+[DeletePreviousInstallFiles]
+McOobeSv.dll
+
+[OOBESVCCleanup]
+%46501%=1
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;
+;;;;	64 bit installation
+
+
+[DefaultInstall64]
+CopyFiles=SvcFileList64, CustomInf64
+AddReg=AddRegEntry64
+;DelFiles=DeletePreviousInstallFiles64
+
+[CustomInf64]
+oobesvc.inf,,,65568
+
+[DefaultUnInstall64]
+DelFiles=SvcFileList64
+;DelReg=DelRegEntry64
+
+[SvcFileList64]
+McOobeSv.dll,,,65568
+
+[AddRegEntry64]
+HKLM,Software\McAfee\McOobeSvc2,"Install Dir",4096,"%46601%"
+HKLM,Software\McAfee\McOobeSvc2,"Build",4096,"%build%"
+HKLM,Software\McAfee\McOobeSvc2,"BuildNum",4096,"%buildnum%"
+HKLM,Software\McAfee\MSC\Update\Customization,"McOobeSv.dll",4096,"%46601%"
+
+[AddRegObfuscated64]
+HKLM,Software\McAfee\McOobeSvc,"oobe_rkey",4096,"SOFTWARE\Microsoft\Windows\CurrentVersion\Setup\State"
+HKLM,Software\McAfee\McOobeSvc,"oobe_vname",4096,"ImageState"
+HKLM,Software\McAfee\McOobeSvc,"oobe_value",4096,"IMAGE_STATE_COMPLETE"
+HKLM,Software\McAfee\PartnerCore\OOBESvc\EndWhitelistingGracePeriod,"Polling",69633,1
+HKLM,Software\McAfee\PartnerCore\OOBESvc\EndWhitelistingGracePeriod,"SleepInterval",69633,60
+HKLM,Software\McAfee\PartnerCore\OOBESvc\EndWhitelistingGracePeriod,"MaxRetry",69633,10000
+
+[Install_Vista_x64]
+AddRegObfuscated64=RegObfuscate
+DefaultInstall64=Setup
+
+RunOobeSvc=EXE
+
+[OOBEService64]
+; 131072 (0x00020000L) == STANDARD_RIGHTS_READ
+; 16 == SERVICE_WIN32_OWN_PROCESS
+; 32 == SERVICE_WIN32_SHARE_PROCESS
+; 2 == SERVICE_AUTO_START
+%46400%\McSvHost.exe=McOobeSv2,McAfee OOBE Service2,131072,32,2,,,
+failures=1,1,0
+resetfailcountafterdays=1
+restartserviceafterminutes=1
+CommandLine="/McCoreSvc"
+DescDLL=default
+
+[UnInstall_Vista_x64]
+DefaultUnInstall64=Setup
+OOBESVCCleanup64=DelFolders
+DelRegEntry64=DelReg64
+
+[DeletePreviousInstallFiles64]
+McOobeSv.dll
+
+[OOBESVCCleanup64]
+%46601%=1
+
+[Shared_pkg]
+oobesvc2 = %46601%\oobesvc.inf
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;
+;;;;	common installation
+
+[DelRegEntry]
+HKLM,Software\McAfee\McOobeSvc2
+HKLM,Software\McAfee\McOobeSvc
+HKLM,Software\McAfee\PartnerCore\OOBESvc
+
+[DelRegEntry64]
+64BitKey=HKLM,Software\McAfee\McOobeSvc2
+64BitKey=HKLM,Software\McAfee\McOobeSvc
+64BitKey=HKLM,Software\McAfee\PartnerCore\OOBESvc
+
+[OCXRegister]
+McOobeSv.dll
+
+
+[strings]
+; contains major.minor.build. E.x 1.0.100
+build=6.6.134
+
+;contains just the integer build number
+buildnum=134
+
+[RunOobeSvc]
+%11%\sc.exe=config McOobeSv2 depend= mfevtp,1,1
+
