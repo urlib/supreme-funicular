@@ -1,0 +1,11 @@
+<Module name="PDMgr" binary_file="PDMgr.dll" binary_path="$(FOLDERID_ProgramFiles)\McAfee\MSC" config_file="PDMgr.xml" config_path="$(FOLDERID_ProgramFiles)\McAfee\MSC" log_group_name="" start_type="ondemand" factory_enabled="false">
+	<Subscription name="PDMgr.ProvisionID.Request" trigger_load="true" session_filter="false"/>
+	<Subscription name="PDMgr.PDSettings.Request" trigger_load="true" session_filter="false"/>
+	<Subscription name="PDMgr.PDString.Request" trigger_load="true" session_filter="false"/>
+	<Subscription name="Core.Subscription.Sync" trigger_load="true" session_filter="false"/>
+	<Subscription name="Core.Application.FirstStart" trigger_load="true" session_filter="false"/>
+	<Subscription name="Core.Installer.Complete" trigger_load="true" session_filter="false"/>
+	<Subscription name="CoreUI.NavBar.Request" trigger_load="true" session_filter="false"/>
+</Module>
+
+
