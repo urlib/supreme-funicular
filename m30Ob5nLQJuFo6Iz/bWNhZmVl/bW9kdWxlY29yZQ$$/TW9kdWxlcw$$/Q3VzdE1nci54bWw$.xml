@@ -1,0 +1,5 @@
+<Module name="CustMgr" binary_file="CustMgr.dll" binary_path="$(FOLDERID_ProgramFiles)\McAfee\CoreUI" config_file="" config_path="" log_group_name="" start_type="ondemand" factory_enabled="false">
+	<Subscription name="PDMgr.PDString.Refresh" trigger_load="true" session_filter="false"/>
+</Module>
+
+
