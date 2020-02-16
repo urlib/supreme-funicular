@@ -1,0 +1,5 @@
+<Module binary_file="WACModule.dll" binary_path="$(FOLDERID_ProgramFilesCommon)\McAfee\WACModule" config_file="" config_path="" factory_enabled="false" log_group_name="" name="WAC" start_type="ondemand">
+	<Subscription name="wac.register.appusermodelid" session_filter="false" trigger_load="true"/>
+	<Subscription name="messaging.message.processed" session_filter="false" trigger_load="true"/>
+	<RegexSubscription name="AlertManager.Viewer.WAC.Show.+" session_filter="false" trigger_load="true"/>
+</Module>
