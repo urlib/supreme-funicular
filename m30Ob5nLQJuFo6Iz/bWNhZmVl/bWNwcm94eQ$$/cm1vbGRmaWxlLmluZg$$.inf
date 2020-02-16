@@ -1,0 +1,73 @@
+[Installer_Config]
+AppID=RedirSvc
+Shared=0
+
+[DirIds]
+;Env-Var Defined ==> Program Files
+;33100 ==> All Users\Application Data
+;33000 ==> Program Files\Common files
+;33200 ==> McIns.exe Module dir
+;33300 ==> ExtractCAB location
+41600=%33000%\McAfee\RedirSvc
+41601=%33000%\McAfee\Emproxy
+
+[Install_NT]
+UnRegisterCOM=EXE
+DefaultUninstall.NT=Setup
+Cleanup=Delfolders
+
+[Shared_pkg]
+RedirSvc=%41600%\RedirSvc.inf
+
+[Cleanup]
+%41600%=1
+%41601%=1
+
+[UnRegisterCOM]
+%41600%\redirsvc.exe="/unregserver",1,1
+%41601%\emproxy.exe="/unregserver",1,1
+%41601%\emtray.exe="/unregserver",1,1
+%11%\regsvr32.exe="/u /s ""%41600%\RedirPS.dll""",1,1
+%11%\regsvr32.exe="/u /s ""%41600%\RedirVer.dll""",1,1
+%11%\regsvr32.exe="/u /s ""%41601%\emprxyps.dll""",1,1
+%11%\regsvr32.exe="/u /s ""%41601%\empxyver.dll""",1,1
+
+;///////////////
+
+[Version]
+Signature="$Chicago$"
+AdvancedINF=2.5
+LayoutFile=rmoldfile.inf
+
+[DefaultUninstall.NT]
+cleanup=1
+DelReg=RemoveUnwantedReg
+
+[RemoveUnwantedReg]
+;Remove services
+HKLM,System\CurrentControlSet\Services\mcredirector
+HKLM,System\CurrentControlSet\Services\emproxy
+;Remove from shared sections
+HKLM,SOFTWARE\McAfee\SharedPackages\Emproxy
+HKLM,SOFTWARE\McAfee\SharedPackages\Emprxres
+HKLM,SOFTWARE\McAfee\SharedPackages\Emtray
+HKLM,SOFTWARE\McAfee\SharedPackages\RedirSvc
+;Remove settings
+HKLM,SOFTWARE\McAfee\Redirector
+HKLM,SOFTWARE\McAfee\Events\Redirector
+HKLM,SOFTWARE\McAfee\EmProxy
+HKLM,SOFTWARE\McAfee\Proxy
+;Remove old keys
+HKCR,AppID\{70AE37AD-5507-4fe0-9691-563A55D71F18}
+HKCR,AppID\{B189DF38-9172-4467-8399-3A0C36CE20AC}
+HKCR,CLSID\{94F5EA4D-7E59-4388-9B8D-151501CF480B}
+HKCR,CLSID\{11BF9882-396B-4B8C-87D3-B5E7812080CC}
+
+[SourceDisksNames]
+; This section specifies that all sources are in the "default" location.
+1="Remove unwanted Files","",1
+
+[DestinationDirs]   
+; Destination Directories for CopyFiles/Delfiles Sections.
+; 10 indicates LDID_WIN - windows directory   
+
