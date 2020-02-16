@@ -1,0 +1,278 @@
+<product_catalog>
+	<configuration>
+		<appid>mqs</appid>
+		<appcode>mqs</appcode>
+		<version>18.3.173.1</version>
+		<catname>mqs_li_cat</catname>
+	</configuration>
+
+	<manifest>
+		<server_package_information>
+
+			<!-- Fresh Install and Update packages -->
+			<fullinstall_package_list>
+       
+
+        <!-- MQS LI predownload packages -->
+
+				<server_package name="mcpli.cab" url="http://download.mcafee.com/molbin/iss-loc/mqs/18.3.173/1/mcpli.cab">
+					<flags>
+						<download phase="predownload" />
+						<extract validate="1" />						
+					</flags>
+				</server_package>
+				<server_package name="mcpLD.cab" url="http://download.mcafee.com/molbin/iss-loc/mqs/18.3.173/1/mcpLD.cab">
+					<flags>
+						<download phase="predownload" />
+						<extract validate="1" />						
+					</flags>
+					<component_information>
+						<component name="mcpLD.inf" local_install_path="$REG$:KEY=Software\McAfee\MQS:NAME=Install Dir" >
+							<md5>66268d720ded8fb7a0b917517f26ec21</md5>
+						</component>
+						<component name="instLD.inf" local_install_path="$REG$:KEY=Software\McAfee\MQS:NAME=Install Dir" >
+							<md5>73ad7c76ac69291a00f43b8fe26e6cd1</md5>
+						</component>						
+					</component_information>
+				</server_package>
+				
+				<server_package name="subst.cab" url="http://download.mcafee.com/molbin/iss-loc/mqs/18.3.173/1/subst.cab">
+					<flags>
+						<download phase="predownload" />
+						<extract validate="1" />						
+					</flags>
+					<component_information>
+						<component name="subst.inf" local_install_path="$REG$:KEY=Software\McAfee\MQS:NAME=Install Dir" >
+							<md5>896675a0d332a99d84bd3f474b9e5698</md5>
+						</component>
+						<component name="instLD.inf" local_install_path="$REG$:KEY=Software\McAfee\MQS:NAME=Install Dir" >
+							<md5>73ad7c76ac69291a00f43b8fe26e6cd1</md5>
+						</component>						
+					</component_information>					
+				</server_package>
+				
+				<server_package name="mcpins.cab" url="http://download.mcafee.com/molbin/iss-loc/mqs/18.3.173/1/mcpins.cab">
+					<flags>
+						<download phase="predownload" />						
+					</flags>
+					<component_information>
+						<component name="mcpins.inf" local_install_path="$REG$:KEY=Software\McAfee\MQS:NAME=Install Dir" >
+							<md5>fcd072ae79ff19accea704f46bf9193d</md5>
+						</component>
+						<component name="McpIns.dll" local_install_path="$REG$:KEY=Software\McAfee\MQS:NAME=Install Dir" >
+							<version>18.3.173.0</version>
+						</component>
+					</component_information>
+				</server_package>
+								
+				<server_package name="mcqc.cab" url="http://download.mcafee.com/molbin/iss-loc/mqs/18.3.173/1/mcqc.cab">
+					<flags>
+						<download phase="main" />
+						<extract validate="1" />
+						<os><windows build_type="32"/></os>
+					</flags>
+					<component_information>
+						<component name="mcqc.inf" local_install_path="$REG$:KEY=Software\McAfee\MQS:NAME=Install Dir" >
+							<md5>1bc01fd28d0091e29b30d5696ed76102</md5>
+						</component>
+						<component name="QCLite.dll" local_install_path="$REG$:KEY=Software\McAfee\MQS:NAME=Install Dir" >
+							<version>18.3.173.0</version>
+						</component>
+						<component name="QcConsol.exe" local_install_path="$REG$:KEY=Software\McAfee\MQS:NAME=Install Dir" >
+							<version>18.3.173.0</version>
+						</component>
+						<component name="QcShm.exe" local_install_path="$REG$:KEY=Software\McAfee\MQS:NAME=Install Dir" >
+							<version>18.3.173.0</version>
+						</component>
+						<component name="QCJsRes.dll" local_install_path="$REG$:KEY=Software\McAfee\MQS:NAME=Install Dir" >
+							<version>18.3.173.0</version>
+						</component>
+            <component name="QCJsResO.dll" local_install_path="$REG$:KEY=Software\McAfee\MQS:NAME=Install Dir" >
+              <version>18.1.158.0</version>
+            </component>
+						<component name="QCProgressIcon.dll" local_install_path="$REG$:KEY=Software\McAfee\MQS:NAME=Install Dir" >
+							<version>18.3.173.0</version>
+						</component>
+						<component name="MqsRes.dll" local_install_path="$REG$:KEY=Software\McAfee\MQS:NAME=Install Dir" >
+							<version>18.3.173.0</version>
+						</component>
+						<component name="MqsModule.dll" local_install_path="$REG$:KEY=Software\McAfee\MQS:NAME=Install Dir" >
+							<version>18.3.173.0</version>
+						</component>
+					</component_information>
+				</server_package>
+
+				<server_package name="mcqc64.cab" inf_name="mcqc.inf" url="http://download.mcafee.com/molbin/iss-loc/mqs/18.3.173/1/mcqc64.cab">
+					<flags>
+						<download phase="main" />
+						<extract validate="1" />
+						<os><windows build_type="64"/></os>
+					</flags>
+					<component_information>
+						<component name="mcqc.inf" local_install_path="$REG$:KEY=Software\McAfee\MQS:NAME=Install Dir" >
+							<md5>1bc01fd28d0091e29b30d5696ed76102</md5>
+						</component>
+						<component name="QCLite.dll" local_install_path="$REG$:KEY=Software\McAfee\MQS:NAME=Install Dir" >
+							<version>18.3.173.0</version>
+						</component>
+						<component name="QcConsol.exe" local_install_path="$REG$:KEY=Software\McAfee\MQS:NAME=Install Dir" >
+							<version>18.3.173.0</version>
+						</component>
+						<component name="QcShm.exe" local_install_path="$REG$:KEY=Software\McAfee\MQS:NAME=Install Dir" >
+							<version>18.3.173.0</version>
+						</component>
+						<component name="QCJsRes.dll" local_install_path="$REG$:KEY=Software\McAfee\MQS:NAME=Install Dir" >
+							<version>18.3.173.0</version>
+						</component>
+            <component name="QCJsResO.dll" local_install_path="$REG$:KEY=Software\McAfee\MQS:NAME=Install Dir" >
+              <version>18.1.158.0</version>
+            </component>
+						<component name="QCProgressIcon.dll" local_install_path="$REG$:KEY=Software\McAfee\MQS:NAME=Install Dir" >
+							<version>18.3.173.0</version>
+						</component>
+						<component name="MqsRes.dll" local_install_path="$REG$:KEY=Software\McAfee\MQS:NAME=Install Dir" >
+							<version>18.3.173.0</version>
+						</component>
+						<component name="MqsModule.dll" local_install_path="$REG$:KEY=Software\McAfee\MQS:NAME=Install Dir" >
+							<version>18.3.173.0</version>
+						</component>
+					</component_information>
+				</server_package>
+				
+				<server_package name="mcshr.cab" url="http://download.mcafee.com/molbin/iss-loc/mqs/18.3.173/1/mcshr.cab">
+					<flags>
+						<download phase="main" />
+						<os><windows build_type="32"/></os>
+					</flags>
+					<component_information>
+						<component name="mcshr.inf" local_install_path="$REG$:KEY=Software\McAfee\MQS:NAME=Install Dir" >
+							<md5>60493ec9df147ba7986a1b0662ea319c</md5>
+						</component>
+						<component name="ShrCL.exe" local_install_path="$REG$:KEY=Software\McAfee\MQS:NAME=Install Dir" >
+							<version>18.3.173.0</version>
+						</component>
+						<component name="ShrCore.dll" local_install_path="$REG$:KEY=Software\McAfee\MQS:NAME=Install Dir" >
+							<version>18.3.173.0</version>
+						</component>
+						<component name="ShredShm.dll" local_install_path="$REG$:KEY=Software\McAfee\MQS:NAME=Install Dir" >
+							<version>18.3.173.0</version>
+						</component>
+						<component name="ShredExt.dll" local_install_path="$REG$:KEY=Software\McAfee\MQS:NAME=Install Dir" >
+							<version>18.3.173.0</version>
+						</component>
+					</component_information>
+				</server_package>
+
+				<server_package name="mcshr64.cab" inf_name="mcshr.inf" url="http://download.mcafee.com/molbin/iss-loc/mqs/18.3.173/1/mcshr64.cab">
+					<flags>
+						<download phase="main" />
+						<os><windows build_type="64"/></os>
+					</flags>
+					<component_information>
+						<component name="mcshr.inf" local_install_path="$REG$:KEY=Software\McAfee\MQS:NAME=Install Dir" >
+							<md5>60493ec9df147ba7986a1b0662ea319c</md5>
+						</component>
+						<component name="ShrCL.exe" local_install_path="$REG$:KEY=Software\McAfee\MQS:NAME=Install Dir" >
+							<version>18.3.173.0</version>
+						</component>
+						<component name="ShrCore.dll" local_install_path="$REG$:KEY=Software\McAfee\MQS:NAME=Install Dir" >
+							<version>18.3.173.0</version>
+						</component>
+						<component name="ShredShm.dll" local_install_path="$REG$:KEY=Software\McAfee\MQS:NAME=Install Dir" >
+							<version>18.3.173.0</version>
+						</component>
+						<component name="ShredExt.dll" local_install_path="$REG$:KEY=Software\McAfee\MQS:NAME=Install Dir" >
+							<version>18.3.173.0</version>
+						</component>
+					</component_information>
+				</server_package>				
+
+			</fullinstall_package_list>		
+
+				
+			<!-- Upgrade-only packages -->
+			<!--
+			<unconditional_upgrade_server_package_list>
+			</unconditional_upgrade_server_package_list>
+			-->
+
+			<!-- Any updates including upgrades -->
+			<!--
+			<unconditional_server_package_list>
+			</unconditional_server_package_list>
+			-->
+
+		</server_package_information>
+	</manifest>
+
+	<sharedcomplist>
+		<sharedcomponent name="mcinst" />
+	</sharedcomplist>
+
+	<install_instructions>
+		<update>
+			<prepare_install>
+				<!-- NOTE: the INI file name must match the inf file name passed in installation command -->
+				<generateini file_name="mqslibkupd.inf">
+					<section name="Installer_Config" obfuscate="0">
+						<entry>
+							<name><![CDATA[ AppID ]]></name>
+							<value><![CDATA[ mqs ]]></value>
+						</entry>
+					</section>
+					<section name="Installer_Config" obfuscate="0">
+						<entry>
+							<name><![CDATA[ Shared ]]></name>
+							<value><![CDATA[ 0 ]]></value>
+						</entry>
+					</section>
+					<section name="Install_NT" obfuscate="0">
+						<entry>
+							<name><![CDATA[ CabFilesNT ]]></name>
+							<value><![CDATA[ ExtractCAB ]]></value>
+						</entry>
+					</section>
+					<section name="Install_NT" obfuscate="0">
+						<entry>
+							<name><![CDATA[ InstallFiles ]]></name>
+							<value><![CDATA[ RunINF ]]></value>
+						</entry>
+					</section>
+					<section name="Version" obfuscate="0">
+						<entry>
+							<name><![CDATA[ Signature ]]></name>
+							<value><![CDATA[ $Chicago$ ]]></value>
+						</entry>
+					</section>
+					<section name="Version" obfuscate="0">
+						<entry>
+							<name><![CDATA[ AdvancedINF ]]></name>
+							<value><![CDATA[ 2.5 ]]></value>
+						</entry>
+					</section>
+					<section name="Version" obfuscate="0">
+						<entry>
+							<name><![CDATA[ LayoutFile ]]></name>
+							<value><![CDATA[ mqslibkupd.inf ]]></value>
+						</entry>
+					</section>
+					<section name="SourceDisksNames" obfuscate="0">
+						<entry>
+							<name><![CDATA[ 1 ]]></name>
+							<value><![CDATA[ "MQS Background Update Master File","",1 ]]></value>
+						</entry>
+					</section>
+				</generateini>
+			</prepare_install>
+
+			<install system="1">
+				<install_env_variables>
+					<variable type="$REG$:KEY=Software\McAfee\McInst\InstallSettings:NAME=Install Dir" name="%mcinst_path%"/>
+				</install_env_variables>
+				<executeex file="%mcinst_path%\McInst.exe" param="/install /longpath mqslibkupd.inf" validate="1"/>
+			</install>
+
+		</update>
+	</install_instructions>
+</product_catalog>
+
