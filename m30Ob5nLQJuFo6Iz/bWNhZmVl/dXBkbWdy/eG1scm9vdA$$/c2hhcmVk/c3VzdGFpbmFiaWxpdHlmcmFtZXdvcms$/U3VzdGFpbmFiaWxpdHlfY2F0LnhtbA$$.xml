@@ -1,0 +1,184 @@
+<shared_catalog>
+
+	<configuration>
+		<appid>SustainabilityFramework</appid>
+		<appcode>SustainabilityFramework</appcode>
+		<version>2.8.104.1</version>
+		<catname>Sustainability_cat</catname>
+	</configuration>
+
+	<manifest>
+		<server_package_information>
+			<!-- Fresh Install and Update packages -->
+			<fullinstall_package_list>		
+				<server_package name="sustainability_predownload.cab" inf_name="" 
+				url="http://download.mcafee.com/molbin/collective/sustainability/2.8.104/1/sustainability_predownload.cab"
+				 local_name="sustainability_predownload.cab" validate="1">
+					<flags>
+						<download phase="predownload"/>
+						<extract validate="1"/>
+					</flags>
+				</server_package>			
+				<server_package name="sustainability32.cab" inf_name="Sustainability32.inf" url="http://download.mcafee.com/molbin/collective/Sustainability/2.8.104/1/Sustainability32.cab">
+					<flags>
+						<download phase="main"/>
+						<extract validate="1"/>
+						<os><windows build_type="32"/></os>
+					</flags>
+					<component_information>
+						<component name="SustainabilityModule.dll" local_install_path="%COMMONPROGRAMFILES%\McAfee\Sustainability" >
+							<version>2.8.104.0</version>
+						</component>
+						<component name="SustainabilityFrameworkReg.exe" local_install_path="%COMMONPROGRAMFILES%\McAfee\Sustainability" >
+							<version>2.8.104.0</version>
+						</component>
+						<component name="LamRepair.dll" local_install_path="%COMMONPROGRAMFILES%\McAfee\Sustainability" >
+							<version>22.8.166.0</version>
+						</component>
+						<component name="GenericPlugin.dll" local_install_path="%COMMONPROGRAMFILES%\McAfee\Sustainability" >
+							<version>2.8.104.0</version>
+						</component>
+						<component name="MfeReInstaller.exe" local_install_path="%COMMONPROGRAMFILES%\McAfee\Sustainability" >
+							<version>2.8.104.0</version>
+						</component>
+						<component name="WSSReinstallerLauncher.exe" local_install_path="%COMMONPROGRAMFILES%\McAfee\Sustainability" >
+							<version>2.8.104.0</version>
+						</component>
+						<component name="ReinstallerMsgs.dll" local_install_path="%COMMONPROGRAMFILES%\McAfee\Sustainability" >
+							<version>2.8.104.0</version>
+						</component> 
+						<component name="Sustainability32.inf" local_install_path="%COMMONPROGRAMFILES%\McAfee\Sustainability" >
+							<md5>bc70d0c214cec86a99f4b58f75dbcaf3</md5>
+						</component>						
+					</component_information>
+				</server_package>
+				<server_package name="sustainability64.cab" inf_name="sustainability64.inf" url="http://download.mcafee.com/molbin/collective/Sustainability/2.8.104/1/Sustainability64.cab">
+					<flags>
+						<download phase="main"/>
+						<extract validate="1"/>
+						<os><windows build_type="64"/></os>
+					</flags>
+					<component_information>
+						<component name="SustainabilityModule.dll" local_install_path="%COMMONPROGRAMFILES%\McAfee\Sustainability" >
+							<version>2.8.104.0</version>
+						</component>
+						<component name="SustainabilityFrameworkReg.exe" local_install_path="%COMMONPROGRAMFILES%\McAfee\Sustainability" >
+							<version>2.8.104.0</version>
+						</component>
+						<component name="LamRepair.dll" local_install_path="%COMMONPROGRAMFILES%\McAfee\Sustainability" >
+							<version>22.8.166.0</version>
+						</component>
+						<component name="GenericPlugin.dll" local_install_path="%COMMONPROGRAMFILES%\McAfee\Sustainability" >
+							<version>2.8.104.0</version>
+						</component>
+						<component name="MfeReInstaller.exe" local_install_path="%COMMONPROGRAMFILES%\McAfee\Sustainability" >
+							<version>2.8.104.0</version>
+						</component>
+						<component name="WSSReinstallerLauncher.exe" local_install_path="%COMMONPROGRAMFILES%\McAfee\Sustainability" >
+							<version>2.8.104.0</version>
+						</component>
+						<component name="ReinstallerMsgs.dll" local_install_path="%COMMONPROGRAMFILES%\McAfee\Sustainability" >
+							<version>2.8.104.0</version>
+						</component> 						
+						<component name="Sustainability64.inf" local_install_path="%COMMONPROGRAMFILES%\McAfee\Sustainability" >
+							<md5>0f121bca8efce845a543cdd3f59e8136</md5>
+						</component>						
+					</component_information>
+				</server_package>		
+				<server_package name="sustainabilityResDLL32.cab" inf_name="Sustainability32.inf" url="http://download.mcafee.com/molbin/collective/Sustainability/2.8.104/1/sustainabilityResDLL32.cab">
+					<flags>
+						<download phase="main"/>
+						<extract validate="1"/>
+						<os><windows build_type="32"/></os>
+					</flags>
+					<component_information>
+						<component name="SustainabilityResource.dll" local_install_path="%COMMONPROGRAMFILES%\McAfee\Sustainability" >
+							<version>2.8.104.0</version>
+						</component>
+					</component_information>
+				</server_package>
+				<server_package name="sustainabilityResDLL64.cab" inf_name="sustainability64.inf" url="http://download.mcafee.com/molbin/collective/Sustainability/2.8.104/1/sustainabilityResDLL64.cab">
+					<flags>
+						<download phase="main"/>
+						<extract validate="1"/>
+						<os><windows build_type="64"/></os>
+					</flags>
+					<component_information>
+						<component name="SustainabilityResource.dll" local_install_path="%COMMONPROGRAMFILES%\McAfee\Sustainability" >
+							<version>2.8.104.0</version>
+						</component>		
+					</component_information>
+				</server_package>	
+			</fullinstall_package_list>
+		</server_package_information>
+	</manifest>
+	<sharedcomplist>
+		<sharedcomponent name="mcinst" />
+	</sharedcomplist>
+	<install_instructions>
+		<update>
+			<prepare_install>
+				<!-- NOTE: the INI file name must match the inf file name passed in installation command -->
+				<generateini file_name="Sustainability_upd.inf">
+					<section name="Installer_Config" obfuscate="0">
+						<entry>
+							<name><![CDATA[ AppID ]]></name>
+							<value><![CDATA[ SustainabilityFramework ]]></value>
+						</entry>
+					</section>
+					<section name="Installer_Config" obfuscate="0">
+						<entry>
+							<name><![CDATA[ Shared ]]></name>
+							<value><![CDATA[ 0 ]]></value>
+						</entry>
+					</section>
+					<section name="Install_NT" obfuscate="0">
+						<entry>
+							<name><![CDATA[ CabFilesNT ]]></name>
+							<value><![CDATA[ ExtractCAB ]]></value>
+						</entry>
+					</section>
+					<section name="Install_NT" obfuscate="0">
+						<entry>
+							<name><![CDATA[ InstallFiles ]]></name>
+							<value><![CDATA[ RunINF ]]></value>
+						</entry>
+					</section>
+					<section name="Version" obfuscate="0">
+						<entry>
+							<name><![CDATA[ Signature ]]></name>
+							<value><![CDATA[ $Chicago$ ]]></value>
+						</entry>
+					</section>
+					<section name="Version" obfuscate="0">
+						<entry>
+							<name><![CDATA[ AdvancedINF ]]></name>
+							<value><![CDATA[ 2.5 ]]></value>
+						</entry>
+					</section>
+					<section name="Version" obfuscate="0">
+						<entry>
+							<name><![CDATA[ LayoutFile ]]></name>
+							<value><![CDATA[ sustainability_upd.inf ]]></value>
+						</entry>
+					</section>
+					<section name="SourceDisksNames" obfuscate="0">
+						<entry>
+							<name><![CDATA[ 1 ]]></name>
+							<value><![CDATA[ "Sustainability Update File","",1 ]]></value>
+						</entry>
+					</section>
+				</generateini>
+			</prepare_install>
+
+			<install system="1">
+				<install_env_variables>
+					<variable type="$REG$:KEY=Software\McAfee\McInst\InstallSettings:NAME=Install Dir" name="%mcinst_path%"/>
+				</install_env_variables>
+				<executeex file="%mcinst_path%\mcinst.exe" param="/install sustainability_upd.inf" validate="1"/>
+			</install>
+
+		</update>
+	</install_instructions>
+</shared_catalog>
+
