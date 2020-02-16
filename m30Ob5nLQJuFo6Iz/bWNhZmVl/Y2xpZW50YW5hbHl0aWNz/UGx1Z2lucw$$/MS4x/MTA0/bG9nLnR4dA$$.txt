@@ -1,0 +1,24 @@
+
+==== 2019-08-25T19:47:17+0800 ====
+
+Created/updated hard link:
+    "C:\\Program Files\\Common Files\\McAfee\\ClientAnalytics\\Plugins\\Setup.exe" --> "C:\\Program Files\\Common Files\\McAfee\\ClientAnalytics\\Plugins\\1.1\\104\\Setup.exe"
+
+Patching generic INF "C:\\Program Files\\Common Files\\McAfee\\ClientAnalytics\\McClientAnalytics.inf" to unregiter plugins on WSS uninstallation:
+    Successfully updated [UnInstall_NT] and [UnInstall_NT_x64] to unregister plugins
+
+Patching platform-specific INF "C:\\Program Files\\Common Files\\McAfee\\ClientAnalytics\\McClientAnalytics64.inf" to unregiter plugins on WSS uninstallation:
+    Successfully updated "McClientAnalytics64.inf" to unregister plugins
+
+Discovering COM components to register/unregister:
+  Ignoring "C:\\Program Files\\Common Files\\McAfee\\ClientAnalytics\\Plugins\\1.1\\104\\config.json"
+  Ignoring "C:\\Program Files\\Common Files\\McAfee\\ClientAnalytics\\Plugins\\1.1\\104\\log.txt"
+  Ignoring "C:\\Program Files\\Common Files\\McAfee\\ClientAnalytics\\Plugins\\1.1\\104\\Setup.exe"
+  Found "UptimeTracker.dll" (version 1.1.104)
+  Ignoring "C:\\Program Files\\Common Files\\McAfee\\ClientAnalytics\\Plugins\\1.1\\104\\XMLUpdaterBridge.exe"
+  Ignoring "C:\\Program Files\\Common Files\\McAfee\\ClientAnalytics\\Plugins\\Setup.exe"
+
+Unregistering COM components:
+
+Registering COM components:
+  Successfully registered "UptimeTracker.dll" (version 1.1.104)
