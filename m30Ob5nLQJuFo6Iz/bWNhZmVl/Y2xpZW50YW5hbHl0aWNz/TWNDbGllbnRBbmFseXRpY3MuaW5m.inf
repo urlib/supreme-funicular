@@ -1,0 +1,59 @@
+[Version]
+Signature="$Chicago$"
+AdvancedINF=2.5
+LayoutFile=McClientAnalytics.inf
+
+[Installer_Config]
+AppID=AnalyticsSDK
+Shared=0
+
+[SourceDisksNames]
+1="McClientAnalytics","",1
+
+[DirIds]
+47010=%33000%\McAfee\ClientAnalytics
+47011=%33000%\McAfee\ClientAnalytics\Legacy
+47020=%CommonProgramW6432%\McAfee\ClientAnalytics
+47021=%CommonProgramW6432%\McAfee\ClientAnalytics\Legacy
+
+
+;; ----------------------- CURRENT
+
+;; ----------------------- 32 bit
+[Install_NT]
+InstallCA32=RunINF
+
+[UnInstall_NT]
+UnInstallCALegacy32=RunINF
+UnInstallCA32=RunINF
+
+[InstallCA32]
+McClientAnalytics32.inf
+
+[UnInstallCA32]
+%47010%\McClientAnalytics32.inf
+
+;; ----------------------- 64 bit
+[Install_NT_X64]
+InstallCA64=RunINF
+
+[UnInstall_NT_x64]
+UnInstallCALegacy64=RunINF
+UnInstallCA64=RunINF
+
+[InstallCA64]
+McClientAnalytics64.inf
+
+[UnInstallCA64]
+%47020%\McClientAnalytics64.inf
+
+
+;; ----------------------- LEGACY
+
+;; ----------------------- 32 bit
+[UnInstallCALegacy32]
+%47011%\LegacyClientAnalytics32.inf
+
+;; ----------------------- 64 bit
+[UnInstallCALegacy64]
+%47021%\LegacyClientAnalytics64.inf
