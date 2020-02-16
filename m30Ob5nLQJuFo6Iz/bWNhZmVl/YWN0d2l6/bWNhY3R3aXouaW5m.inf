@@ -1,0 +1,178 @@
+[Version]
+Signature="$Chicago$"
+AdvancedINF=2.5
+LayoutFile=mcactwiz.inf
+
+[Installer_Config]
+AppID=mcmisc
+Shared=1
+
+[SourceDisksNames]
+1="McAfee Activation Wizard","",1
+
+[DefaultInstall]
+AddReg=RegInfo32, TrueKeyCmdLine32, RegkeysUnObfuscate
+DelFiles=DeletePreviousInstallFiles
+
+[DefaultInstall64]
+AddReg=RegInfo64, TrueKeyCmdLine64, RegkeysUnObfuscate64
+DelFiles=DeletePreviousInstallFiles64
+
+
+[RenCopyCommon]
+mcactwiz.dll=%46501%
+mcautoreg.exe=%46501%
+mcactwiz.inf=%46501%
+
+[RenCopyCommon64]
+x64\mcactwiz.dll=%46601%\mcactwiz.dll
+x64\mcautoreg.exe=%46601%\mcautoreg.exe
+mcactwiz.inf=%46601%\mcactwiz.inf
+
+
+[DestinationDirs]
+FileList=46501
+CustomInf=46501
+FileList64=46601
+CustomInf64=46601
+DeletePreviousInstallFiles=46100
+DeletePreviousInstallFiles64=46200
+
+[DirIds]
+46100=%33500%\McAfee\MSC
+46200=%ProgramW6432%\McAfee\MSC
+46300=%CommonProgramW6432%\McAfee\Platform
+46501=%33000%\McAfee\ActWiz
+46601=%CommonProgramW6432%\McAfee\ActWiz
+46001=%33500%\McAfee\PartnerCore
+46002=%ProgramW6432%\McAfee\PartnerCore
+46003=%33500%\McAfee
+46004=%ProgramW6432%\McAfee
+46005=%33000%\McAfee
+46006=%CommonProgramW6432%\McAfee
+
+[RegInfo32]
+HKLM,Software\McAfee\MSC\OEM\Manage\RGW,"ActWizUrl",,"http://home.mcafee.com/root/campaign.aspx?cid=92629"
+HKLM,Software\McAfee\MSC\OEM\Manage\RGW,"UseActWiz",,"1"
+HKLM,Software\McAfee\MSC\OEM\Manage\RGW,"ActWizUrl",0x00001000,"http://home.mcafee.com/root/campaign.aspx?cid=92629"
+HKLM,Software\McAfee\MSC\OEM\Manage\RGW,"UseActWiz",0x00001000,"1"
+HKLM,Software\McAfee\MSC\OEM\Manage\RGW,"ActWizSilentActivationUrl",,"http://home.mcafee.com/root/campaign.aspx?cid=107486"
+
+[RegInfo64]
+HKLM,Software\McAfee\MSC\OEM\Manage\RGW,"ActWizUrl",4096,"http://home.mcafee.com/root/campaign.aspx?cid=92629"
+HKLM,Software\McAfee\MSC\OEM\Manage\RGW,"UseActWiz",4096,"1"
+HKLM,Software\McAfee\MSC\OEM\Manage\RGW,"ActWizUrl",0x00001000,"http://home.mcafee.com/root/campaign.aspx?cid=92629"
+HKLM,Software\McAfee\MSC\OEM\Manage\RGW,"UseActWiz",0x00001000,"1"
+HKLM,Software\McAfee\MSC\OEM\Manage\RGW,"ActWizSilentActivationUrl",4096,"http://home.mcafee.com/root/campaign.aspx?cid=107486"
+
+[TrueKeyCmdLine32]
+HKLM,Software\McAfee\PartnerCore\AppInfo\Substitute,"TrueKeyCmdLine",,"--skip-onboarding-intro --in-app-legal --maximized"
+
+[TrueKeyCmdLine64]
+HKLM,Software\McAfee\PartnerCore\AppInfo\Substitute,"TrueKeyCmdLine",0x00001000,"--skip-onboarding-intro --in-app-legal --maximized"
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; 32 bit os
+
+[DelRegEntry]
+HKLM,Software\McAfee\PartnerCore
+HKLM,Software\McAfee\OEM
+HKLM,Software\McAfee\WSS
+HKLM,Software\McAfee\Partner
+
+[FileList]
+mcactwiz.dll,,,65568
+mcautoreg.exe,,,65568
+
+[CustomInf]
+mcactwiz.inf,,,65568
+
+[Install_NT]
+DefaultInstall=Setup
+RegKeys=RegObfuscate
+RenCopyCommon=RenCopy
+LaunchExe32=EXE
+
+[UnInstall_NT]
+DefaultUnInstall=Setup
+McActWizCleanup=DelFolders
+
+[DefaultUnInstall]
+DelReg=DelRegEntry
+DelFiles=FileList, CustomInf
+
+[Regkeys]
+HKLM,Software\McAfee\MSC\OEM\Manage\RGW,"ActWizPath", ,"""%33000%\mcafee\platform\mcuicnt.exe"" ""%46501%\mcactwiz.dll"""
+HKLM,Software\McAfee\MSC\OEM\Manage\RGW,"UICntPath", ,"%33000%\mcafee\platform\mcuicnt.exe"
+HKLM,Software\McAfee\MSC\OEM\Manage\RGW,"actwizargs", ,"""%46501%\mcactwiz.dll"" oobe starttype=2"
+
+[RegkeysUnObfuscate]
+HKLM,Software\McAfee\MSC\Update\Customization,"mcactwiz.dll", ,"%46501%"
+
+[DeletePreviousInstallFiles]
+mcactwiz.dll
+mcautoreg.exe
+
+[McActWizCleanup]
+%46501%
+%46001%
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; 64 bit os
+
+[FileList64]
+mcactwiz.dll,x64\mcactwiz.dll,,65568
+mcautoreg.exe,x64\mcautoreg.exe,,65568
+
+[CustomInf64]
+mcactwiz.inf,,,65568
+
+[Install_Vista_x64]
+DefaultInstall64=Setup
+RegKeys64=RegObfuscate
+RenCopyCommon64=RenCopy
+LaunchExe64=EXE
+
+[UnInstall_Vista_x64]
+DefaultUnInstall64=Setup
+McActWizCleanup64=DelFolders
+DelRegEntry64=DelReg64
+
+[DefaultUnInstall64]
+DelReg=DelRegEntry64, DelRegEntry 
+DelFiles=FileList64, CustomInf64
+
+[Regkeys64]
+HKLM,Software\McAfee\MSC\OEM\Manage\RGW,"ActWizPath",0x00001000,"""%46300%\mcuicnt.exe"" ""%46601%\mcactwiz.dll"""
+HKLM,Software\McAfee\MSC\OEM\Manage\RGW,"UICntPath",0x00001000,"%46300%\mcuicnt.exe"
+HKLM,Software\McAfee\MSC\OEM\Manage\RGW,"actwizargs",0x00001000,"""%46601%\mcactwiz.dll"" oobe starttype=2"
+HKLM,Software\McAfee\MSC\OEM\Manage\RGW,"ActWizPath",0x00001000,"""%46300%\mcuicnt.exe"" ""%46601%\mcactwiz.dll"""
+HKLM,Software\McAfee\MSC\OEM\Manage\RGW,"UICntPath",0x00001000,"%46300%\mcuicnt.exe"
+HKLM,Software\McAfee\MSC\OEM\Manage\RGW,"actwizargs",0x00001000,"""%46601%\mcactwiz.dll"" oobe starttype=2"
+
+[RegkeysUnObfuscate64]
+HKLM,Software\McAfee\MSC\Update\Customization,"mcactwiz.dll",0x00001000,"%46601%"
+
+[DeletePreviousInstallFiles64]
+mcactwiz.dll
+mcautoreg.exe
+
+[DelRegEntry64]
+; 0x3000 => 0x2000 == delete key, 0x1000 == delete from 64-bit view.
+64BitKey=HKLM,Software\McAfee\PartnerCore,,0x3000
+64BitKey=HKLM,Software\McAfee\OEM,,0x3000
+64BitKey=HKLM,Software\McAfee\WSS,,0x3000
+64BitKey=HKLM,Software\McAfee\Partner,,0x3000
+
+[McActWizCleanup64]
+%46601%
+%46002%
+
+[Shared_pkg]
+mcactwiz = %46601%\mcactwiz.inf
+
+[LaunchExe32]
+%46501%\mcautoreg.exe=/HandleUpdate,0
+
+[LaunchExe64]
+%46601%\mcautoreg.exe=/HandleUpdate,0
