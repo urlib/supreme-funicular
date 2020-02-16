@@ -1,0 +1,99 @@
+[Version]
+Signature="$Chicago$"
+AdvancedINF=2.5
+LayoutFile=DynamicAppDownloader64.inf
+
+[Installer_Config]
+AppID=DynamicAppDownloader
+Shared=0
+
+[SourceDisksNames]
+1="DynamicAppDownloader","",1
+
+;;;;Destinations;;;;;;;;
+;;;;on 64 bit OS
+;; %CommonProgramW6432% -> C:\Program Files\Common Files
+;; %ALLUSERSPROFILE% -> C:\ProgramData\
+;;
+
+[DirIds]
+47010=%CommonProgramW6432%\McAfee\DynamicAppDownloader
+47020=%CommonProgramW6432%\McAfee
+
+[DestinationDirs]   
+FileList=47010
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;	64 bit os
+;;
+;; This inf file does the following
+;;
+;; Case Install:
+;; 1. (disabled) Unregisters ModuleDAD with ModuleCoreService.exe
+;; 2. Deletes cached registry keys
+;; 3. Copy the files to C:\Program Files \Common Files\McAfee\DynamicAppDownloader
+;; 4. (disabled) Registers ModuleDAD with ModuleCoreService.exe
+;;
+;; Case Uninstall
+;; 1. Unregisters ModuleDAD with ModuleCoreService.exe
+;; 2. Deletes registry keys
+;; 3. Deletes defined files from C:\Program Files \Common Files\McAfee\DynamicAppDownloader
+;; 4. (dsisabled) Deletes folders under programdata (DynamicAppDownloader and ModuleCoreService.exe)
+;;-------------------------------
+
+;;File list under C:\Program Files \Common Files\McAfee\DynamicAppDownloader
+;;Used for uninstallation
+[FileList]
+DADUpdater.exe,,,65568
+DynamicAppDownloader.inf,,,65568
+DynamicAppDownloader64.inf,,,65568
+
+[Install_NT_x64]
+RunUnRegs=EXE
+DefaultInstall=Setup
+RenCopyList=RenCopy
+RunRegs=EXE
+
+[DefaultInstall]
+DelReg=DeleteCacheRegistry
+AddReg=AddRegEntries
+
+[RenCopyList]
+DADUpdater.exe=%47010%
+DynamicAppDownloader.inf=%47010%
+DynamicAppDownloader64.inf=%47010%
+
+[AddRegEntries]
+HKLM,SOFTWARE\McAfee\DynamicAppDownloader,"Install Dir",0x00001000,"%47010%"
+HKLM,SOFTWARE\McAfee\DynamicAppDownloader,"Install Dir32",0x00001000,"%47010%"
+
+[UninstRegEntries]
+HKLM,Software\McAfee\DynamicAppDownloader
+
+[UninstRegEntries_x64]
+HKLM,Software\McAfee\DynamicAppDownloader,,0x3000,
+
+[UnInstall_NT_x64]
+RunUnRegs=EXE
+DefaultUnInstall=Setup
+FolderCleanup=DelFolders
+
+[DefaultUnInstall]
+DelReg=UninstRegEntries,UninstRegEntries_x64
+DelFiles=FileList
+
+[FolderCleanup]
+;;%CommonProgramFiles%\McAfee\DynamicAppDownloader
+%47010%=1
+
+[DeleteCacheRegistry]
+HKLM,Software\McAfee\DynamicAppDownloader\Cache
+
+[RunRegs]
+;;%47020%\ModuleCore\ModuleCoreService.exe=/register=DADUpdater /binaryFile=ModuleDAD.dll /binaryPath=$(FOLDERID_ProgramFilesCommon)\McAfee\DynamicAppDownloader,1,1
+%47010%\DADUpdater.exe=/setuptask
+
+[RunUnRegs]
+;;%;47020%\ModuleCore\ModuleCoreService.exe=/unregister=DADUpdater,1,1
+%47010%\DADUpdater.exe=/uninstallprep
