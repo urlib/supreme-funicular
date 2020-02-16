@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<pkgconfig>
+  <metadata>
+    <staticmetadatalist>
+        <clsidclient>{E001E795-5A24-4E12-8B9C-6B80F190767D}</clsidclient>
+        <clsidclientui>{8F7EE58B-CEA5-4869-962F-AD58E4BD7465}</clsidclientui>
+        <clsidsubscription>{9BE8D7B2-329C-442A-A4AC-ABA9D7572602}</clsidsubscription>
+	<clsidupdagentconnect>{ADA518B9-B7A3-4C36-B4ED-49EB3FA189FC}</clsidupdagentconnect>
+      <staticmetadata></staticmetadata>
+    </staticmetadatalist>
+
+    <dynmetadatalist>
+      <dynmetadata></dynmetadata>
+      <dynmetadata></dynmetadata>
+      <dynmetadata></dynmetadata>
+    </dynmetadatalist>
+  </metadata>
+
+  <subdata>
+    <staticsubdatalist>
+      <staticsubdata></staticsubdata>
+      <staticsubdata></staticsubdata>
+      <staticsubdata></staticsubdata>
+    </staticsubdatalist>
+
+    <dynsubdatalist>
+      <dynsubdata></dynsubdata>
+      <dynsubdata></dynsubdata>
+      <dynsubdata></dynsubdata>
+    </dynsubdatalist>
+  </subdata>
+
+</pkgconfig>
+
