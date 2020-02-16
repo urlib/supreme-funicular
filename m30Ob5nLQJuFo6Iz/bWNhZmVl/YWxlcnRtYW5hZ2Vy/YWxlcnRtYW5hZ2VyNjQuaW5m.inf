@@ -1,0 +1,64 @@
+[Version]
+Signature="$Chicago$"
+AdvancedINF=2.5
+LayoutFile=alertmanager64.inf
+
+[Installer_Config]
+AppID=alertmanager
+Shared=0
+
+[SourceDisksNames]
+1="Alert Manager Files","",1
+
+[DirIds]
+52700=%CommonProgramW6432%\McAfee\AlertManager
+52600=%CommonProgramW6432%\McAfee\ModuleCore
+
+[DestinationDirs]
+AlertManagerFileList=52700
+AlertManagerRegFileList=52700
+
+[AddRegEntries]
+HKLM,SOFTWARE\McAfee\AlertManager,Version,,"2.12.105.1"
+HKLM,SOFTWARE\McAfee\AlertManager,"Install Dir",,"%52700%"
+HKLM,SOFTWARE\McAfee\AlertManager,Version,0x00001000,"2.12.105.1"
+HKLM,SOFTWARE\McAfee\AlertManager,Install Dir,0x00001000,%52700%
+
+[Del64BitKeys]
+64BitKey=HKLM,Software\McAfee\AlertManager
+
+[DelRegEntries]
+HKLM,Software\McAfee\AlertManager
+
+[DefaultInstall]
+AddReg=AddRegEntries
+CopyFiles=AlertManagerFileList, AlertManagerRegFileList
+
+[DefaultUninstall]
+DelFiles=AlertManagerFileList
+DelReg=DelRegEntries
+
+[AlertManagerRegFileList]
+AlertManagerReg.exe,,,0x00014020
+
+[AlertManagerFileList]
+alertmanager64.inf,,,0x00014020
+AlertManager.dll,,,0x00014020
+AlertPluginRegister.exe,,,0x00014020
+
+[Install_NT]
+UnregisterModule=EXE
+DefaultInstall=Setup
+RegisterModule=EXE
+
+[UnInstall_NT]
+Del64BitKeys=DelReg64
+UnregisterModule=EXE
+DefaultUninstall=Setup
+
+[RegisterModule]
+%52600%\ModuleCoreService.exe=/register=AlertManager /binaryFile=AlertManager.dll /binaryPath="""%52700%""",1,1
+
+[UnregisterModule]
+%52600%\ModuleCoreService.exe=/unregister=AlertManager,1,1
+
