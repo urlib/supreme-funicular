@@ -1,0 +1,116 @@
+[Installer_Config]
+AppID=UPDMGR
+Shared=0
+
+[DirIds]
+;Env-Var Defined ==> Program Files
+;33100 ==> All Users\Application Data
+;33000 ==> Program Files\Common files
+;33200 ==> McIns.exe Module dir
+;33300 ==> ExtractCAB location
+;16422 ==> Program Files
+
+45000=%CommonProgramW6432%\McAfee\UPDMGR
+45001=%45000%\7.3.166.2
+45002=%CommonProgramW6432%\AV\McAfee VirusScan
+45003=%CommonProgramW6432%\AV
+
+;///////////////
+
+[Version]
+Signature="$Chicago$"
+AdvancedINF=2.5
+LayoutFile=mcupdmgr.inf
+
+[SourceDisksNames]
+1="McAfee Update Manager Files","",1
+
+[DestinationDirs]   
+; Destination Directories for CopyFiles/Delfiles Sections.
+; 10 indicates LDID_WIN - windows directory   
+McUpdateMgrFiles=45001
+RemediationFiles=45002
+RemediationInstall=45002
+
+[DefaultInstall]
+CopyFiles=McUpdateMgrFiles
+AddReg=AddRegEntry
+
+[RemediationInstall]
+upgrade.exe=%45002%
+
+[DefaultUninstall]
+DelFiles=McUpdateMgrFiles
+DelReg=DelRegEntry
+
+[RemediationUninstall]
+DelFiles=RemediationFiles
+
+[McUpdateMgrFiles]
+mcupdatemgr.exe,,,65568
+mcupdagent.dll,,,65568
+mccatupdate.dll,,,65568
+mcdwnldmgr.dll,,,65568
+mcupdutl.exe,,,65568
+mcupdmgr.inf,,,65568
+mcutil.dll,,,65568
+mccoreps.dll,,,65568
+mccertupd.exe,,,65568
+McAfeeCerts.xml,,,65568
+
+[Cleanup]
+%45000%=1
+
+[RemediationFiles]
+upgrade.exe,,,65568
+
+[PrepareRemediation]
+%45002%\upgrade.exe=/setup,0
+
+[CleanupRemediation]
+%45002%\upgrade.exe=/cleanup,0
+
+[RunCertUpdate]
+%45001%\mccertupd.exe="/path ""%45001%""",1
+
+[OCXRegister]
+mcupdagent.dll
+mcupdatemgr.exe
+
+[Install_NT]
+DefaultInstall=Setup
+RunCertUpdate=EXE
+RemediationInstall=RenCopy
+PrepareRemediation=EXE
+ObfuscatedRegEntry=RegObfuscate
+
+[UnInstall_NT]
+DefaultUnInstall=Setup
+CleanupRemediation=EXE
+RemediationUninstall=Setup
+RemediationCleanup=DelFolders
+DelRegEntry64=DelReg64
+Cleanup=DelFolders
+
+[DelRegEntry]
+HKLM,Software\McAfee\UPDMGR
+
+[RemediationCleanup]
+%45002%=1
+%45003%=1
+
+[DelRegEntry64]
+64BitKey=HKLM,Software\McAfee\UPDMGR
+
+[AddRegEntry]
+HKLM,Software\McAfee\UPDMGR\InstallSettings,"Install Dir",,"%45001%"
+HKLM,Software\McAfee\UPDMGR\InstallSettings,"Install Dir",0x00001000,"%45001%"
+HKLM,Software\McAfee\UPDMGR\InstallSettings,"Version",,"7.3.166.2"
+HKLM,Software\McAfee\UPDMGR\InstallSettings,"Version",0x00001000,"7.3.166.2"
+
+[ObfuscatedRegEntry]
+HKLM,Software\McAfee\UPDMGR,"DownloadDomain",,"download.mcafee.com"
+HKLM,Software\McAfee\UPDMGR,"DownloadDomain",0x00001000,"download.mcafee.com",0x00001000
+HKLM,Software\McAfee\UPDMGR,"InitialPingUrl",,"https://consumerapps.mcafee.com/mantle/1.0.0.0/"
+HKLM,Software\McAfee\UPDMGR,"InitialPingUrl",0x00001000,"https://consumerapps.mcafee.com/mantle/1.0.0.0/",
+
