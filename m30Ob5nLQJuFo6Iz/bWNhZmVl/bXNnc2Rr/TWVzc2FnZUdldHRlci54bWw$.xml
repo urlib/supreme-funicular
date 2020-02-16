@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Modify the appcode and paths as appropriate for your application. -->
+<Application appcode="NGM" >
+  <Modules>
+    <Module name="MessageGetter" binary_file="MessageGetter.dll" />
+  </Modules>
+</Application>
