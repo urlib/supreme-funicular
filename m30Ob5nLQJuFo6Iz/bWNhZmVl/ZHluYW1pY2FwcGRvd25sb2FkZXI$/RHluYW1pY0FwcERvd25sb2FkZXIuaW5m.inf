@@ -1,0 +1,44 @@
+[Version]
+Signature="$Chicago$"
+AdvancedINF=2.5
+LayoutFile=DynamicAppDownloader.inf
+
+[Installer_Config]
+AppID=DynamicAppDownloader
+Shared=0
+
+[SourceDisksNames]
+1="DynamicAppDownloader","",1
+
+[DirIds]
+47010=%33000%\McAfee\DynamicAppDownloader
+47020=%CommonProgramW6432%\McAfee\DynamicAppDownloader
+
+
+;; ----------------------- CURRENT
+
+;; ----------------------- 32 bit
+[Install_NT]
+InstallDAD32=RunINF
+
+[UnInstall_NT]
+UnInstallDAD32=RunINF
+
+[InstallDAD32]
+DynamicAppDownloader32.inf
+
+[UnInstallDAD32]
+%47010%\DynamicAppDownloader32.inf
+
+;; ----------------------- 64 bit
+[Install_NT_X64]
+InstallDAD64=RunINF
+
+[UnInstall_NT_x64]
+UnInstallDAD64=RunINF
+
+[InstallDAD64]
+DynamicAppDownloader64.inf
+
+[UnInstallDAD64]
+%47020%\DynamicAppDownloader64.inf
