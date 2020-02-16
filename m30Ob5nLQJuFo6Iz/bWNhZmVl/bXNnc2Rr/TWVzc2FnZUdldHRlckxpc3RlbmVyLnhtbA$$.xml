@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module> 
+  <ConnectionInfo>
+    <Server id="MessageGetter"/> 
+    <Clients> 
+      <Client id="Intel.Ipc.Msc.McUICnt" /> 
+	  <Client id="UserEnvStatePublisher"/>
+    </Clients> 
+  </ConnectionInfo> 
+</Module>
