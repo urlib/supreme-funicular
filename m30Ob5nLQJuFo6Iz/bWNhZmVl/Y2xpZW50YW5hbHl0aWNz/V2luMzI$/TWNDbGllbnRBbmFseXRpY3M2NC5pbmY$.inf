@@ -1,0 +1,126 @@
+[Version]
+Signature="$Chicago$"
+AdvancedINF=2.5
+LayoutFile=McClientAnalytics64.inf
+
+[Installer_Config]
+AppID=AnalyticsSDK
+Shared=0
+
+[SourceDisksNames]
+1="McClientAnalytics","",1
+
+;;;;Destinations;;;;;;;;
+;;;;on 64 bit OS
+;; %CommonProgramW6432% -> C:\Program Files\Common Files
+;; %ALLUSERSPROFILE% -> C:\ProgramData\
+;;
+
+[DirIds]
+47010=%CommonProgramW6432%\McAfee\ClientAnalytics
+47011=%47010%\Win32
+47020=%CommonProgramW6432%\McAfee
+;; This is temporary fix for bug bug 1169702. Should be removed in PSI 23
+47030=%ALLUSERSPROFILE%\McAfee\ModuleCoreService.exe
+47031=%ALLUSERSPROFILE%\McAfee\ClientAnalytics
+
+[DestinationDirs]   
+FileList=47010
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;	64 bit os
+;;
+;; This inf file does the following
+;;
+;; Case Install:
+;; 1. Unregisters ComAPIProxy.dll
+;; 2. Unregisters AnalyticsLogicEngine with ModuleCoreService.exe
+;; 3. Deletes cached registry keys
+;; 4. Copy the files to C:\Program Files \Common Files\McAfee\ClientAnalytics 
+;; 5. Registers ComAPIProxy.dll
+;; 6. Registers AnalyticsLogicEngine with ModuleCoreService.exe
+;;
+;; Case Uninstall
+;; 1. Unregisters ComAPIProxy.dll
+;; 2. Unregisters AnalyticsLogicEngine with ModuleCoreService.exe
+;; 3. Deletes registry keys
+;; 4. Deletes defined files from C:\Program Files \Common Files\McAfee\ClientAnalytics 
+;; 5. Deletes folders under programdata (ClientAnalytics and ModuleCoreService.exe)
+;;-------------------------------
+
+;;File list under C:\Program Files \Common Files\McAfee\ClientAnalytics
+;;Used for uninstallation
+[FileList]
+ClientAnalyticsReg.exe,,,65568
+McClientAnalytics.inf,,,65568
+McClientAnalytics64.inf,,,65568
+ModuleALE.dll,,,65568
+ComAPIProxy.dll,,,65568
+
+;; List any files that were installed in previous versions that should be cleaned up during updates
+[ObsoleteFileList]
+ca_bootstrap.js,,,65568
+
+[Install_NT_x64]
+RunUnRegs=EXE
+DefaultInstall=Setup
+;;This is used to force creation of the Win32 folder, so that Win32\ComAPIProxy.dll is installed correctly
+RenCopyList_win32=RenCopy
+RenCopyList=RenCopy
+RunRegs=EXE
+
+[DefaultInstall]
+DelReg=DeleteCacheRegistry
+DelFiles=ObsoleteFileList
+
+[RenCopyList_win32]
+McClientAnalytics64.inf=%47011%
+
+[RenCopyList]
+ClientAnalyticsReg.exe=%47010%
+McClientAnalytics.inf=%47010%
+McClientAnalytics64.inf=%47010%
+ModuleALE.dll=%47010%
+ComAPIProxy.dll=%47010%
+Win32\ComAPIProxy.dll=%47010%
+
+[CopyFolder86]
+Win32=47010
+
+[UninstRegEntries_x64]
+HKLM,Software\McAfee\McClientAnalytics,,0x3000,
+
+[UninstRegEntries]
+HKLM,Software\McAfee\McClientAnalytics
+
+[UnInstall_NT_x64]
+RunUnRegs=EXE
+DefaultUnInstall=Setup
+FolderCleanup=DelFolders
+
+[DefaultUnInstall]
+DelReg=UninstRegEntries,UninstRegEntries_x64
+DelFiles=FileList
+
+[FolderCleanup]
+;;%CommonProgramFiles%\McAfee\ClientAnalytics
+%47010%=1
+;;;This is temporary fix for bug bug 1169702. Should be removed in PSI 23
+;;%ALLUSERSPROFILE%\McAfee\ModuleCoreService.exe
+%47030%=1
+;;%ALLUSERSPROFILE%\McAfee\ClientAnalytics
+%47031%=1
+
+[DeleteCacheRegistry]
+HKLM,Software\McAfee\McClientAnalytics\Cache
+
+[RunRegs]
+%47020%\ModuleCore\ModuleCoreService.exe=/register=AnalyticsLogicEngine /binaryFile=ModuleALE.dll /binaryPath=$(FOLDERID_ProgramFilesCommonX64)\McAfee\ClientAnalytics /startType=C1F614E3CBF0BEB90D5B295576359D65,1,1 /factoryEnabled=true
+%11%\regsvr32.exe=/s """%47010%\ComAPIProxy.dll""",1,1
+%11%\regsvr32.exe=/s """%47010%\win32\ComAPIProxy.dll""",1,1
+
+[RunUnRegs]
+%11%\regsvr32.exe=/u /s """%47010%\ComAPIProxy.dll""",1,1
+%11%\regsvr32.exe=/u /s """%47010%\win32\ComAPIProxy.dll""",1,1
+%47020%\ModuleCore\ModuleCoreService.exe=/unregister=AnalyticsLogicEngine,1,1
