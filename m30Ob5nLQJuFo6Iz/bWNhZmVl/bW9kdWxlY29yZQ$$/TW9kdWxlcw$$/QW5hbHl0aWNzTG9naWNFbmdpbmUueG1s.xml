@@ -1,0 +1,3 @@
+<Module name="AnalyticsLogicEngine" binary_file="ModuleALE.dll" binary_path="$(FOLDERID_ProgramFilesCommonX64)\McAfee\ClientAnalytics" config_file="" config_path="" log_group_name="" start_type="C1F614E3CBF0BEB90D5B295576359D65" factory_enabled="false"/>
+
+
