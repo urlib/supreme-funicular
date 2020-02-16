@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shared_catalog>
+
+	<configuration>
+		<name>TaskScheduler</name>
+		<version>2.12.109.1</version>
+		<catname>TaskScheduler_cat</catname>
+	</configuration>
+
+	<manifest>
+		<server_package_information>
+			<fullinstall_package_list>
+
+				<server_package name="taskscheduler_predownload.cab" url="http://download.mcafee.com/molbin/shared/taskscheduler/2.12.109/1/taskscheduler_predownload.cab">
+					<flags>
+						<download phase="predownload" />
+						<extract validate="1" />
+					</flags>
+				</server_package>
+
+				<server_package name="taskscheduler32.cab" inf_name="TaskScheduler32.inf" url="http://download.mcafee.com/molbin/shared/taskscheduler/2.12.109/1/taskscheduler32.cab">
+					<flags>
+						<download phase="main" />
+						<extract validate="1" />
+						<os><windows build_type="32" /></os>
+					</flags>
+					<component_information>
+						<component name="TaskScheduler32.inf" local_install_path="%COMMONPROGRAMFILES%\McAfee\TaskScheduler">
+							<md5>5b0ef41b1e96ac53a253c76a0f4f41db</md5>
+						</component>
+						<component name="TaskScheduler.dll" local_install_path="%COMMONPROGRAMFILES%\McAfee\TaskScheduler">
+							<version>2.12.109.0</version>
+						</component>
+						<component name="TaskSchedulerReg.exe" local_install_path="%COMMONPROGRAMFILES%\McAfee\TaskScheduler">
+							<version>2.12.109.0</version>
+						</component>
+						<component name="McAMTaskAgent.exe" local_install_path="%COMMONPROGRAMFILES%\McAfee\TaskScheduler">
+							<version>2.12.109.0</version>
+						</component>
+                    </component_information>
+				</server_package>
+
+				<server_package name="taskscheduler64.cab" inf_name="TaskScheduler64.inf" url="http://download.mcafee.com/molbin/shared/taskscheduler/2.12.109/1/taskscheduler64.cab">
+					<flags>
+						<download phase="main" />
+						<extract validate="1" />
+						<os><windows build_type="64" /></os>
+					</flags>
+					<component_information>
+						<component name="taskscheduler64.inf" local_install_path="%COMMONPROGRAMFILES%\McAfee\TaskScheduler">
+							<md5>3049e1a90f07e15bf334da1b5d388d08</md5>
+						</component>
+						<component name="TaskScheduler.dll" local_install_path="%COMMONPROGRAMFILES%\McAfee\TaskScheduler">
+							<version>2.12.109.0</version>
+						</component>
+						<component name="TaskSchedulerReg.exe" local_install_path="%COMMONPROGRAMFILES%\McAfee\TaskScheduler">
+							<version>2.12.109.0</version>
+						</component>
+						<component name="McAMTaskAgent.exe" local_install_path="%COMMONPROGRAMFILES%\McAfee\TaskScheduler">
+							<version>2.12.109.0</version>
+						</component>
+					</component_information>
+				</server_package>
+
+			</fullinstall_package_list>
+		</server_package_information>
+	</manifest>
+
+	<install_instructions>
+				<update>
+			<prepare_install>
+				<generateini file_name="TaskSchedulerupd.inf">
+					<section name="Installer_Config" obfuscate="0">
+						<entry>
+							<name><![CDATA[ AppID ]]></name>
+							<value><![CDATA[ TaskScheduler ]]></value>
+						</entry>
+					</section>
+					<section name="Installer_Config" obfuscate="0">
+						<entry>
+							<name><![CDATA[ Shared ]]></name>
+							<value><![CDATA[ 0 ]]></value>
+						</entry>
+					</section>
+					<section name="Install_NT" obfuscate="0">
+						<entry>
+							<name><![CDATA[ CabFilesNT ]]></name>
+							<value><![CDATA[ ExtractCAB ]]></value>
+						</entry>
+					</section>
+					<section name="Install_NT" obfuscate="0">
+						<entry>
+							<name><![CDATA[ InstallFiles ]]></name>
+							<value><![CDATA[ RunINF ]]></value>
+						</entry>
+					</section>
+					<section name="Version" obfuscate="0">
+						<entry>
+							<name><![CDATA[ Signature ]]></name>
+							<value><![CDATA[ $Chicago$ ]]></value>
+						</entry>
+					</section>
+					<section name="Version" obfuscate="0">
+						<entry>
+							<name><![CDATA[ AdvancedINF ]]></name>
+							<value><![CDATA[ 2.5 ]]></value>
+						</entry>
+					</section>
+					<section name="Version" obfuscate="0">
+						<entry>
+							<name><![CDATA[ LayoutFile ]]></name>
+							<value><![CDATA[ TaskSchedulerupd.inf ]]></value>
+						</entry>
+					</section>
+					<section name="SourceDisksNames" obfuscate="0">
+						<entry>
+							<name><![CDATA[ 1 ]]></name>
+							<value><![CDATA[ "TaskScheduler Update Master File","",1 ]]></value>
+						</entry>
+					</section>
+				</generateini>
+			</prepare_install>
+
+			<install system="1">
+				<install_env_variables>
+					<variable type="$REG$:KEY=Software\McAfee\McInst\InstallSettings:NAME=Install Dir" name="%mcinst_path%"/>
+				</install_env_variables>
+				<executeex file="%mcinst_path%\mcinst.exe" param="/install TaskSchedulerupd.inf /NoSelfCopyInstaller" validate="1"/>
+			</install>
+		</update>
+	</install_instructions>
+
+</shared_catalog>
+
