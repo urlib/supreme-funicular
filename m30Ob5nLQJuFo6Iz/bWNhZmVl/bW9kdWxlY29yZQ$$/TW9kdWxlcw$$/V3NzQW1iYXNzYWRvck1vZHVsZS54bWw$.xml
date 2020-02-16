@@ -1,0 +1,15 @@
+<Module name="WssAmbassadorModule" binary_file="WssAmbassadorModule.dll" binary_path="C:\Program Files\McAfee\MSC\WssNgmAmbassador" config_file="" config_path="" log_group_name="" start_type="ondemand" factory_enabled="false">
+	<Subscription name="Core.Subscription.SubscriptionUpdated" trigger_load="true" session_filter="false"/>
+	<Subscription name="CSP.core.changedenrolldata.a053060c-3a34-11e4-8a01-005056b7244f" trigger_load="true" session_filter="false"/>
+	<Subscription name="SystemMonitor.Oobe.Status.InProgress" trigger_load="true" session_filter="false"/>
+	<Subscription name="SystemMonitor.Oobe.Status.Completed" trigger_load="true" session_filter="false"/>
+	<Subscription name="SystemMonitor.NetworkStatus.Connected" trigger_load="true" session_filter="false"/>
+	<Subscription name="WSSAmbassador.Cohort.Done" trigger_load="true" session_filter="false"/>
+	<Subscription name="WSSAmbassador.Policy.Done" trigger_load="true" session_filter="false"/>
+	<Subscription name="SystemMonitor.UserSession.Unlock" trigger_load="true" session_filter="false"/>
+	<Subscription name="SessionMonitor.ScreenSaver.Stopped" trigger_load="true" session_filter="false"/>
+	<Subscription name="SessionMonitor.FullScreen.Exited" trigger_load="true" session_filter="false"/>
+	<Subscription name="SessionMonitor.MetroMode.Inactive" trigger_load="true" session_filter="false"/>
+</Module>
+
+
