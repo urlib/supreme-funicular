@@ -1,0 +1,119 @@
+[Installer_Config]
+AppID=NextGenMessaging
+Shared=0
+
+[DirIds]
+;Env-Var Defined ==> Program Files
+;33100 ==> All Users\Application Data
+;33000 ==> Program Files\Common files
+;33200 ==> McIns.exe Module dir
+;33300 ==> ExtractCAB location
+;16422 ==> Program Files
+
+45000=%CommonProgramW6432%\McAfee\MSGSDK
+45001=%45000%\4.3.103.1
+49000=%33000%\McAfee\ModuleCore
+59000=%CommonProgramW6432%\McAfee\ModuleCore
+;///////////////
+
+[Version]
+Signature="$Chicago$"
+AdvancedINF=2.5
+LayoutFile=msgsdk64.inf
+
+[SourceDisksNames]
+1="McAfee Message SDK Files","",1
+
+[DestinationDirs]   
+; Destination Directories for CopyFiles/Delfiles Sections.
+; 10 indicates LDID_WIN - windows directory   
+MsgSDKFiles=45000
+MsgSDKFilesDeprecated=45000
+
+[DefaultInstall]
+CopyFiles=MsgSDKFiles
+AddReg=AddRegEntry
+
+[DefaultUninstall]
+DelFiles=MsgSDKFiles
+DelFiles=MsgSDKFilesDeprecated
+
+[RenCopyFilesList]
+msgrunner.exe=%45000%
+msgsdk64.inf=%45000%
+ngmlog.dll=%45000%
+MessageGetter.dll=%45000%
+MessageGetter.xml=%45000%
+MessageGetterListener.xml=%45000%
+UserEnvState.exe=%45000%
+UserEnvStatePublisher.dll=%45000%
+UserEnvState.xml=%45000%
+UserEnvStateListener.xml=%45000%
+MessagingSDKReg.exe=%45000%
+UsrEnvSnapshot.dll=%45000%
+MessageVaultModule.dll=%45000%
+MessageSequencerModule.dll=%45000%
+
+[MsgSDKFiles]
+msgrunner.exe,,,65568
+msgsdk64.inf,,,65568
+ngmlog.dll,,,65568
+MessageGetter.dll,,,65568
+MessageGetter.xml,,,65568
+MessageGetterListener.xml,,,65568
+UserEnvState.exe,,,65568
+UserEnvStatePublisher.dll,,,65568
+UserEnvState.xml,,,65568
+UserEnvStateListener.xml,,,65568
+MessagingSDKReg.exe,,,65568
+UsrEnvSnapshot.dll,,,65568
+MessageVaultModule.dll,,,65568
+MessageSequencerModule.dll,,,65568
+
+[MsgSDKFilesDeprecated]
+MsgRouter.dll,,,65568
+SmtMsgLauncher.exe,,,65568
+McNGMPolicyUpdate.dll,,,65568
+
+[CleanupUpgrade]
+%33300%\msgrunner.exe=/cleanup,1
+
+[CleanupSDK]
+%45000%\msgrunner.exe=/cleanup,1
+
+[OCXRegister]
+UsrEnvSnapshot.dll
+
+[Install_NT]
+CleanupUpgrade=EXE
+Unregister=EXE
+RenCopyFilesList=RenCopy
+DefaultInstall=Setup
+Register=EXE
+
+[UnInstall_NT]
+CleanupSDK=EXE
+Unregister=EXE
+DelRegEntry64=DelReg64
+DefaultUnInstall=Setup
+FolderCleanup=DelFolders
+
+[AddRegEntry]
+HKLM,Software\McAfee\NGM,"Install Dir",0x00001000,"%45000%"
+HKLM,SOFTWARE\McAfee\NGM,Version,0x00001000,"4.3.103.1"
+
+[DelRegEntry64]
+64BitKey=HKLM,Software\McAfee\NGM
+
+[Unregister]
+%59000%\ModuleCoreService.exe=/unregister=NgmMessageVault /userMode=false,1,1
+%59000%\ModuleCoreService.exe=/unregister=NgmMessageSequencer /userMode=false,1,1
+
+[Register]
+%59000%\ModuleCoreService.exe=/unregister=NgmMessageVault /userMode=false,1,1
+%59000%\ModuleCoreService.exe=/register=NgmMessageVault /binaryFile="MessageVaultModule.dll" /binaryPath="""%45000%""" /userMode=false,1,1
+%59000%\ModuleCoreService.exe=/register=NgmMessageSequencer /binaryFile="MessageSequencerModule.dll" /binaryPath="""%45000%""" /userMode=false /startType=ondemand /messageTriggers="ngm.message.show,ngm.query.user.environment",1,1
+
+[FolderCleanup]
+%45000%=1
+
