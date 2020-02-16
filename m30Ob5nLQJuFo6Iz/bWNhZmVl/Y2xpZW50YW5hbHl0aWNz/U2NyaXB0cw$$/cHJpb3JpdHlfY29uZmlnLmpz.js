@@ -1,0 +1,3 @@
+/*! $FileVersion=1.1.206 */ var priority_config_fileVersion = "1.1.206"; 
+function CreatePriorityConfig(){var a={maxThreshold:100,minThreshold:0,thresholds:{profileThrottle:10,eventThrottle:10},getThreshold:function(b){try{if(b in this.thresholds){return this.thresholds[b]}else{return 0}}catch(c){logError("getThreshold: failed "+c.message);return 0}}};return a}ModuleManager.registerFactory("priority_config",CreatePriorityConfig);
+//B63CA544163E2FA4F6CCC86424718704D0D4B3D55FE842DFB87D8311DA4D0C2319F380599A27CACEAEDC730A660E8298E41F292F2509FC27E07FF897CC396C78++
