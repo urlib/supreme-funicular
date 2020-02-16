@@ -1,0 +1,6 @@
+<Module name="MsgRouter" binary_file="MsgRouter.dll" binary_path="C:\Program Files\McAfee\MSC\WssNgmAmbassador" config_file="" config_path="" log_group_name="" start_type="ondemand" factory_enabled="false">
+	<Subscription name="messaging.message.received" trigger_load="true" session_filter="false"/>
+	<Subscription name="messaging.message.notreceived" trigger_load="true" session_filter="false"/>
+</Module>
+
+
