@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<product_catalog>
+  <configuration>
+    <appid>msad</appid>
+    <appcode>msad</appcode>
+    <version>4.1.261.1</version>
+    <catname>msad_li_cat</catname>
+  </configuration>
+  <manifest>
+    <server_package_information>
+      <fullinstall_package_list>
+        <server_package name="saBSI.cab" url="http://download.mcafee.com/molbin/iss-loc/msad/4.1.261.1/saBSI.cab">
+          <flags>
+            <download phase="predownload" />
+            <extract validate="1" />
+          </flags>
+        </server_package>
+      </fullinstall_package_list>
+    </server_package_information>
+  </manifest>
+  <sharedcomplist>
+    <sharedcomponent name="mcinst" />
+  </sharedcomplist>
+</product_catalog>
+
