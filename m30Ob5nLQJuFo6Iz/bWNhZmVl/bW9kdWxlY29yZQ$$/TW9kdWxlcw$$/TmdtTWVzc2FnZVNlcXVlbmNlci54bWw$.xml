@@ -1,0 +1,6 @@
+<Module name="NgmMessageSequencer" binary_file="MessageSequencerModule.dll" binary_path="C:\Program Files\Common Files\McAfee\MSGSDK" config_file="" config_path="" log_group_name="" start_type="ondemand" factory_enabled="false">
+	<Subscription name="ngm.message.show" trigger_load="true" session_filter="false"/>
+	<Subscription name="ngm.query.user.environment" trigger_load="true" session_filter="false"/>
+</Module>
+
+
