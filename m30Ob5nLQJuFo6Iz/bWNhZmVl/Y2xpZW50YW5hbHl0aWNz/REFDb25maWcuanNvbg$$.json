@@ -1,0 +1,1499 @@
+{
+    "version": "1.0",
+    "data": [
+        {
+            "id": 1,
+            "product": "VSO",
+            "aggregate_type": "AG_NONE",
+            "history_type": "HT_BYCOUNT",
+            "field_name": "[CURRENT_TIME]",
+            "history_value": 365,
+            "conditions": {
+                "hit.uniqueid": "vso_virusscan_scan_end"
+            },
+            "description": "Once ODS completes, it will send a telemetry counter contains current date."
+        },
+        {
+            "id": 2,
+            "product": "VSO",
+            "aggregate_type": "AG_NONE",
+            "history_type": "HT_BYCOUNT",
+            "field_name": "hit.size.inbytes",
+            "history_value": 365,
+            "conditions": {
+                "hit.uniqueid": "vso_virusscan_scan_end"
+            },
+            "description": "Once ODS completes, it will send a telemetry counter contains number of files from the scan session."
+        },
+        {
+            "id": 3,
+            "product": "VSO",
+            "aggregate_type": "AG_NONE",
+            "history_type": "HT_BYCOUNT",
+            "field_name": "hit.result",
+            "history_value": 365,
+            "conditions": {
+                "hit.uniqueid": "vso_virusscan_scan_end"
+            },
+            "description": "Once ODS completes, it will send a telemetry counter contains number of threads found and fixed from the scan session."
+        },
+        {
+            "id": 4,
+            "product": "VSO",
+            "aggregate_type": "AG_NONE",
+            "history_type": "HT_BYCOUNT",
+            "field_name": "[CURRENT_TIME]",
+            "history_value": 1,
+            "conditions": {
+                "hit.uniqueid": "virusscan_post_update_report"
+            },
+            "description": "After content update complete, it will send a telemetry counter contains the current date."
+        },
+        {
+            "id": 5,
+            "product": "VSO",
+            "aggregate_type": "AG_DAILY",
+            "history_type": "HT_FOREVER",
+            "field_name": "hit.result",
+            "history_value": 0,
+            "conditions": {
+                "hit.feature": "DETECTION",
+                "hit.uniqueid": "vso_virusscan_scan_end"
+            },
+            "description": "When OAS or ODS detected and quarantined threats, it will send a telemetry counter with number of threats detected and quarantined."
+        },
+        {
+            "id": 6,
+            "product": "FW",
+            "aggregate_type": "AG_DAILY",
+            "history_type": "HT_FOREVER",
+            "field_name": "",
+            "history_value": 0,
+            "conditions": {
+                "hit.trigger": "BROWSER",
+                "hit.uniqueid": "firewall_validate_connection"
+            },
+            "description": "When NetGuard is enabled, and after it checked IP reputation for a connection belongs to web browser, Firewall will report a telemetry counter."
+        },
+        {
+            "id": 7,
+            "product": "FW",
+            "aggregate_type": "AG_DAILY",
+            "history_type": "HT_FOREVER",
+            "field_name": "",
+            "history_value": 0,
+            "conditions": {
+                "event.label": "BLOCKED",
+                "hit.trigger": "BROWSER",
+                "hit.uniqueid": "firewall_validate_connection"
+            },
+            "description": "When NetGuard is enabled, and if it blocked a connection belongs to web browser, Firewall will report a telemetry counter."
+        },
+        {
+            "id": 8,
+            "product": "FW",
+            "aggregate_type": "AG_DAILY",
+            "history_type": "HT_FOREVER",
+            "field_name": "",
+            "history_value": 0,
+            "conditions": {
+                "event.label": "BLOCKED",
+                "hit.trigger": "NON_BROWSER",
+                "hit.uniqueid": "firewall_validate_connection"
+            },
+            "description": "When NetGuard is enabled, and if it blocked a connection NOT belongs to web browser, Firewall will report a telemetry counter."
+        },
+        {
+            "id": 9,
+            "product": "VUL",
+            "aggregate_type": "AG_NONE",
+            "history_type": "HT_BYCOUNT",
+            "field_name": "[CURRENT_TIME]",
+            "history_value": 10,
+            "conditions": {
+                "hit.uniqueid": "vul_scanner_updates_installed"
+            },
+            "description": "Date of last Vul Scan"
+        },
+        {
+            "id": 10,
+            "product": "VUL",
+            "aggregate_type": "AG_NONE",
+            "history_type": "HT_BYCOUNT",
+            "field_name": "event.value",
+            "history_value": 10,
+            "conditions": {
+                "hit.uniqueid": "vul_scanner_completed"
+            },
+            "description": "Number of (Program + Windows )updates found in last scan"
+        },
+        {
+            "id": 11,
+            "product": "VUL",
+            "aggregate_type": "AG_NONE",
+            "history_type": "HT_BYCOUNT",
+            "field_name": "hit.metric.2",
+            "history_value": 10,
+            "conditions": {
+                "hit.uniqueid": "vul_scanner_updates_installed"
+            },
+            "description": "Number of program updates patched/installed via vul  (automatic apps only)"
+        },
+        {
+            "id": 12,
+            "product": "VUL",
+            "aggregate_type": "AG_NONE",
+            "history_type": "HT_BYCOUNT",
+            "field_name": "hit.metric.1",
+            "history_value": 10,
+            "conditions": {
+                "hit.uniqueid": "vul_scanner_updates_installed"
+            },
+            "description": "Number of windows updates installed via Vul"
+        },
+        {
+            "id": 13,
+            "product": "VUL",
+            "aggregate_type": "AG_TOTAL",
+            "history_type": "HT_FOREVER",
+            "field_name": "hit.metric.2",
+            "history_value": 0,
+            "conditions": {
+                "hit.engagement.userinitiated": "1",
+                "hit.uniqueid": "vul_scanner_updates_installed"
+            },
+            "description": "Cumulative data since installation - Total Number of Program updates installed - Manual Scan"
+        },
+        {
+            "id": 14,
+            "product": "VUL",
+            "aggregate_type": "AG_TOTAL",
+            "history_type": "HT_FOREVER",
+            "field_name": "hit.metric.1",
+            "history_value": 0,
+            "conditions": {
+                "hit.engagement.userinitiated": "1",
+                "hit.uniqueid": "vul_scanner_updates_installed"
+            },
+            "description": "Cumulative data since installation - Total Number of Windows updates installed since user has installed VUL - Manual Scan"
+        },
+        {
+            "id": 15,
+            "product": "MQS",
+            "aggregate_type": "AG_NONE",
+            "history_type": "HT_BYCOUNT",
+            "field_name": "hit.metric.1",
+            "history_value": 10,
+            "conditions": {
+                "hit.uniqueid": "MQS_cleaned",
+                "event.category": "Quick clean",
+                "event.action": "QC Cleaned"
+            },
+            "description": "Number of items cleaned IE ( Cookies+cache+history)"
+        },
+        {
+            "id": 16,
+            "product": "MQS",
+            "aggregate_type": "AG_NONE",
+            "history_type": "HT_BYCOUNT",
+            "field_name": "hit.metric.2",
+            "history_value": 10,
+            "conditions": {
+                "hit.uniqueid": "MQS_cleaned",
+                "event.category": "Quick clean",
+                "event.action": "QC Cleaned"
+            },
+            "description": "Number of items cleaned Firefox ( Cookies+cache+history)"
+        },
+        {
+            "id": 17,
+            "product": "MQS",
+            "aggregate_type": "AG_NONE",
+            "history_type": "HT_BYCOUNT",
+            "field_name": "hit.metric.3",
+            "history_value": 10,
+            "conditions": {
+                "hit.uniqueid": "MQS_cleaned",
+                "event.category": "Quick clean",
+                "event.action": "QC Cleaned"
+            },
+            "description": "Number of items cleaned Chrome ( Cookies+cache+history) "
+        },
+        {
+            "id": 18,
+            "product": "MQS",
+            "aggregate_type": "AG_NONE",
+            "history_type": "HT_BYCOUNT",
+            "field_name": "hit.metric.4",
+            "history_value": 10,
+            "conditions": {
+                "hit.uniqueid": "MQS_cleaned",
+                "event.category": "Quick clean",
+                "event.action": "QC Cleaned"
+            },
+            "description": "Number of items cleaned Chrome ( Cookies+cache+history) "
+        },
+        {
+            "id": 19,
+            "product": "MQS",
+            "aggregate_type": "AG_NONE",
+            "history_type": "HT_BYCOUNT",
+            "field_name": "hit.metric.5",
+            "history_value": 10,
+            "conditions": {
+                "hit.uniqueid": "MQS_cleaned",
+                "event.category": "Quick clean",
+                "event.action": "QC Cleaned"
+            },
+            "description": "Number of items cleaned Edge   ( Cookies+cache+history)"
+        },
+        {
+            "id": 20,
+            "product": "MQS",
+            "aggregate_type": "AG_NONE",
+            "history_type": "HT_BYCOUNT",
+            "field_name": "hit.metric.6",
+            "history_value": 10,
+            "conditions": {
+                "hit.uniqueid": "MQS_cleaned",
+                "event.category": "Quick clean",
+                "event.action": "QC Cleaned"
+            },
+            "description": "Number of Items cleaned System Files [ Other than Browsers count of all other files/folders]"
+        },
+        {
+            "id": 21,
+            "product": "MQS",
+            "aggregate_type": "AG_TOTAL",
+            "history_type": "HT_FOREVER",
+            "field_name": "hit.metric.1",
+            "history_value": 0,
+            "conditions": {
+                "hit.engagement.userinitiated": "1",
+                "hit.uniqueid": "MQS_cleaned",
+                "event.category": "Quick clean",
+                "event.action": "QC Cleaned"
+            },
+            "description": "Cumulative data since installation - Number of items cleaned IE( Cookies+cache+history)  -Manual Scan"
+        },
+        {
+            "id": 22,
+            "product": "MQS",
+            "aggregate_type": "AG_TOTAL",
+            "history_type": "HT_FOREVER",
+            "field_name": "hit.metric.2",
+            "history_value": 0,
+            "conditions": {
+                "hit.engagement.userinitiated": "1",
+                "hit.uniqueid": "MQS_cleaned",
+                "event.category": "Quick clean",
+                "event.action": "QC Cleaned"
+            },
+            "description": "Cumulative data since installation - Number of items cleaned Firefox( Cookies+cache+history)  -Manual Scan"
+        },
+        {
+            "id": 23,
+            "product": "MQS",
+            "aggregate_type": "AG_TOTAL",
+            "history_type": "HT_FOREVER",
+            "field_name": "hit.metric.3",
+            "history_value": 0,
+            "conditions": {
+                "hit.engagement.userinitiated": "1",
+                "hit.uniqueid": "MQS_cleaned",
+                "event.category": "Quick clean",
+                "event.action": "QC Cleaned"
+            },
+            "description": "Cumulative data since installation - Number of items cleaned Chrome( Cookies+cache+history)  -Manual Scan"
+        },
+        {
+            "id": 24,
+            "product": "MQS",
+            "aggregate_type": "AG_TOTAL",
+            "history_type": "HT_FOREVER",
+            "field_name": "hit.metric.4",
+            "history_value": 0,
+            "conditions": {
+                "hit.engagement.userinitiated": "1",
+                "hit.uniqueid": "MQS_cleaned",
+                "event.category": "Quick clean",
+                "event.action": "QC Cleaned"
+            },
+            "description": "Cumulative data since installation - Number of items cleaned Safari( Cookies+cache+history)  -Manual Scan"
+        },
+        {
+            "id": 25,
+            "product": "MQS",
+            "aggregate_type": "AG_TOTAL",
+            "history_type": "HT_FOREVER",
+            "field_name": "hit.metric.5",
+            "history_value": 0,
+            "conditions": {
+                "hit.engagement.userinitiated": "1",
+                "hit.uniqueid": "MQS_cleaned",
+                "event.category": "Quick clean",
+                "event.action": "QC Cleaned"
+            },
+            "description": "Cumulative data since installation - Number of items cleaned Edge( Cookies+cache+history)  -Manual Scan"
+        },
+        {
+            "id": 26,
+            "product": "MQS",
+            "aggregate_type": "AG_TOTAL",
+            "history_type": "HT_FOREVER",
+            "field_name": "hit.metric.6",
+            "history_value": 0,
+            "conditions": {
+                "hit.engagement.userinitiated": "1",
+                "hit.uniqueid": "MQS_cleaned",
+                "event.category": "Quick clean",
+                "event.action": "QC Cleaned"
+            },
+            "description": "Cumulative data since installation - Number of Items cleaned System Files -Manual Scan"
+        },
+        {
+            "id": 27,
+            "product": "Shredder",
+            "aggregate_type": "AG_NONE",
+            "history_type": "HT_BYCOUNT",
+            "field_name": "event.value",
+            "history_value": 10,
+            "conditions": {
+                "hit.uniqueid": "MQS_shred_completed",
+                "event.category": "Shredder",
+                "event.action": "Shredrecyclebin"
+            },
+            "description": "Number of items shredded \u2013 recyle bin"
+        },
+        {
+            "id": 28,
+            "product": "Shredder",
+            "aggregate_type": "AG_NONE",
+            "history_type": "HT_BYCOUNT",
+            "field_name": "event.value",
+            "history_value": 10,
+            "conditions": {
+                "hit.uniqueid": "MQS_shred_completed",
+                "event.category": "Shredder",
+                "event.action": "Shredotherfolders"
+            },
+            "description": "Number of items shredded \u2013 other folders"
+        },
+        {
+            "id": 29,
+            "product": "Shredder",
+            "aggregate_type": "AG_TOTAL",
+            "history_type": "HT_FOREVER",
+            "field_name": "event.value",
+            "history_value": 0,
+            "conditions": {
+                "hit.uniqueid": "MQS_shred_completed",
+                "event.category": "Shredder",
+                "event.action": "Shredrecyclebin"
+            },
+            "description": "Cumulative data since installation -  Number of items shredded \u2013 recyle bin"
+        },
+        {
+            "id": 30,
+            "product": "Shredder",
+            "aggregate_type": "AG_TOTAL",
+            "history_type": "HT_FOREVER",
+            "field_name": "event.value",
+            "history_value": 0,
+            "conditions": {
+                "hit.uniqueid": "MQS_shred_completed",
+                "event.category": "Shredder",
+                "event.action": "Shredotherfolders"
+            },
+            "description": "Cumulative data since installation - Number of items shredded \u2013 other folders"
+        },
+        {
+            "id": 33,
+            "product": "FW",
+            "aggregate_type": "AG_DAILY",
+            "history_type": "HT_FOREVER",
+            "field_name": "event.value",
+            "history_value": 0,
+            "conditions": {
+                "hit.uniqueid": "firewall_blocked"
+            },
+            "description": "When Firewall blocked an incoming connection (regardless reason), it will report a telemery counter."
+        },
+        {
+            "id": 37,
+            "product": "MQS",
+            "aggregate_type": "AG_NONE",
+            "history_type": "HT_BYCOUNT",
+            "field_name": "[CURRENT_TIME]",
+            "history_value": 10,
+            "conditions": {
+                "hit.uniqueid": "MQS_cleaned",
+                "event.category": "Quick clean",
+                "event.action": "QC Cleaned"
+            },
+            "description": "Quick Clean(Last scan date&time)"
+        },
+        {
+            "id": 39,
+            "product": "VUL",
+            "aggregate_type": "AG_TOTAL",
+            "history_type": "HT_FOREVER",
+            "field_name": "event.value",
+            "history_value": 0,
+            "conditions": {
+                "hit.engagement.userinitiated": "1",
+                "hit.uniqueid": "vul_scanner_updates_installed"
+            },
+            "description": "Sum of cumulative data installed since installation[windows+program updates] -Manual Scan"
+        },
+        {
+            "id": 41,
+            "product": "MQS",
+            "aggregate_type": "AG_TOTAL",
+            "history_type": "HT_FOREVER",
+            "field_name": "event.value",
+            "history_value": 0,
+            "conditions": {
+                "hit.engagement.userinitiated": "1",
+                "hit.uniqueid": "MQS_cleaned",
+                "event.category": "Quick clean",
+                "event.action": "QC Cleaned"
+            },
+            "description": "Cumulative data since installation - No. of items cleaned [system files + Browsers] -Manual Scan"
+        },
+        {
+            "id": 42,
+            "product": "Shredder",
+            "aggregate_type": "AG_TOTAL",
+            "history_type": "HT_FOREVER",
+            "field_name": "event.value",
+            "history_value": 0,
+            "conditions": {
+                "hit.uniqueid": "MQS_shred_completed",
+                "event.category": "Shredder",
+                "event.action": "Shred Completed"
+            },
+            "description": "Cumulative data since installation - Number of items shredded [recycle bin + other folders]"
+        },
+        {
+            "id": 43,
+            "product": "VUL",
+            "aggregate_type": "AG_NONE",
+            "history_type": "HT_BYCOUNT",
+            "field_name": "hit.engagement.userinitiated",
+            "history_value": 10,
+            "conditions": {
+                "hit.uniqueid": "vul_scanner_updates_installed"
+            },
+            "description": "Vul scan type ( Manual/Automated)"
+        },
+        {
+            "id": 44,
+            "product": "MQS",
+            "aggregate_type": "AG_NONE",
+            "history_type": "HT_BYCOUNT",
+            "field_name": "hit.engagement.userinitiated",
+            "history_value": 10,
+            "conditions": {
+                "hit.uniqueid": "MQS_cleaned",
+                "event.category": "Quick clean",
+                "event.action": "QC Cleaned"
+            },
+            "description": "MQS scan type (manual/Automated)"
+        },
+        {
+            "id": 45,
+            "product": "FW",
+            "aggregate_type": "AG_DAILY",
+            "history_type": "HT_FOREVER",
+            "field_name": "",
+            "history_value": 0,
+            "conditions": {
+                "event.label": "BLOCKED",
+                "hit.uniqueid": "firewall_validate_connection"
+            },
+            "description": "When NetGuard is enabled, and if it blocked a connection, Firewall will report a telemetry counter."
+        },
+        {
+            "id": 46,
+            "product": "VSO",
+            "aggregate_type": "AG_DAILY",
+            "history_type": "HT_FOREVER",
+            "field_name": "",
+            "history_value": 0,
+            "conditions": {
+                "hit.uniqueid": "vso_virusscan_scan_end"
+            },
+            "description": "Once ODS completes, it will send a telemetry counter."
+        },
+        {
+            "id": 47,
+            "product": "VUL",
+            "aggregate_type": "AG_TOTAL",
+            "history_type": "HT_FOREVER",
+            "field_name": "hit.metric.2",
+            "history_value": 0,
+            "conditions": {
+                "hit.engagement.userinitiated": "2",
+                "hit.uniqueid": "vul_scanner_updates_installed"
+            },
+            "description": "Cumulative data since installation - Total Number of Program updates installed - Scheduled Scan"
+        },
+        {
+            "id": 48,
+            "product": "VUL",
+            "aggregate_type": "AG_TOTAL",
+            "history_type": "HT_FOREVER",
+            "field_name": "hit.metric.1",
+            "history_value": 0,
+            "conditions": {
+                "hit.engagement.userinitiated": "2",
+                "hit.uniqueid": "vul_scanner_updates_installed"
+            },
+            "description": "Cumulative data since installation - Total Number of Windows updates installed since user has installed VUL - Scheduled Scan"
+        },
+        {
+            "id": 49,
+            "product": "VUL",
+            "aggregate_type": "AG_TOTAL",
+            "history_type": "HT_FOREVER",
+            "field_name": "event.value",
+            "history_value": 0,
+            "conditions": {
+                "hit.engagement.userinitiated": "2",
+                "hit.uniqueid": "vul_scanner_updates_installed"
+            },
+            "description": "Sum of cumulative data installed since installation[windows+program updates] -Scheduled Scan"
+        },
+        {
+            "id": 50,
+            "product": "MQS",
+            "aggregate_type": "AG_TOTAL",
+            "history_type": "HT_FOREVER",
+            "field_name": "hit.metric.1",
+            "history_value": 0,
+            "conditions": {
+                "hit.engagement.userinitiated": "2",
+                "hit.uniqueid": "MQS_cleaned",
+                "event.category": "Quick clean",
+                "event.action": "QC Cleaned"
+            },
+            "description": "Cumulative data since installation - Number of items cleaned IE( Cookies+cache+history)  -Scheduled Scan"
+        },
+        {
+            "id": 51,
+            "product": "MQS",
+            "aggregate_type": "AG_TOTAL",
+            "history_type": "HT_FOREVER",
+            "field_name": "hit.metric.2",
+            "history_value": 0,
+            "conditions": {
+                "hit.engagement.userinitiated": "2",
+                "hit.uniqueid": "MQS_cleaned",
+                "event.category": "Quick clean",
+                "event.action": "QC Cleaned"
+            },
+            "description": "Cumulative data since installation - Number of items cleaned Firefox( Cookies+cache+history)  -Scheduled Scan"
+        },
+        {
+            "id": 52,
+            "product": "MQS",
+            "aggregate_type": "AG_TOTAL",
+            "history_type": "HT_FOREVER",
+            "field_name": "hit.metric.3",
+            "history_value": 0,
+            "conditions": {
+                "hit.engagement.userinitiated": "2",
+                "hit.uniqueid": "MQS_cleaned",
+                "event.category": "Quick clean",
+                "event.action": "QC Cleaned"
+            },
+            "description": "Cumulative data since installation - Number of items cleaned Chrome( Cookies+cache+history)  -Scheduled Scan"
+        },
+        {
+            "id": 53,
+            "product": "MQS",
+            "aggregate_type": "AG_TOTAL",
+            "history_type": "HT_FOREVER",
+            "field_name": "hit.metric.4",
+            "history_value": 0,
+            "conditions": {
+                "hit.engagement.userinitiated": "2",
+                "hit.uniqueid": "MQS_cleaned",
+                "event.category": "Quick clean",
+                "event.action": "QC Cleaned"
+            },
+            "description": "Cumulative data since installation - Number of items cleaned Safari( Cookies+cache+history)  -Scheduled Scan"
+        },
+        {
+            "id": 54,
+            "product": "MQS",
+            "aggregate_type": "AG_TOTAL",
+            "history_type": "HT_FOREVER",
+            "field_name": "hit.metric.5",
+            "history_value": 0,
+            "conditions": {
+                "hit.engagement.userinitiated": "2",
+                "hit.uniqueid": "MQS_cleaned",
+                "event.category": "Quick clean",
+                "event.action": "QC Cleaned"
+            },
+            "description": "Cumulative data since installation - Number of items cleaned Edge( Cookies+cache+history)  -Scheduled Scan"
+        },
+        {
+            "id": 55,
+            "product": "MQS",
+            "aggregate_type": "AG_TOTAL",
+            "history_type": "HT_FOREVER",
+            "field_name": "hit.metric.6",
+            "history_value": 0,
+            "conditions": {
+                "hit.engagement.userinitiated": "2",
+                "hit.uniqueid": "MQS_cleaned",
+                "event.category": "Quick clean",
+                "event.action": "QC Cleaned"
+            },
+            "description": "Cumulative data since installation - Number of Items cleaned System Files -Scheduled Scan"
+        },
+        {
+            "id": 56,
+            "product": "MQS",
+            "aggregate_type": "AG_TOTAL",
+            "history_type": "HT_FOREVER",
+            "field_name": "event.value",
+            "history_value": 0,
+            "conditions": {
+                "hit.engagement.userinitiated": "2",
+                "hit.uniqueid": "MQS_cleaned",
+                "event.category": "Quick clean",
+                "event.action": "QC Cleaned"
+            },
+            "description": "Cumulative data since installation - No. of items cleaned [system files + Browsers] -Scheduled Scan"
+        },
+        {
+            "id": 57,
+            "product": "Shredder",
+            "aggregate_type": "AG_NONE",
+            "history_type": "HT_BYCOUNT",
+            "field_name": "[CURRENT_TIME]",
+            "history_value": 10,
+            "conditions": {
+                "hit.uniqueid": "MQS_shred_completed",
+                "event.category": "Shredder",
+                "event.action": "Shred Completed"
+            },
+            "description": "Last shred time."
+        },
+        {
+            "id": 58,
+            "product": "VUL",
+            "aggregate_type": "AG_NONE",
+            "history_type": "HT_BYCOUNT",
+            "field_name": "event.value",
+            "history_value": 10,
+            "conditions": {
+                "hit.uniqueid": "vul_scanner_updates_installed"
+            },
+            "description": "Number of (windows+program) updates installed in last event."
+        },
+        {
+            "id": 59,
+            "product": "MQS",
+            "aggregate_type": "AG_NONE",
+            "history_type": "HT_BYCOUNT",
+            "field_name": "event.value",
+            "history_value": 10,
+            "conditions": {
+                "hit.uniqueid": "MQS_cleaned",
+                "event.category": "Quick clean",
+                "event.action": "QC Cleaned"
+            },
+            "description": "Number of Items cleaned  [System Files+ Browsers]"
+        },
+        {
+            "id": 60,
+            "product": "Shredder",
+            "aggregate_type": "AG_NONE",
+            "history_type": "HT_BYCOUNT",
+            "field_name": "event.value",
+            "history_value": 10,
+            "conditions": {
+                "hit.uniqueid": "MQS_shred_completed",
+                "event.category": "Shredder",
+                "event.action": "Shred Completed"
+            },
+            "description": "Number of items shredded [recycle bin + other folders]"
+        },
+        {
+            "id": 61,
+            "product": "MSAD",
+            "aggregate_type": "AG_DAILY",
+            "history_type": "HT_BYCOUNT",
+            "field_name": "event.value",
+            "history_value": 365,
+            "conditions": {
+                "hit.uniqueid": "msad.sites.blocked"
+            },
+            "description": "Number of risky sites blocked"
+        },
+        {
+            "id": 62,
+            "product": "MSAD",
+            "aggregate_type": "AG_DAILY",
+            "history_type": "HT_BYCOUNT",
+            "field_name": "event.value",
+            "history_value": 365,
+            "conditions": {
+                "hit.uniqueid": "msad.files.blocked"
+            },
+            "description": "Number of risky files blocked"
+        },
+        {
+            "id": 63,
+            "product": "MSAD",
+            "aggregate_type": "AG_DAILY",
+            "history_type": "HT_BYCOUNT",
+            "field_name": "event.value",
+            "history_value": 365,
+            "conditions": {
+                "hit.uniqueid": "msad.ads.blocked"
+            },
+            "description": "Number of risky ads blocked (note: this refers to i-frames and ads, may need to wordsmith how we refer to this)"
+        },
+        {
+            "id": 64,
+            "product": "MSAD",
+            "aggregate_type": "AG_DAILY",
+            "history_type": "HT_BYCOUNT",
+            "field_name": "event.value",
+            "history_value": 365,
+            "conditions": {
+                "hit.uniqueid": "msad.sites.safe"
+            },
+            "description": "Number of sites verified as safe"
+        },
+        {
+            "id": 65,
+            "product": "MSAD",
+            "aggregate_type": "AG_DAILY",
+            "history_type": "HT_BYCOUNT",
+            "field_name": "event.value",
+            "history_value": 365,
+            "conditions": {
+                "hit.uniqueid": "msad.files.safe"
+            },
+            "description": "Number of files verified as safe"
+        },
+        {
+            "id": 70,
+            "product": "AnalyticsAutomation",
+            "aggregate_type": "AG_DAILY",
+            "history_type": "HT_FOREVER",
+            "field_name": "",
+            "history_value": 0,
+            "conditions": {
+                "hit.uniqueid": "analytics.automation.da.ag_daily"
+            },
+            "description": "Used for automation and verification purposes"
+        },
+        {
+            "id": 107,
+            "product": "FW",
+            "aggregate_type": "AG_BYSECOND",
+            "history_type": "HT_BYCOUNT",
+            "field_name": "",
+            "history_value": 300,
+            "conditions": {
+                "hit.trigger": "BROWSER",
+                "hit.uniqueid": "firewall_validate_connection"
+            },
+            "description": "When NetGuard is enabled, and after it checked IP reputation for a connection belongs to web browser, Firewall will report a telemetry counter."
+        },
+        {
+            "id": 108,
+            "product": "VSO",
+            "aggregate_type": "AG_DAILY",
+            "history_type": "HT_BYCOUNT",
+            "field_name": "",
+            "history_value": 365,
+            "conditions": {
+                "hit.uniqueid": "LAM_FileCacheHitDen_"
+            },
+            "description": "When  PC Activity."
+        },
+        {
+            "id": 109,
+            "product": "LAM",
+            "aggregate_type": "AG_DAILY",
+            "history_type": "HT_BYCOUNT",
+            "field_name": "",
+            "history_value": 365,
+            "conditions": {
+                "hit.uniqueid": "ODS Scan Succeeded"
+            },
+            "description": "An ODS finishes (i.e. not cancelled, stopped, interrupted - gets to 100% completion)"
+        },
+        {
+            "id": 110,
+            "product": "LAM",
+            "aggregate_type": "AG_DAILY",
+            "history_type": "HT_BYCOUNT",
+            "field_name": "",
+            "history_value": 365,
+            "conditions": {
+                "hit.uniqueid": "ODS Started"
+            },
+            "description": "What you see is what you get - any type of ODS starts"
+        },
+        {
+            "id": 111,
+            "product": "LAM",
+            "aggregate_type": "AG_DAILY",
+            "history_type": "HT_BYCOUNT",
+            "field_name": "",
+            "history_value": 365,
+            "conditions": {
+                "hit.uniqueid": "Scanned Items"
+            },
+            "description": "Will always get sent alongside ODS Scan Succeeded, and they're the number of items scanned/infected/quarantined/resolved during that scan"
+        },
+        {
+            "id": 112,
+            "product": "LAM",
+            "aggregate_type": "AG_DAILY",
+            "history_type": "HT_BYCOUNT",
+            "field_name": "",
+            "history_value": 365,
+            "conditions": {
+                "hit.uniqueid": "Infected Items"
+            },
+            "description": "Will always get sent alongside ODS Scan Succeeded, and they're the number of items scanned/infected/quarantined/resolved during that scan"
+        },
+        {
+            "id": 113,
+            "product": "LAM",
+            "aggregate_type": "AG_DAILY",
+            "history_type": "HT_BYCOUNT",
+            "field_name": "",
+            "history_value": 365,
+            "conditions": {
+                "hit.uniqueid": "Quarantined Items"
+            },
+            "description": "Will always get sent alongside ODS Scan Succeeded, and they're the number of items scanned/infected/quarantined/resolved during that scan"
+        },
+        {
+            "id": 114,
+            "product": "LAM",
+            "aggregate_type": "AG_DAILY",
+            "history_type": "HT_BYCOUNT",
+            "field_name": "",
+            "history_value": 365,
+            "conditions": {
+                "hit.uniqueid": "Resolved Items"
+            },
+            "description": "Will always get sent alongside ODS Scan Succeeded, and they're the number of items scanned/infected/quarantined/resolved during that scan"
+        },
+        {
+            "id": 115,
+            "product": "LAM",
+            "aggregate_type": "AG_DAILY",
+            "history_type": "HT_BYCOUNT",
+            "field_name": "event.value",
+            "history_value": 365,
+            "conditions": {
+                "hit.uniqueid": "OnlineServerCertExchangeDen_"
+            },
+            "description": "This comes from JCM - from my understanding it's essentially the number of GTI requests we make for certificates, regardless of status. Sent on an interval."
+        },
+        {
+            "id": 116,
+            "product": "LAM",
+            "aggregate_type": "AG_DAILY",
+            "history_type": "HT_BYCOUNT",
+            "field_name": "event.value",
+            "history_value": 365,
+            "conditions": {
+                "hit.uniqueid": "OAS AMEngineScannedCount"
+            },
+            "description": "Gets sent up on an interval. Number of AVEngine On-Access scans since the last submission"
+        },
+        {
+            "id": 117,
+            "product": "LAM",
+            "aggregate_type": "AG_DAILY",
+            "history_type": "HT_BYCOUNT",
+            "field_name": "event.value",
+            "history_value": 365,
+            "conditions": {
+                "hit.uniqueid": "OnlineServerFileExchangeDen_"
+            },
+            "description": "Similar to the other JCM stat above, except instead of certs it's files (MD5s, I'd guess). Also sent on interval."
+        },
+        {
+            "id": 118,
+            "product": "LAM",
+            "aggregate_type": "AG_DAILY",
+            "history_type": "HT_BYCOUNT",
+            "field_name": "",
+            "history_value": 365,
+            "conditions": {
+                "hit.uniqueid": "ASKPP Event"
+            },
+            "description": "Sent on interval. The number of AskPointProduct events we've received from SysCore since the last submission."
+        },
+        {
+            "id": 119,
+            "product": "LAM",
+            "aggregate_type": "AG_DAILY",
+            "history_type": "HT_BYCOUNT",
+            "field_name": "",
+            "history_value": 365,
+            "conditions": {
+                "hit.uniqueid": "ODSCmd succceeded"
+            },
+            "description": "When the command line scanner finishes (not cancelled/stopped/etc.)"
+        },
+        {
+            "id": 120,
+            "product": "LAM",
+            "aggregate_type": "AG_DAILY",
+            "history_type": "HT_BYCOUNT",
+            "field_name": "",
+            "history_value": 365,
+            "conditions": {
+                "hit.uniqueid": "Raptor Monitor"
+            },
+            "description": "When we start monitoring an active process with RealProtect"
+        },
+        {
+            "id": 121,
+            "product": "AntiTheft", 
+            "aggregate_type": "AG_DAILY", 
+            "history_type": "HT_BYCOUNT", 
+            "field_name": "", 
+            "history_value": 365, 
+            "conditions": {
+                "hit.uniqueid": "AntiTheft.User.VaultImported"
+            }, 
+            "description": "Counter aggregation for AntiTheft"
+        }, 
+        {
+            "id": 122,
+            "product": "AntiTheft", 
+            "aggregate_type": "AG_DAILY", 
+            "history_type": "HT_BYCOUNT", 
+            "field_name": "", 
+            "history_value": 365, 
+            "conditions": {
+                "hit.uniqueid": "AntiTheft.User.ScreenSaverSet"
+            }, 
+            "description": "Counter aggregation for AntiTheft"
+        }, 
+        {
+            "id": 123,
+            "product": "Vulnerability", 
+            "aggregate_type": "AG_DAILY", 
+            "history_type": "HT_BYCOUNT", 
+            "field_name": "", 
+            "history_value": 365, 
+            "conditions": {
+                "hit.uniqueid": "Vulnerability.Scan.FailUpdDwndError"
+            }, 
+            "description": "Counter aggregation for Vulnerability"
+        }, 
+        {
+            "id": 124,
+            "product": "AntiTheft", 
+            "aggregate_type": "AG_DAILY", 
+            "history_type": "HT_BYCOUNT", 
+            "field_name": "", 
+            "history_value": 365, 
+            "conditions": {
+                "hit.uniqueid": "AntiTheft.User.MainUILaunch"
+            }, 
+            "description": "Counter aggregation for AntiTheft"
+        }, 
+        {
+            "id": 125,
+            "product": "Vulnerability", 
+            "aggregate_type": "AG_DAILY", 
+            "history_type": "HT_BYCOUNT", 
+            "field_name": "", 
+            "history_value": 365, 
+            "conditions": {
+                "hit.uniqueid": "Vulnerability.Scan.FailUpdMismatchMd5"
+            }, 
+            "description": "Counter aggregation for Vulnerability"
+        }, 
+        {
+            "id": 126,
+            "product": "Vulnerability", 
+            "aggregate_type": "AG_DAILY", 
+            "history_type": "HT_BYCOUNT", 
+            "field_name": "", 
+            "history_value": 365, 
+            "conditions": {
+                "hit.uniqueid": "Vulnerability.Scan.DetectedApps1"
+            }, 
+            "description": "Counter aggregation for Vulnerability"
+        }, 
+        {
+            "id": 127,
+            "product": "QuickClean", 
+            "aggregate_type": "AG_DAILY", 
+            "history_type": "HT_BYCOUNT", 
+            "field_name": "", 
+            "history_value": 365, 
+            "conditions": {
+                "hit.uniqueid": "QuickClean.User.CancelScan"
+            }, 
+            "description": "Counter aggregation for QuickClean"
+        }, 
+        {
+            "id": 128,
+            "product": "HomeNetwork", 
+            "aggregate_type": "AG_DAILY", 
+            "history_type": "HT_BYCOUNT", 
+            "field_name": "", 
+            "history_value": 365, 
+            "conditions": {
+                "hit.uniqueid": "HomeNetwork.UserInterface.DeviceCustomize"
+            }, 
+            "description": "Counter aggregation for HomeNetwork"
+        }, 
+        {
+            "id": 129,
+            "product": "HomeNetwork", 
+            "aggregate_type": "AG_DAILY", 
+            "history_type": "HT_BYCOUNT", 
+            "field_name": "", 
+            "history_value": 365, 
+            "conditions": {
+                "hit.uniqueid": "HomeNetwork.Trust.TrustSuccess"
+            }, 
+            "description": "Counter aggregation for HomeNetwork"
+        }, 
+        {
+            "id": 130,
+            "product": "HomeNetwork", 
+            "aggregate_type": "AG_DAILY", 
+            "history_type": "HT_BYCOUNT", 
+            "field_name": "", 
+            "history_value": 365, 
+            "conditions": {
+                "hit.uniqueid": "HomeNetwork.Protection.RemoteProtectionChanged"
+            }, 
+            "description": "Counter aggregation for HomeNetwork"
+        }, 
+        {
+            "id": 131,
+            "product": "MPS", 
+            "aggregate_type": "AG_DAILY", 
+            "history_type": "HT_BYCOUNT", 
+            "field_name": "", 
+            "history_value": 365, 
+            "conditions": {
+                "hit.uniqueid": "MPS.OnlineAccessBlocked"
+            }, 
+            "description": "Counter aggregation for MPS"
+        }, 
+        {
+            "id": 132,
+            "product": "Shredder", 
+            "aggregate_type": "AG_DAILY", 
+            "history_type": "HT_BYCOUNT", 
+            "field_name": "", 
+            "history_value": 365, 
+            "conditions": {
+                "hit.uniqueid": "Shredder.User.ContextShred"
+            }, 
+            "description": "Counter aggregation for Shredder"
+        }, 
+        {
+            "id": 133,
+            "product": "AntiTheft", 
+            "aggregate_type": "AG_DAILY", 
+            "history_type": "HT_BYCOUNT", 
+            "field_name": "", 
+            "history_value": 365, 
+            "conditions": {
+                "hit.uniqueid": "AntiTheft.User.VaultPwdChange"
+            }, 
+            "description": "Counter aggregation for AntiTheft"
+        }, 
+        {
+            "id": 134,
+            "product": "AntiTheft", 
+            "aggregate_type": "AG_DAILY", 
+            "history_type": "HT_BYCOUNT", 
+            "field_name": "", 
+            "history_value": 365, 
+            "conditions": {
+                "hit.uniqueid": "AntiTheft.UserPCInactiveSet"
+            }, 
+            "description": "Counter aggregation for AntiTheft"
+        }, 
+        {
+            "id": 135,
+            "product": "HomeNetwork", 
+            "aggregate_type": "AG_DAILY", 
+            "history_type": "HT_BYCOUNT", 
+            "field_name": "", 
+            "history_value": 365, 
+            "conditions": {
+                "hit.uniqueid": "HomeNetwork.IntrusionDetection.IntruderDetectedCount"
+            }, 
+            "description": "Counter aggregation for HomeNetwork"
+        }, 
+        {
+            "id": 136,
+            "product": "HomeNetwork", 
+            "aggregate_type": "AG_DAILY", 
+            "history_type": "HT_BYCOUNT", 
+            "field_name": "", 
+            "history_value": 365, 
+            "conditions": {
+                "hit.uniqueid": "HomeNetwork.UserInterface.OpenUICount"
+            }, 
+            "description": "Counter aggregation for HomeNetwork"
+        }, 
+        {
+            "id": 137,
+            "product": "HomeNetwork", 
+            "aggregate_type": "AG_DAILY", 
+            "history_type": "HT_BYCOUNT", 
+            "field_name": "", 
+            "history_value": 365, 
+            "conditions": {
+                "hit.uniqueid": "HomeNetwork.Protection.LocalProtectionChanged"
+            }, 
+            "description": "Counter aggregation for HomeNetwork"
+        }, 
+        {
+            "id": 138,
+            "product": "Vulnerability", 
+            "aggregate_type": "AG_DAILY", 
+            "history_type": "HT_BYCOUNT", 
+            "field_name": "", 
+            "history_value": 365, 
+            "conditions": {
+                "hit.uniqueid": "Vulnerability.Scan.PatchedAppsFailed"
+            }, 
+            "description": "Counter aggregation for Vulnerability"
+        }, 
+        {
+            "id": 139,
+            "product": "QuickClean", 
+            "aggregate_type": "AG_DAILY", 
+            "history_type": "HT_BYCOUNT", 
+            "field_name": "", 
+            "history_value": 365, 
+            "conditions": {
+                "hit.uniqueid": "QuickClean.User.CleanBrowsers"
+            }, 
+            "description": "Counter aggregation for QuickClean"
+        }, 
+        {
+            "id": 140,
+            "product": "QuickClean", 
+            "aggregate_type": "AG_DAILY", 
+            "history_type": "HT_BYCOUNT", 
+            "field_name": "", 
+            "history_value": 365, 
+            "conditions": {
+                "hit.uniqueid": "QuickClean.User.Cleaners"
+            }, 
+            "description": "Counter aggregation for QuickClean"
+        }, 
+        {
+            "id": 141,
+            "product": "AntiTheft", 
+            "aggregate_type": "AG_DAILY", 
+            "history_type": "HT_BYCOUNT", 
+            "field_name": "", 
+            "history_value": 365, 
+            "conditions": {
+                "hit.uniqueid": "AntiTheft.User.VaultLocation"
+            }, 
+            "description": "Counter aggregation for AntiTheft"
+        }, 
+        {
+            "id": 142,
+            "product": "AntiTheft", 
+            "aggregate_type": "AG_DAILY", 
+            "history_type": "HT_BYCOUNT", 
+            "field_name": "", 
+            "history_value": 365, 
+            "conditions": {
+                "hit.uniqueid": "AntiTheft.User.VaultUnMounted"
+            }, 
+            "description": "Counter aggregation for AntiTheft"
+        }, 
+        {
+            "id": 143,
+            "product": "Vulnerability", 
+            "aggregate_type": "AG_DAILY", 
+            "history_type": "HT_BYCOUNT", 
+            "field_name": "", 
+            "history_value": 365, 
+            "conditions": {
+                "hit.uniqueid": "Vulnerability.Scan.FailUpdAppInUse"
+            }, 
+            "description": "Counter aggregation for Vulnerability"
+        }, 
+        {
+            "id": 144,
+            "product": "Vulnerability", 
+            "aggregate_type": "AG_DAILY", 
+            "history_type": "HT_BYCOUNT", 
+            "field_name": "", 
+            "history_value": 365, 
+            "conditions": {
+                "hit.uniqueid": "Vulnerability.Scan.WinUpdAppliedAnUpdate"
+            }, 
+            "description": "Counter aggregation for Vulnerability"
+        }, 
+        {
+            "id": 145,
+            "product": "QuickClean", 
+            "aggregate_type": "AG_DAILY", 
+            "history_type": "HT_BYCOUNT", 
+            "field_name": "", 
+            "history_value": 365, 
+            "conditions": {
+                "hit.uniqueid": "QuickClean.User.CleanSentItems"
+            }, 
+            "description": "Counter aggregation for QuickClean"
+        }, 
+        {
+            "id": 146,
+            "product": "MPS", 
+            "aggregate_type": "AG_DAILY", 
+            "history_type": "HT_BYCOUNT", 
+            "field_name": "", 
+            "history_value": 365, 
+            "conditions": {
+                "hit.uniqueid": "MPS.ReportViewCount"
+            }, 
+            "description": "Counter aggregation for MPS"
+        }, 
+        {
+            "id": 147,
+            "product": "Shredder", 
+            "aggregate_type": "AG_DAILY", 
+            "history_type": "HT_BYCOUNT", 
+            "field_name": "", 
+            "history_value": 365, 
+            "conditions": {
+                "hit.uniqueid": "Shredder.User.PageVisits"
+            }, 
+            "description": "Counter aggregation for Shredder"
+        }, 
+        {
+            "id": 148,
+            "product": "HomeNetwork", 
+            "aggregate_type": "AG_DAILY", 
+            "history_type": "HT_BYCOUNT", 
+            "field_name": "", 
+            "history_value": 365, 
+            "conditions": {
+                "hit.uniqueid": "HomeNetwork.NetworkDetection.DeviceType"
+            }, 
+            "description": "Counter aggregation for HomeNetwork"
+        }, 
+        {
+            "id": 149,
+            "product": "HomeNetwork", 
+            "aggregate_type": "AG_DAILY", 
+            "history_type": "HT_BYCOUNT", 
+            "field_name": "", 
+            "history_value": 365, 
+            "conditions": {
+                "hit.uniqueid": "HomeNetwork.NetworkStatus.FixCount"
+            }, 
+            "description": "Counter aggregation for HomeNetwork"
+        }, 
+        {
+            "id": 150,
+            "product": "HomeNetwork", 
+            "aggregate_type": "AG_DAILY", 
+            "history_type": "HT_BYCOUNT", 
+            "field_name": "", 
+            "history_value": 365, 
+            "conditions": {
+                "hit.uniqueid": "HomeNetwork.Trust.RequestTrust"
+            }, 
+            "description": "Counter aggregation for HomeNetwork"
+        }, 
+        {
+            "id": 151,
+            "product": "Vulnerability", 
+            "aggregate_type": "AG_DAILY", 
+            "history_type": "HT_BYCOUNT", 
+            "field_name": "", 
+            "history_value": 365, 
+            "conditions": {
+                "hit.uniqueid": "Vulnerability.Scan.DetectedWin1st"
+            }, 
+            "description": "Counter aggregation for Vulnerability"
+        }, 
+        {
+            "id": 152,
+            "product": "HomeNetwork", 
+            "aggregate_type": "AG_DAILY", 
+            "history_type": "HT_BYCOUNT", 
+            "field_name": "", 
+            "history_value": 365, 
+            "conditions": {
+                "hit.uniqueid": "HomeNetwork.NetworkDetection.ConnectionCount"
+            }, 
+            "description": "Counter aggregation for HomeNetwork"
+        }, 
+        {
+            "id": 153,
+            "product": "HomeNetwork", 
+            "aggregate_type": "AG_DAILY", 
+            "history_type": "HT_BYCOUNT", 
+            "field_name": "", 
+            "history_value": 365, 
+            "conditions": {
+                "hit.uniqueid": "HomeNetwork.Protection.TrustSubscriptionExpired"
+            }, 
+            "description": "Counter aggregation for HomeNetwork"
+        }, 
+        {
+            "id": 154,
+            "product": "AntiTheft", 
+            "aggregate_type": "AG_DAILY", 
+            "history_type": "HT_BYCOUNT", 
+            "field_name": "", 
+            "history_value": 365, 
+            "conditions": {
+                "hit.uniqueid": "AntiTheft.User.VaultDeleted"
+            }, 
+            "description": "Counter aggregation for AntiTheft"
+        }, 
+        {
+            "id": 155,
+            "product": "QuickClean", 
+            "aggregate_type": "AG_DAILY", 
+            "history_type": "HT_BYCOUNT", 
+            "field_name": "", 
+            "history_value": 365, 
+            "conditions": {
+                "hit.uniqueid": "QuickClean.User.CleanDeletedItems"
+            }, 
+            "description": "Counter aggregation for QuickClean"
+        }, 
+        {
+            "id": 156,
+            "product": "HomeNetwork", 
+            "aggregate_type": "AG_DAILY", 
+            "history_type": "HT_BYCOUNT", 
+            "field_name": "", 
+            "history_value": 365, 
+            "conditions": {
+                "hit.uniqueid": "HomeNetwork.NetworkStatus.ICSCount"
+            }, 
+            "description": "Counter aggregation for HomeNetwork"
+        }, 
+        {
+            "id": 157,
+            "product": "AntiTheft", 
+            "aggregate_type": "AG_DAILY", 
+            "history_type": "HT_BYCOUNT", 
+            "field_name": "", 
+            "history_value": 365, 
+            "conditions": {
+                "hit.uniqueid": "AntiTheft.User.VaultRenamed"
+            }, 
+            "description": "Counter aggregation for AntiTheft"
+        }, 
+        {
+            "id": 158,
+            "product": "QuickClean", 
+            "aggregate_type": "AG_DAILY", 
+            "history_type": "HT_BYCOUNT", 
+            "field_name": "", 
+            "history_value": 365, 
+            "conditions": {
+                "hit.uniqueid": "QuickClean.User.CleanMails"
+            }, 
+            "description": "Counter aggregation for QuickClean"
+        }, 
+        {
+            "id": 159,
+            "product": "HomeNetwork", 
+            "aggregate_type": "AG_DAILY", 
+            "history_type": "HT_BYCOUNT", 
+            "field_name": "", 
+            "history_value": 365, 
+            "conditions": {
+                "hit.uniqueid": "HomeNetwork.UserInterface.RemoveNode"
+            }, 
+            "description": "Counter aggregation for HomeNetwork"
+        }, 
+        {
+            "id": 160,
+            "product": "Shredder", 
+            "aggregate_type": "AG_DAILY", 
+            "history_type": "HT_BYCOUNT", 
+            "field_name": "", 
+            "history_value": 365, 
+            "conditions": {
+                "hit.uniqueid": "Shredder.User.StartShred"
+            }, 
+            "description": "Counter aggregation for Shredder"
+        }, 
+        {
+            "id": 161,
+            "product": "HomeNetwork", 
+            "aggregate_type": "AG_DAILY", 
+            "history_type": "HT_BYCOUNT", 
+            "field_name": "", 
+            "history_value": 365, 
+            "conditions": {
+                "hit.uniqueid": "HomeNetwork.NetworkStatus.ProblemCount"
+            }, 
+            "description": "Counter aggregation for HomeNetwork"
+        }, 
+        {
+            "id": 162,
+            "product": "QuickClean", 
+            "aggregate_type": "AG_DAILY", 
+            "history_type": "HT_BYCOUNT", 
+            "field_name": "", 
+            "history_value": 365, 
+            "conditions": {
+                "hit.uniqueid": "QuickClean.User.PageVisits"
+            }, 
+            "description": "Counter aggregation for QuickClean"
+        }, 
+        {
+            "id": 163,
+            "product": "HomeNetwork", 
+            "aggregate_type": "AG_DAILY", 
+            "history_type": "HT_BYCOUNT", 
+            "field_name": "", 
+            "history_value": 365, 
+            "conditions": {
+                "hit.uniqueid": "HomeNetwork.UserInterface.Refresh"
+            }, 
+            "description": "Counter aggregation for HomeNetwork"
+        },
+        {
+            "id": 164,
+            "product": "LAM",
+            "aggregate_type": "AG_DAILY",
+            "history_type": "HT_BYCOUNT",
+            "field_name": "hit.result",
+            "history_value": 365,
+            "conditions": {
+                "hit.uniqueid": "virusscan_oas_post_detection_report",
+				"event.category": "VirusScan_event",
+				"hit.feature": "DETECTION"
+            },
+            "description": "OAS scan activities"
+        }
+    ]
+}
