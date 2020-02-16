@@ -1,0 +1,125 @@
+[Version]
+Signature="$Chicago$"
+AdvancedINF=2.5
+LayoutFile=McAWFwkReg64.inf
+
+[Installer_Config]
+AppID=McAWFwk
+Shared=0
+
+[DirIds]
+46200=%ProgramW6432%\McAfee\MSC
+46201=%CommonProgramW6432%\McAfee\MSC
+46301=%CommonProgramW6432%\McAfee
+46302=%CommonProgramW6432%\McAfee\ActWiz
+
+[SourceDisksNames]
+1="McAWFwk Files","",1
+
+[Install_Vista_x64]
+DefaultInstall=Setup
+AddRegEntryMSC_Obfuscated=RegObfuscate
+
+[DefaultInstall]
+AddReg=AddRegEntryTypeLib
+AddReg=AddRegEntryMcAWProviderEnum
+AddReg=AddRegEntryManageOem
+AddReg=AddRegEntryMSC
+
+[UnInstall_Vista_x64]
+DefaultUnInstall=Setup
+DelRegEntry=DelReg64
+
+[DefaultUnInstall]
+
+
+[AddRegEntryTypeLib]
+HKCR,TypeLib\{BF3E8E65-73B1-41da-9305-4AE7638A8CCB},,,""
+HKCR,TypeLib\{BF3E8E65-73B1-41da-9305-4AE7638A8CCB}\1.0,,,"McAWFwk 1.0 Type Library"
+HKCR,TypeLib\{BF3E8E65-73B1-41da-9305-4AE7638A8CCB}\1.0\0,,,""
+HKCR,TypeLib\{BF3E8E65-73B1-41da-9305-4AE7638A8CCB}\1.0\0\win32,,,"%46302%\McAWFwk.exe"
+HKCR,TypeLib\{BF3E8E65-73B1-41da-9305-4AE7638A8CCB}\1.0\FLAGS,,,"0"
+HKCR,TypeLib\{BF3E8E65-73B1-41da-9305-4AE7638A8CCB}\1.0\HELPDIR,,,""
+
+[AddRegEntryMcAWProviderEnum]
+HKCR,AppID\McAWFwk.EXE,"AppID",,"{7D555A20-6721-4c54-9713-6A0372868C62}"
+HKCR,AppID\{7D555A20-6721-4c54-9713-6A0372868C62},"LocalService",,"McAWFwk"
+HKCR,AppID\{7D555A20-6721-4c54-9713-6A0372868C62},"ServiceParameters",,""
+HKCR,AppID\{7D555A20-6721-4c54-9713-6A0372868C62},,,"McAWFwk"
+HKCR,CLSID\{7D555A20-6721-4c54-9713-6A0372868C62},"AppID",,"{7D555A20-6721-4c54-9713-6A0372868C62}"
+HKCR,CLSID\{7D555A20-6721-4c54-9713-6A0372868C62},,,"CoMcAWProviderEnum Class"
+HKCR,CLSID\{7D555A20-6721-4c54-9713-6A0372868C62}\LocalService,,,"McAWFwk"
+HKCR,CLSID\{7D555A20-6721-4c54-9713-6A0372868C62}\ProgID,,,"McAWFwk.CoMcAWProviderEnum.1"
+HKCR,CLSID\{7D555A20-6721-4c54-9713-6A0372868C62}\Programmable
+HKCR,CLSID\{7D555A20-6721-4c54-9713-6A0372868C62}\TypeLib,,,"{BF3E8E65-73B1-41da-9305-4AE7638A8CCB}"
+HKCR,CLSID\{7D555A20-6721-4c54-9713-6A0372868C62}\VersionIndependentProgID,,,"McAWFwk.CoMcAWProviderEnum"
+HKCR,Interface\{52A4DC9A-7BDC-4f30-BDC3-09F1FF7F2782},,,"IMcAWProviderEnum"
+HKCR,Interface\{52A4DC9A-7BDC-4f30-BDC3-09F1FF7F2782}\ProxyStubClsid,,,"{00020424-0000-0000-C000-000000000046}"
+HKCR,Interface\{52A4DC9A-7BDC-4f30-BDC3-09F1FF7F2782}\ProxyStubClsid32,,,"{00020424-0000-0000-C000-000000000046}"
+HKCR,Interface\{52A4DC9A-7BDC-4f30-BDC3-09F1FF7F2782}\TypeLib,"Version",,"1.0"
+HKCR,Interface\{52A4DC9A-7BDC-4f30-BDC3-09F1FF7F2782}\TypeLib,,,"{BF3E8E65-73B1-41da-9305-4AE7638A8CCB}"
+HKCR,McAWFwk.CoMcAWProviderEnum,,,"CoMcAWProviderEnum Class"
+HKCR,McAWFwk.CoMcAWProviderEnum.1,,,"CoMcAWProviderEnum Class"
+HKCR,McAWFwk.CoMcAWProviderEnum.1\CLSID,,,"{7D555A20-6721-4c54-9713-6A0372868C62}"
+HKCR,McAWFwk.CoMcAWProviderEnum\CLSID,,,"{7D555A20-6721-4c54-9713-6A0372868C62}"
+HKCR,McAWFwk.CoMcAWProviderEnum\CurVer,,,"McAWFwk.CoMcAWProviderEnum.1"
+
+[AddRegEntryManageOem]
+HKCR,AppID\{77B97C6A-CD4E-452c-8D99-08A92F1D8C83},"LocalService",,"McAWFwk"
+HKCR,AppID\{77B97C6A-CD4E-452c-8D99-08A92F1D8C83},"ServiceParameters",,""
+HKCR,AppID\{77B97C6A-CD4E-452c-8D99-08A92F1D8C83},,,"McAWFwk"
+HKCR,CLSID\{77B97C6A-CD4E-452c-8D99-08A92F1D8C83},"AppID",,"{77B97C6A-CD4E-452c-8D99-08A92F1D8C83}"
+HKCR,CLSID\{77B97C6A-CD4E-452c-8D99-08A92F1D8C83},,,"CoManageOem Class"
+HKCR,CLSID\{77B97C6A-CD4E-452c-8D99-08A92F1D8C83}\LocalService,,,"McAWFwk"
+HKCR,CLSID\{77B97C6A-CD4E-452c-8D99-08A92F1D8C83}\ProgID,,,"McAWFwk.CoManageOem.1"
+HKCR,CLSID\{77B97C6A-CD4E-452c-8D99-08A92F1D8C83}\Programmable
+HKCR,CLSID\{77B97C6A-CD4E-452c-8D99-08A92F1D8C83}\TypeLib,,,"{BF3E8E65-73B1-41da-9305-4AE7638A8CCB}"
+HKCR,CLSID\{77B97C6A-CD4E-452c-8D99-08A92F1D8C83}\VersionIndependentProgID,,,"McAWFwk.CoManageOem"
+HKCR,McAWFwk.CoManageOem,,,"CoManageOem Class"
+HKCR,McAWFwk.CoManageOem.1,,,"CoManageOem Class"
+HKCR,McAWFwk.CoManageOem.1\CLSID,,,"{77B97C6A-CD4E-452c-8D99-08A92F1D8C83}"
+HKCR,McAWFwk.CoManageOem\CLSID,,,"{77B97C6A-CD4E-452c-8D99-08A92F1D8C83}"
+HKCR,McAWFwk.CoManageOem\CurVer,,,"McAWFwk.CoManageOem.1"
+
+[AddRegEntryMSC]
+HKLM,Software\McAfee\PartnerCore\OEM\Manage\RGW,"ActWizUrl",0x00001000,"https://us.mcafee.com/activationwizard/ui/activation.aspx"
+HKLM,Software\McAfee\PartnerCore\OEM\Manage\RGW,"UseActWiz",0x00001000,"1"
+HKLM,Software\McAfee\PartnerCore\OEM,"OOBEDone",0x00011001,0
+HKLM,Software\McAfee\PartnerCore\OEM\Manage,"MUICount",0x00011001,2
+
+[AddRegEntryMSC_Obfuscated]
+HKLM,Software\McAfee\MSC\OEM,"OEMMgr",69633,1
+HKLM,Software\McAfee\MSC\OEM\Manage\RGW,"ActWizPath",0x1000,"""%46302%\mcuicnt.exe"" ""%46302%\mcactwiz.dll"""
+HKLM,Software\McAfee\MSC\OEM\Manage\RGW,"UICntPath",0x1000,"%46302%\mcuicnt.exe"
+HKLM,Software\McAfee\MSC\OEM\Manage\RGW,"actwizargs",0x1000,"""%46302%\mcactwiz.dll"" oobe starttype=2"
+HKLM,Software\McAfee\MSC\OEM\Manage,"oemmode",0x1000,"C:\Sysprep"
+HKLM,Software\McAfee\MSC\OEM\Manage,"OemBootCount",0x00011001,1 
+
+HKLM,Software\McAfee\PartnerCore\OEM,"OEMMgr",0x00011001,1
+HKLM,Software\McAfee\PartnerCore\OEM\Manage\RGW,"ActWizPath",0x1000,"""%46302%\mcuicnt.exe"" ""%46302%\mcactwiz.dll"""
+HKLM,Software\McAfee\PartnerCore\OEM\Manage\RGW,"UICntPath",0x1000,"%46302%\mcuicnt.exe"
+HKLM,Software\McAfee\PartnerCore\OEM\Manage\RGW,"actwizargs",0x1000,"""%46302%\mcactwiz.dll"" oobe starttype=2"
+HKLM,Software\McAfee\PartnerCore\OEM\Manage,"oemmode",0x1000,"C:\Sysprep"
+HKLM,Software\McAfee\PartnerCore\OEM\Manage,"OemBootCount",0x00011001,1
+
+[DelRegEntry]
+64BitKey=HKCR,AppID\McAWFwk.EXE
+64BitKey=HKCR,AppID\{77B97C6A-CD4E-452c-8D99-08A92F1D8C83}
+64BitKey=HKCR,AppID\{7D555A20-6721-4c54-9713-6A0372868C62}
+64BitKey=HKCR,CLSID\{77B97C6A-CD4E-452c-8D99-08A92F1D8C83}
+64BitKey=HKCR,CLSID\{7D555A20-6721-4c54-9713-6A0372868C62}
+64BitKey=HKCR,Interface\{52A4DC9A-7BDC-4f30-BDC3-09F1FF7F2782}
+64BitKey=HKCR,McAWFwk.CoManageOem
+64BitKey=HKCR,McAWFwk.CoManageOem.1
+64BitKey=HKCR,McAWFwk.CoMcAWProviderEnum
+64BitKey=HKCR,McAWFwk.CoMcAWProviderEnum.1
+64BitKey=HKCR,TypeLib\{BF3E8E65-73B1-41da-9305-4AE7638A8CCB}
+; Delete the ActWiz key and everything under it
+64BitKey=HKLM,SOFTWARE\McAfee\ActWiz,,0x3000
+64BitKey=HKLM,Software\McAfee\MSC\OEM\Manage\RGW,"ActWizPath",0x1000
+64BitKey=HKLM,Software\McAfee\PartnerCore\OEM\Manage\RGW,"ActWizPath",0x1000
+; Delete the 32-bit versions as well
+64BitKey=HKLM,SOFTWARE\McAfee\ActWiz,,0x2000
+64BitKey=HKLM,Software\McAfee\MSC\OEM\Manage\RGW,"ActWizPath"
+64BitKey=HKLM,Software\McAfee\PartnerCore\OEM\Manage\RGW,"ActWizPath"
+
