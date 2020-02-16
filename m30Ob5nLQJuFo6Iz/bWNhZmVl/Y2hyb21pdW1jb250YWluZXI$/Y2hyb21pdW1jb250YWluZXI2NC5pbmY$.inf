@@ -1,0 +1,77 @@
+[Version]
+Signature="$Chicago$"
+AdvancedINF=2.5
+LayoutFile=chromiumcontainer64.inf
+
+[Installer_Config]
+AppID=chromiumcontainer
+Shared=0
+
+[SourceDisksNames]
+1="Chromium Container","",1
+
+[DirIds]
+;33000 = C:\Program Files\Common Files
+;33100 = C:\ProgramData
+51800=%CommonProgramW6432%\McAfee\ChromiumContainer
+51600=%33100%\McAfee\ChromiumContainer
+
+[DestinationDirs]
+ChromiumContainerFileList=51800
+ChromiumContainerRegFileList=51800
+ChromiumContainerDeprecated=51800
+
+[AddRegEntries]
+HKLM,SOFTWARE\McAfee\ChromiumContainer,Version,,"2.7.110.1"
+HKLM,SOFTWARE\McAfee\ChromiumContainer,Install Dir,,%51800%
+HKLM,SOFTWARE\McAfee\ChromiumContainer,Version,0x00001000,"2.7.110.1"
+HKLM,SOFTWARE\McAfee\ChromiumContainer,Install Dir,0x00001000,%51800%
+
+[Del64BitKeys]
+64BitKey=HKLM,Software\McAfee\ChromiumContainer
+
+[DelRegEntries]
+HKLM,Software\McAfee\ChromiumContainer
+
+
+[DefaultInstall]
+DelFiles=ChromiumContainerDeprecated
+CopyFiles=ChromiumContainerFileList, ChromiumContainerRegFileList
+AddReg=AddRegEntries
+
+[DefaultUninstall]
+DelFiles=ChromiumContainerFileList
+DelFiles=ChromiumContainerDeprecated
+DelReg=DelRegEntries
+
+[ChromiumContainerRegFileList]
+ChromiumContainerReg.exe,,,0x00014020
+
+[ChromiumContainerFileList]
+chromiumcontainer64.inf,,,0x00014020
+chromiumcontainer.dll,,,0x00014020
+delegate.exe,,,0x00014020
+chromiumcontainer.pam,,,0x00014020
+ChromiumContainerHost.exe,,,0x00014020
+
+[ChromiumContainerDeprecated]
+libcef.dll,,,0x00014020
+icudtl.dat,,,0x00014020
+snapshot_blob.bin,,,0x00014020
+natives_blob.bin,,,0x00014020
+resources.pam,,,0x00014020
+
+[Install_NT]
+DefaultInstall=Setup
+
+[UnInstall_NT]
+Del64BitKeys=DelReg64
+DefaultUninstall=Setup
+Cleanup=DelFolders
+
+[Cleanup]
+;Folder-to-be-deleted=[1=Delete parent folder if empty](optional)
+%51800%\locales=
+%51800%=1
+%51600%=1
+
