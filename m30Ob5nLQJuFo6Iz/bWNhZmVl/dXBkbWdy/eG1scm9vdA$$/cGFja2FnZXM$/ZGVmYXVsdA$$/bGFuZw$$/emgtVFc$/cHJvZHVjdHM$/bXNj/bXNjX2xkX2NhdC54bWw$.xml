@@ -1,0 +1,224 @@
+<l10n_catalog>
+	<configuration>
+		<appid>msc</appid>
+		<appcode>msc</appcode>
+		<version>17.4.140.1</version>
+		<catname>msc_ld_cat</catname>
+		<lcid>1028</lcid>
+	</configuration>
+	<manifest>
+		<server_package_information>
+			<fullinstall_package_list>
+
+				<!-- MSC LD predownload x86 -->
+
+				<server_package name="mscLD.cab" url="http://download.mcafee.com/molbin/iss-loc/msc/zh-TW/17.4.140/1/mscLD.cab">
+					<flags>
+						<download phase="predownload" />
+						<extract validate="1" />
+						<os><windows build_type="32"/></os>
+					</flags>
+        </server_package>
+
+				<!-- MSC LD predownload x64 -->
+
+				<server_package name="mscLD64.cab" url="http://download.mcafee.com/molbin/iss-loc/msc/zh-TW/17.4.140/1/mscLD64.cab">
+					<flags>
+						<download phase="predownload" />
+						<extract validate="1" />
+						<os><windows build_type="64"/></os>
+					</flags>
+        </server_package>
+
+				<!-- MSC LD second download x86 -->
+
+				<server_package name="subst.cab" local_name="1028\subst.cab" url="http://download.mcafee.com/molbin/iss-loc/msc/zh-TW/17.4.140/1/subst.cab">
+					<flags>
+						<download phase="main" />
+						<os><windows build_type="32"/></os>
+					</flags>
+          <component_information>
+            <component name="subst_updater.txt" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir" >
+              <md5>80582d0a1fcc41ef6455dfbdd2fb0dbc</md5>
+            </component>
+          </component_information>
+        </server_package>
+				<server_package name="mscpstLD.cab" local_name="1028\mscpstLD.cab" url="http://download.mcafee.com/molbin/iss-loc/msc/zh-TW/17.4.140/1/mscpstLD.cab">
+					<flags>
+						<download phase="main" />
+						<os><windows build_type="32"/></os>
+					</flags>
+          <component_information>
+            <component name="mscpstLD.inf" local_install_path="%PROGRAMFILES%\McAfee\MSC\1028" >
+              <md5>5597555d23fc488846b3147d361d1d9c</md5>
+            </component>
+          </component_information>
+        </server_package>
+				<server_package name="mscdfoem.cab" local_name="1028\mscdfoem.cab" url="http://download.mcafee.com/molbin/iss-loc/msc/zh-TW/17.4.140/1/mscdfoem.cab">
+					<flags>
+						<download phase="main" />
+						<os><windows build_type="32"/></os>
+					</flags>
+          <component_information>
+            <component name="mscdfoem_updater.txt" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir" >
+              <md5>80582d0a1fcc41ef6455dfbdd2fb0dbc</md5>
+            </component>
+          </component_information>
+        </server_package>
+				<server_package name="msclcres.cab" local_name="1028\msclcres.cab" url="http://download.mcafee.com/molbin/iss-loc/msc/zh-TW/17.4.140/1/msclcres.cab">
+					<flags>
+						<download phase="main" />
+						<os><windows build_type="32"/></os>
+					</flags>
+          <component_information>
+            <component name="msclcres.inf" local_install_path="%PROGRAMFILES%\McAfee\MSC\1028" >
+              <md5>58ff327a31ec6762bc73c1f203bffd6f</md5>
+            </component>
+          </component_information>
+        </server_package>
+				<server_package name="mclgtmpl.cab" local_name="1028\mclgtmpl.cab" url="http://download.mcafee.com/molbin/iss-loc/msc/zh-TW/17.4.140/1/mclgtmpl.cab">
+					<flags>
+						<download phase="main" />
+						<os><windows build_type="32"/></os>
+					</flags>
+          <component_information>
+            <component name="mclgtmpl.inf" local_install_path="%PROGRAMFILES%\McAfee\MSC\1028" >
+              <md5>36566a0c8a34ba68f6166a3e35bf01c2</md5>
+            </component>
+          </component_information>
+        </server_package>
+
+				<!-- MSC LD second download x64 -->
+
+				<server_package name="subst64.cab" local_name="1028\subst64.cab" url="http://download.mcafee.com/molbin/iss-loc/msc/zh-TW/17.4.140/1/subst64.cab">
+					<flags>
+						<download phase="main" />
+						<os><windows build_type="64"/></os>
+					</flags>
+          <component_information>
+            <component name="subst_updater.txt" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir" >
+              <md5>80582d0a1fcc41ef6455dfbdd2fb0dbc</md5>
+            </component>
+          </component_information>
+        </server_package>
+				<server_package name="mscpstLD64.cab" local_name="1028\mscpstLD64.cab" url="http://download.mcafee.com/molbin/iss-loc/msc/zh-TW/17.4.140/1/mscpstLD64.cab">
+					<flags>
+						<download phase="main" />
+						<os><windows build_type="64"/></os>
+					</flags>
+          <component_information>
+            <component name="mscpstLD.inf" local_install_path="%PROGRAMFILES%\McAfee\MSC\1028" >
+              <md5>141f06f40e1a44f8a00c8e989c7a01ec</md5>
+            </component>
+          </component_information>
+        </server_package>
+				<server_package name="mscdfoem64.cab" local_name="1028\mscdfoem64.cab" url="http://download.mcafee.com/molbin/iss-loc/msc/zh-TW/17.4.140/1/mscdfoem64.cab">
+					<flags>
+						<download phase="main" />
+						<os><windows build_type="64"/></os>
+					</flags>
+          <component_information>
+            <component name="mscdfoem_updater.txt" local_install_path="$REG$:KEY=Software\McAfee\MSC:NAME=Install Dir" >
+              <md5>80582d0a1fcc41ef6455dfbdd2fb0dbc</md5>
+            </component>
+          </component_information>
+        </server_package>
+				<server_package name="msclcres64.cab" local_name="1028\msclcres64.cab" url="http://download.mcafee.com/molbin/iss-loc/msc/zh-TW/17.4.140/1/msclcres64.cab">
+					<flags>
+						<download phase="main" />
+						<os><windows build_type="64"/></os>
+					</flags>
+          <component_information>
+            <component name="msclcres.inf" local_install_path="%PROGRAMFILES%\McAfee\MSC\1028" >
+              <md5>b24664000c15facef94cbd52c6465435</md5>
+            </component>
+          </component_information>
+        </server_package>
+				<server_package name="mclgtmpl64.cab" local_name="1028\mclgtmpl64.cab" url="http://download.mcafee.com/molbin/iss-loc/msc/zh-TW/17.4.140/1/mclgtmpl64.cab">
+					<flags>
+						<download phase="main" />
+						<os><windows build_type="64"/></os>
+					</flags>
+          <component_information>
+            <component name="mclgtmpl.inf" local_install_path="%PROGRAMFILES%\McAfee\MSC\1028" >
+              <md5>639d70d3e15ea5744b69eec72912471e</md5>
+            </component>
+          </component_information>
+        </server_package>
+
+			</fullinstall_package_list>
+		</server_package_information>
+	</manifest>
+
+	<sharedcomplist>
+		<sharedcomponent name="mcinst" />
+	</sharedcomplist>
+
+	<install_instructions>
+		<update>
+
+			<prepare_install>
+				<!-- NOTE: the INI file name must match the inf file name passed in installation command -->
+				<generateini file_name="mscldbkupd.inf">
+					<section name="Installer_Config" obfuscate="0">
+						<entry>
+							<name><![CDATA[ AppID ]]></name>
+							<value><![CDATA[ msc ]]></value>
+						</entry>
+					</section>
+					<section name="Installer_Config" obfuscate="0">
+						<entry>
+							<name><![CDATA[ Shared ]]></name>
+							<value><![CDATA[ 0 ]]></value>
+						</entry>
+					</section>
+					<section name="Install_NT" obfuscate="0">
+						<entry>
+							<name><![CDATA[ CabFilesNT ]]></name>
+							<value><![CDATA[ ExtractCAB ]]></value>
+						</entry>
+					</section>
+					<section name="Install_NT" obfuscate="0">
+						<entry>
+							<name><![CDATA[ InstallFiles ]]></name>
+							<value><![CDATA[ RunINF ]]></value>
+						</entry>
+					</section>
+					<section name="Version" obfuscate="0">
+						<entry>
+							<name><![CDATA[ Signature ]]></name>
+							<value><![CDATA[ $Chicago$ ]]></value>
+						</entry>
+					</section>
+					<section name="Version" obfuscate="0">
+						<entry>
+							<name><![CDATA[ AdvancedINF ]]></name>
+							<value><![CDATA[ 2.5 ]]></value>
+						</entry>
+					</section>
+					<section name="Version" obfuscate="0">
+						<entry>
+							<name><![CDATA[ LayoutFile ]]></name>
+							<value><![CDATA[ mscldbkupd.inf ]]></value>
+						</entry>
+					</section>
+					<section name="SourceDisksNames" obfuscate="0">
+						<entry>
+							<name><![CDATA[ 1 ]]></name>
+							<value><![CDATA[ "SecurityCenter LD Background Update Master File","",1 ]]></value>
+						</entry>
+					</section>
+				</generateini>
+			</prepare_install>
+
+			<install system="1">
+				<install_env_variables>
+					<variable type="$REG$:KEY=Software\McAfee\McInst\InstallSettings:NAME=Install Dir" name="%mcinst_path%"/>
+				</install_env_variables>
+				<executeex file="%mcinst_path%\mcinst.exe" param="/install mscldbkupd.inf" validate="1"/>
+			</install>
+
+		</update>
+	</install_instructions>
+</l10n_catalog>
+
